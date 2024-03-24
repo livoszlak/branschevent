@@ -58,9 +58,24 @@ class ProfileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Profile $profile)
     {
-        //
+        $data = $request->validate([
+            'street_name' => ['nullable', 'string', 'max:255'],
+            'post_code' => ['nullable', 'string', 'max:255'],
+            'city' => ['nullable', 'string', 'max:255'],
+            'about' => ['nullable', 'string'],
+            'has_LIA' => ['nullable', 'boolean'],
+        ]);
+
+        // If the user leaves fields empty when editing their profile, when they previously entered information, this prevents it from writing over the old value with null
+        $data = array_filter($data, function ($value) {
+            return !is_null($value);
+        });
+
+        $profile->update($data);
+
+        return redirect()->route('profile.show', $profile);
     }
 
     /**
