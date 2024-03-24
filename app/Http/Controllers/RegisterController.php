@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
@@ -18,29 +19,36 @@ class RegisterController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function register(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+{
+    $validator = Validator::make($request->all(), [
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+    ]);
 
-        if ($validator->fails()) {
-            return redirect()->route('register')
-                        ->withErrors($validator)
-                        ->withInput();
-        }
-
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        event(new Registered($user));
-
-        // You may customize this method as needed
-        // For example, redirect to a different route or display a success message
-        return redirect()->route('/')->with('status', 'Registration successful! Please log in.');
+    if ($validator->fails()) {
+        return redirect()->route('register')
+            ->withErrors($validator)
+            ->withInput();
     }
+
+    $user = User::create([
+        'name' => $request->name,
+        'contact_name' => $request->contact_name,
+        'participant_count' => $request->participant_count,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+    ]);
+
+    Profile::create([
+        'user_id' => $user->id,
+        // Set other profile fields here
+    ]);
+
+    event(new Registered($user));
+
+    // You may customize this method as needed
+    // For example, redirect to a different route or display a success message
+    return redirect()->route('/')->with('status', 'Registration successful! Please log in.');
+}
 }
