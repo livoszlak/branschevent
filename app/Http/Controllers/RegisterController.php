@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
@@ -27,12 +28,14 @@ class RegisterController extends Controller
 
         if ($validator->fails()) {
             return redirect()->route('register')
-                        ->withErrors($validator)
-                        ->withInput();
+                ->withErrors($validator)
+                ->withInput();
         }
 
         $user = User::create([
             'name' => $request->name,
+            'contact_name' => $request->contact_name,
+            'participant_count' => $request->participant_count,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
