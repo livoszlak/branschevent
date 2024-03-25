@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 
 // Basic landing page route
 Route::get('/', function () {
@@ -25,6 +26,9 @@ Route::get('/login', function () {
 
 // Route to handle the login form submission
 Route::post('/login', [LoginController::class, 'login']);
+
+// Route to logout user
+Route::post('/logout', LogoutController::class, 'logout')->name('logout');
 
 // Route to show a user profile
 Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
