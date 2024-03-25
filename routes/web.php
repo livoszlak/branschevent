@@ -18,8 +18,13 @@ Route::get('/registration', function () {
 // Route to handle the registration form submission
 Route::post('/register', [RegisterController::class, 'register'])->middleware('guest')->name('register');
 
+// Route to view login
+Route::get('/login', function () {
+    return view('login');
+})->middleware('guest')->name('login');
+
 // Route to handle the login form submission
-Route::post('/login', [LoginController::class, 'login'])->middleware('guest')->name('login');
+Route::post('/login', [LoginController::class, 'login']);
 
 // Route to show a user profile
 Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
