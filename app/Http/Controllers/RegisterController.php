@@ -51,6 +51,6 @@ class RegisterController extends Controller
 
         // You may customize this method as needed
         // For example, redirect to a different route or display a success message
-        return redirect()->route('/')->with('status', 'Registration successful! Please log in.');
+        return redirect()->route('profile.show', ['id'=> $user->id, 'editable' => true])->with('status', 'Registration successful! Please log in.');
     }
 }
