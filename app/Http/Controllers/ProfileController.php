@@ -49,6 +49,7 @@ class ProfileController extends Controller
     
         $editable = (Auth::user()->id === $profile->user_id);
 
+
         return view('profile', ['profile' => $profile, 'editable' => $editable]);
     }
     
@@ -59,6 +60,7 @@ class ProfileController extends Controller
      */
     public function edit(string $id)
     {
+        $user = Auth::user();
         $profile = Profile::findOrFail($id);
         if (Auth::check() && Auth::user()->id === $profile->user_id) {
             return view('profile', ['profile' => $profile, 'editable' => true]);
@@ -78,6 +80,9 @@ class ProfileController extends Controller
             'city' => ['nullable', 'string', 'max:255'],
             'about' => ['nullable', 'string'],
             'has_LIA' => ['nullable', 'boolean'],
+            'contact_email' => ['nullable', 'string', 'email'],
+            'contact_LinkedIn' => ['nullable', 'string'],
+            'contact_url' => ['nullable', 'string']
         ]);
 
         // If the user leaves fields empty when editing their profile, when they previously entered information, this prevents it from writing over the old value with null
