@@ -3,7 +3,8 @@
     <section>
         <p>Detta är ett event för YRGO där Studenter och Företag kan networka och knyta kontakter! <br>
         blafjanefablablablablabla</p>
-    </section>
 
+        <a href="/login">Logga in</a>
+    </section>
     
 </div>

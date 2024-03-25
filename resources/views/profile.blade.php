@@ -4,7 +4,7 @@
 
     @if ($editable)
     <!-- Display editable form fields if user is visiting their own profile -->
-    <form method="POST" action="{{ route('profile.update', ['id' => $profile->id]) }}">
+    <form method="POST" action="{{ route('profile.update', ['profile' => $profile->user_id]) }}">
         @csrf
         @method('PUT')
         <!-- form fields, bla bla -->
