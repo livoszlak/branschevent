@@ -39,7 +39,7 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $profile = Profile::findOrFail($id);
-        $editable = (Auth::check() && Auth::user()->id === $profile->user_id);
+        $editable = (Auth::check() && $user->id === $profile->user_id);
         return view('profile', ['profile' => $profile, 'editable' => $editable]);
     }
 
@@ -48,6 +48,7 @@ class ProfileController extends Controller
      */
     public function edit(string $id)
     {
+        $user = Auth::user();
         $profile = Profile::findOrFail($id);
         if (Auth::check() && Auth::user()->id === $profile->user_id) {
             return view('profile', ['profile' => $profile, 'editable' => true]);
