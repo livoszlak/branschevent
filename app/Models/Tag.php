@@ -14,4 +14,10 @@ class Tag extends Model
     {
         return $this->belongsTo(Profile::class);
     }
+
+    protected $fillable = [
+        'category_name',
+        'tag_name',
+        'isPicked'
+    ];
 }
