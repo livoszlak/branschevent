@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 class ProfileController extends Controller
 {
@@ -35,13 +37,23 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
-        $user = Auth::user();
+
         $profile = Profile::findOrFail($id);
-        $editable = (Auth::check() && $user->id === $profile->user_id);
+        
+        if (!$profile) {
+            // Profile not found, handle this case (e.g., redirect to error page)
+            return redirect()->route('error')->with('error', 'Profile not found');
+        }
+    
+        $editable = (Auth::user()->id === $profile->user_id);
+
+
         return view('profile', ['profile' => $profile, 'editable' => $editable]);
     }
+    
+    
 
     /**
      * Show the form for editing the specified resource.
