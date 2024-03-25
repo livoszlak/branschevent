@@ -15,7 +15,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/profile');
         }
 
         return redirect()->route('login')->withErrors(['email' => 'These credentials do not match our records.']);

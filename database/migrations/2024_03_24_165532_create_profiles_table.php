@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('street_name');
+            $table->string('street_name')->nullable();
             $table->string('post_code')->nullable();
-            $table->string('city');
-            $table->text('about');
+            $table->string('city')->nullable();
+            $table->text('about')->nullable();
             $table->boolean('has_LIA')->default(false);
             $table->timestamps();
         });
