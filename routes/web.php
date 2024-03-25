@@ -10,17 +10,29 @@ use App\Http\Controllers\LoginController;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route to register user
+
+Route::get('/registration', function () {
+    return view('registration');
+})->middleware('guest')->name('registration');
+
+// Route to handle the registration form submission
 Route::post('/register', [RegisterController::class, 'register'])->middleware('guest')->name('register');
 
 // Route to handle the login form submission
 Route::post('/login', [LoginController::class, 'login'])->middleware('guest')->name('login');
 
-// Route for all CRUD operations on user profile for auth users
-Route::resource('/profile', ProfileController::class)->middleware('auth');
-
 // Route to show a user profile
 Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
+
+// Route for all CRUD operations on user profile for auth users
+Route::resource('/profile', ProfileController::class, ['parameters' => ['profile' => 'id']])->except(['show']);
+
+// Auth middleware grouping for specific routes
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/{profile}', [ProfileController::class, 'update'])->name('profile.update');
+    /* Route::post('/profile', [ProfileController::class, 'store'])->name('profile.store'); */
+});
 
 // Route to attendees view
 Route::get('/attendees', [AttendeesController::class, 'index']);
