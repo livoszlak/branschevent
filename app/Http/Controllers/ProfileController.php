@@ -66,6 +66,9 @@ class ProfileController extends Controller
             'city' => ['nullable', 'string', 'max:255'],
             'about' => ['nullable', 'string'],
             'has_LIA' => ['nullable', 'boolean'],
+            'contact_email' => ['nullable', 'string', 'email'],
+            'contact_LinkedIn' => ['nullable', 'string'],
+            'contact_url' => ['nullable', 'string']
         ]);
 
         // If the user leaves fields empty when editing their profile, when they previously entered information, this prevents it from writing over the old value with null

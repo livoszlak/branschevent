@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->text('about')->nullable();
             $table->boolean('has_LIA')->default(false);
+            $table->string('contact_email')->nullable();
+            $table->string('contact_LinkedIn')->nullable();
+            $table->string('contact_url')->nullable();
             $table->timestamps();
         });
     }
