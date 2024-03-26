@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -48,10 +49,9 @@ class RegisterController extends Controller
         ]);
 
         event(new Registered($user));
-
+        
         // You may customize this method as needed
         // For example, redirect to a different route or display a success message
-        return redirect()->route('profile.show', ['id'=> $user->id])->with('status', 'Registration successful! Please log in.');
-
+        /* return redirect()->route('profile.show', ['id'=> $user->id])->with('status', 'Login successful!'); */
     }
 }

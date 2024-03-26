@@ -32,6 +32,8 @@ class Profile extends Model
         'post_code',
         'city',
         'about',
-        'has_LIA'
+        'has_LIA',
+        'contact_LinkedIn',
+        'contact_url',
     ];
 }

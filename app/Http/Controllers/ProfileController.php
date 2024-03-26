@@ -48,7 +48,8 @@ class ProfileController extends Controller
         }
     
         $editable = (Auth::user()->id === $profile->user_id);
-
+        Log::info('Output for auth user id:' . Auth::user()->id);
+        Log::info('Output for profile user id:' . $profile->user_id);
 
         return view('profile', ['profile' => $profile, 'editable' => $editable]);
     }
@@ -73,7 +74,7 @@ class ProfileController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Profile $profile)
-    {
+    {  
         $data = $request->validate([
             'street_name' => ['nullable', 'string', 'max:255'],
             'post_code' => ['nullable', 'string', 'max:255'],
@@ -86,13 +87,28 @@ class ProfileController extends Controller
         ]);
 
         // If the user leaves fields empty when editing their profile, when they previously entered information, this prevents it from writing over the old value with null
-        $data = array_filter($data, function ($value) {
+/*         $data = array_filter($data, function ($value) {
             return !is_null($value);
-        });
+        }); */
 
-        $profile->update($data);
+        Log::info('Updating profile with ID: ' . Auth::id());
+        Log::info('Updating profile with data:', $data);
+/*         $profile->update([
+            'user_id' => Auth::id(),
+            'street_name' => $request->input('street_name'),
+            'post_code' => $request->input('post_code'),
+            'city' => $request->input('city'),
+            'about' => $request->input('about'),
+            'has_LIA' => $request->input('has_LIA'),
+            'contact_email' => $request->input('contact_email'),
+            'contact_LinkedIn' => $request->input('contact_LinkedIn'),
+            'contact_url' => $request->input('contact_url'),
+        ]); */
+        $data['user_id'] = Auth::id();
+        $profile->fill($data);
+        $profile->save();
 
-        return redirect()->route('profile.show', $profile);
+        return redirect()->back()->with('Success', 'Profile status updated successfully');
     }
 
     /**
