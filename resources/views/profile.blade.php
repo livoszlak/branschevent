@@ -11,6 +11,7 @@
         @method('PUT')
 
         <!-- Profile image -->
+        <img src="{{ asset('storage/profile_images/' . $profile->profile_image) }}">
         <label for="profile_image">Profile image:</label>
         <input type="file" id="profile_image" name="profile_image" accept="image/png, image/jpeg, image/jpg, image/svg">
 

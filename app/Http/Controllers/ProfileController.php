@@ -90,8 +90,9 @@ class ProfileController extends Controller
         ]);
 
         if ($request->hasFile('profile_image')) {
-            $filename = $request->user()->id;
-            $request->file('profile_image')->storeAs('profile_images', $filename);
+            $file = $request->file('profile_image');
+            $filename = $request->user()->id . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('profile_images', $filename, 'public');
             $data['profile_image'] = $filename;
         }
 
