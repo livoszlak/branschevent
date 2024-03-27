@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AttendeesController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
