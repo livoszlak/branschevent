@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AttendeesController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
@@ -34,7 +35,7 @@ Route::post('/logout', LogoutController::class, 'logout')->name('logout');
 Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
 
 // Route for all CRUD operations on user profile for auth users
-Route::resource('/profile', ProfileController::class, ['parameters' => ['profile' => 'id']])->except(['show']);
+Route::resource('/profile', ProfileController::class, ['parameters' => ['profile' => 'profile']])->except(['show']);
 
 // Auth middleware grouping for specific routes
 Route::middleware(['auth'])->group(function () {
