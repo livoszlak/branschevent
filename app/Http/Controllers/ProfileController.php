@@ -39,7 +39,7 @@ class ProfileController extends Controller
      */
     public function show(int $id)
     {
-        $profile = Profile::findOrFail($id);
+        $profile = Profile::with('tags')->findOrFail($id);
 
         if (!$profile) {
             return redirect()->route('error')->with('error', 'Profile not found');
@@ -47,8 +47,6 @@ class ProfileController extends Controller
 
         if (Auth::check()) {
             $editable = (Auth::user()->id === $profile->user_id);
-            Log::info('Output for auth user id:' . Auth::user()->id);
-            Log::info('Output for profile user id:' . $profile->user_id);
         } else {
             return redirect()->route('login');
         }
@@ -77,6 +75,9 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile)
     {
+
+        $request['has_LIA'] = $request->has('has_LIA') ? true : false;
+
         $data = $request->validate([
             'street_name' => ['nullable', 'string', 'max:255'],
             'post_code' => ['nullable', 'string', 'max:255'],
@@ -88,6 +89,12 @@ class ProfileController extends Controller
             'contact_url' => ['nullable', 'string'],
             'profile_image' => ['nullable', 'image']
         ]);
+
+        
+        // If the user leaves fields empty when editing their profile, when they previously entered information, this prevents it from writing over the old value with null
+        $data = array_filter($data, function ($value) {
+            return !is_null($value);
+        }); 
 
         if ($request->hasFile('profile_image')) {
             $file = $request->file('profile_image');
