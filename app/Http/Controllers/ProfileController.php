@@ -86,16 +86,26 @@ class ProfileController extends Controller
             'has_LIA' => ['nullable', 'boolean'],
             'contact_email' => ['nullable', 'string', 'email'],
             'contact_LinkedIn' => ['nullable', 'string'],
-            'contact_url' => ['nullable', 'string']
+            'contact_url' => ['nullable', 'string'],
+            'profile_image' => ['nullable', 'image']
         ]);
+
         
         // If the user leaves fields empty when editing their profile, when they previously entered information, this prevents it from writing over the old value with null
         $data = array_filter($data, function ($value) {
             return !is_null($value);
         }); 
 
+        if ($request->hasFile('profile_image')) {
+            $filename = $request->user()->id;
+            $request->file('profile_image')->storeAs('profile_images', $filename);
+            $data['profile_image'] = $filename;
+        }
+
         $data['user_id'] = Auth::id();
+
         $profile->fill($data);
+
         $profile->save();
 
         session()->flash('message', 'Dina uppgifter är uppdaterade!');

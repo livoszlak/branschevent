@@ -1,13 +1,19 @@
+@extends('layouts.app')
+
 <section>
     <h3>Hello user</h3>
     <p>here u can change your profile blablabla</p>
 
     @if ($editable)
     <!-- Display editable form fields if user is visiting their own profile -->
-    <form method="POST" action="{{ route('profile.update', ['profile' => $profile->id]) }}">
+    <form method="POST" action="{{ route('profile.update', ['profile' => $profile->id]) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-    
+
+        <!-- Profile image -->
+        <label for="profile_image">Profile image:</label>
+        <input type="file" id="profile_image" name="profile_image" accept="image/png, image/jpeg, image/jpg, image/svg">
+
         <!-- Street Name -->
         <label for="street_name">Street Name:</label>
         <input type="text" id="street_name" name="street_name" value="{{ old('street_name', $profile->street_name) }}">

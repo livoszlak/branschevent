@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('contact_email')->nullable();
             $table->string('contact_LinkedIn')->nullable();
             $table->string('contact_url')->nullable();
+            $table->string('profile_image')->default('user.png');
             $table->timestamps();
         });
     }

@@ -36,5 +36,6 @@ class Profile extends Model
         'contact_email',
         'contact_LinkedIn',
         'contact_url',
+        'profile_image'
     ];
 }
