@@ -45,14 +45,23 @@
         <button type="submit">Save Profile</button>
     </form>
 
+    
+    @else
+    <!-- Display static profile content. Maybe use different layout sections?? -->
+    {{ $profile->street_name }}
+    {{ $profile->post_code }}
+    {{ $profile->city }}
+    {{ $profile->contact_email }}
+    {{ $profile->contact_url }}
+    {{ $profile->contact_LinkedIn }}
+    {{ $profile->has_LIA }}
+    {{ $profile->about }}
+    @endif
+
     @if (session('message'))
     <div class="alert alert-success">
         {{ session('message') }}
     </div>
-    @endif
-    
-    @else
-    <!-- Display static profile content. Maybe use different layout sections?? -->
     @endif
 
 </section>
