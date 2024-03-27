@@ -58,12 +58,12 @@
         <button type="submit">Save Profile</button>
     </form>
 
+    
     @if (session('message'))
     <div class="alert alert-success">
         {{ session('message') }}
     </div>
     @endif
-    
     @else
     <!-- Display static profile content. Maybe use different layout sections?? -->
     @endif
