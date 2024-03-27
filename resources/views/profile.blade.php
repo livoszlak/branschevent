@@ -37,6 +37,12 @@
         <input type="checkbox" id="has_LIA" name="has_LIA" {{ $profile->has_LIA ? true : false }}>
         
         {{-- Tags system later --}}
+        <h4>Tags:</h4>
+        <ul>
+            @foreach ($profile->tags as $tag)
+                <li>{{ $tag->tag_name }}</li>
+            @endforeach
+        </ul>
 
         <!-- About -->
         <label for="about">About:</label>

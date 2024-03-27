@@ -39,7 +39,7 @@ class ProfileController extends Controller
      */
     public function show(int $id)
     {
-        $profile = Profile::findOrFail($id);
+        $profile = Profile::with('tags')->findOrFail($id);
 
         if (!$profile) {
             return redirect()->route('error')->with('error', 'Profile not found');
@@ -47,8 +47,6 @@ class ProfileController extends Controller
 
         if (Auth::check()) {
             $editable = (Auth::user()->id === $profile->user_id);
-            Log::info('Output for auth user id:' . Auth::user()->id);
-            Log::info('Output for profile user id:' . $profile->user_id);
         } else {
             return redirect()->route('login');
         }
