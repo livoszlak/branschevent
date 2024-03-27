@@ -44,13 +44,10 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        Profile::create([
+        $profile = Profile::create([
             'user_id' => $user->id,
         ]);
-
-        // Create tags for the profile
-        $profileId = 1; // temp profil-id
-
+        
         $webDeveloperTags = [
             'HTML',
             'CSS',
@@ -79,7 +76,7 @@ class RegisterController extends Controller
 
         foreach ($webDeveloperTags as $tag) {
             Tag::create([
-                'profile_id' => $profileId,
+                'profile_id' => $profile->id,
                 'category_name' => 'Web Developer',
                 'tag_name' => $tag,
                 'isPicked' => false,
@@ -88,7 +85,7 @@ class RegisterController extends Controller
 
         foreach ($digitalDesignerTags as $tag) {
             Tag::create([
-                'profile_id' => $profileId,
+                'profile_id' => $profile->id,
                 'category_name' => 'Digital Designer',
                 'tag_name' => $tag,
                 'isPicked' => false, 

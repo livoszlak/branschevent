@@ -16,6 +16,7 @@ class Tag extends Model
     }
 
     protected $fillable = [
+        'profile_id',
         'category_name',
         'tag_name',
         'isPicked'

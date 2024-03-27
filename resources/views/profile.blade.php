@@ -34,7 +34,7 @@
 
         <!-- Has LIA -->
         <label for="has_LIA">Has LIA:</label>
-        <input type="checkbox" id="has_LIA" name="has_LIA" {{ $profile->has_LIA ? true : false }}>
+        <input type="checkbox" id="has_LIA" name="has_LIA" {{ $profile->has_LIA ? 'checked' : '' }}>
         
         {{-- Tags system later --}}
         <h4>Tags:</h4>
