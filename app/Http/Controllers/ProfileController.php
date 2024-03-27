@@ -85,29 +85,21 @@ class ProfileController extends Controller
             'has_LIA' => ['nullable', 'boolean'],
             'contact_email' => ['nullable', 'string', 'email'],
             'contact_LinkedIn' => ['nullable', 'string'],
-            'contact_url' => ['nullable', 'string']
+            'contact_url' => ['nullable', 'string'],
+            'profile_image' => ['nullable', 'image']
         ]);
 
-        // If the user leaves fields empty when editing their profile, when they previously entered information, this prevents it from writing over the old value with null
-        /*         $data = array_filter($data, function ($value) {
-            return !is_null($value);
-        }); */
+        if ($request->hasFile('profile_image')) {
+            $filename = $request->user()->id;
+            $request->file('profile_image')->storeAs('profile_images', $filename);
+            $data['profile_image'] = $filename;
+        }
 
-        Log::info('Updating profile with ID: ' . Auth::id());
-        Log::info('Updating profile with data:', $data);
-        /*         $profile->update([
-            'user_id' => Auth::id(),
-            'street_name' => $request->input('street_name'),
-            'post_code' => $request->input('post_code'),
-            'city' => $request->input('city'),
-            'about' => $request->input('about'),
-            'has_LIA' => $request->input('has_LIA'),
-            'contact_email' => $request->input('contact_email'),
-            'contact_LinkedIn' => $request->input('contact_LinkedIn'),
-            'contact_url' => $request->input('contact_url'),
-        ]); */
+
         $data['user_id'] = Auth::id();
+
         $profile->fill($data);
+
         $profile->save();
 
         session()->flash('message', 'Dina uppgifter är uppdaterade!');
