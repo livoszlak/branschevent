@@ -45,13 +45,10 @@ class RegisterController extends Controller
 
         Profile::create([
             'user_id' => $user->id,
-            // Set other profile fields here
         ]);
 
-        event(new Registered($user));
-        
-        // You may customize this method as needed
-        // For example, redirect to a different route or display a success message
-        /* return redirect()->route('profile.show', ['id'=> $user->id])->with('status', 'Login successful!'); */
+        Auth::login($user);
+
+        return redirect()->route('profile.show', ['id' => $user->id]);
     }
 }

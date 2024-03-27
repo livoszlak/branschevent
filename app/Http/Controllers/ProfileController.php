@@ -39,22 +39,24 @@ class ProfileController extends Controller
      */
     public function show(int $id)
     {
-
         $profile = Profile::findOrFail($id);
-        
+
         if (!$profile) {
-            // Profile not found, handle this case (e.g., redirect to error page)
             return redirect()->route('error')->with('error', 'Profile not found');
         }
-    
-        $editable = (Auth::user()->id === $profile->user_id);
-        Log::info('Output for auth user id:' . Auth::user()->id);
-        Log::info('Output for profile user id:' . $profile->user_id);
+
+        if (Auth::check()) {
+            $editable = (Auth::user()->id === $profile->user_id);
+            Log::info('Output for auth user id:' . Auth::user()->id);
+            Log::info('Output for profile user id:' . $profile->user_id);
+        } else {
+            return redirect()->route('login');
+        }
 
         return view('profile', ['profile' => $profile, 'editable' => $editable]);
     }
-    
-    
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -74,7 +76,7 @@ class ProfileController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Profile $profile)
-    {  
+    {
         $data = $request->validate([
             'street_name' => ['nullable', 'string', 'max:255'],
             'post_code' => ['nullable', 'string', 'max:255'],
@@ -87,13 +89,13 @@ class ProfileController extends Controller
         ]);
 
         // If the user leaves fields empty when editing their profile, when they previously entered information, this prevents it from writing over the old value with null
-/*         $data = array_filter($data, function ($value) {
+        /*         $data = array_filter($data, function ($value) {
             return !is_null($value);
         }); */
 
         Log::info('Updating profile with ID: ' . Auth::id());
         Log::info('Updating profile with data:', $data);
-/*         $profile->update([
+        /*         $profile->update([
             'user_id' => Auth::id(),
             'street_name' => $request->input('street_name'),
             'post_code' => $request->input('post_code'),
@@ -107,6 +109,8 @@ class ProfileController extends Controller
         $data['user_id'] = Auth::id();
         $profile->fill($data);
         $profile->save();
+
+        session()->flash('message', 'Dina uppgifter är uppdaterade!');
 
         return redirect()->back()->with('Success', 'Profile status updated successfully');
     }

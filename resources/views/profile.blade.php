@@ -4,7 +4,7 @@
 
     @if ($editable)
     <!-- Display editable form fields if user is visiting their own profile -->
-    <form method="POST" action="{{ route('profile.update', ['profile' => $profile->user_id]) }}">
+    <form method="POST" action="{{ route('profile.update', ['profile' => $profile->id]) }}">
         @csrf
         @method('PUT')
     
@@ -44,8 +44,15 @@
     
         <button type="submit">Save Profile</button>
     </form>
+
+    @if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+    @endif
     
     @else
     <!-- Display static profile content. Maybe use different layout sections?? -->
     @endif
+
 </section>

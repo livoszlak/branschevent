@@ -33,6 +33,7 @@ class Profile extends Model
         'city',
         'about',
         'has_LIA',
+        'contact_email',
         'contact_LinkedIn',
         'contact_url',
     ];
