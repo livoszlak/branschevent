@@ -10,6 +10,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Tag;
 
 class RegisterController extends Controller
 {
@@ -43,9 +44,53 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        Profile::create([
+        $profile = Profile::create([
             'user_id' => $user->id,
         ]);
+        
+        $webDeveloperTags = [
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'PHP',
+            'React',
+            'Node.js',
+            'Vue,js',
+            'Front-end',
+            'Back-end',
+            'Laravel',
+            // Lägg till mer sen
+        ];
+
+        $digitalDesignerTags = [
+            'UI Design',
+            'UX Design',
+            'Graphic Design',
+            'Adobe Photoshop',
+            'Front-end',
+            'Figma',
+            'Logo-design',
+            'Fonts',
+            // Lägg till mer sen
+        ];
+
+        foreach ($webDeveloperTags as $tag) {
+            Tag::create([
+                'profile_id' => $profile->id,
+                'category_name' => 'Web Developer',
+                'tag_name' => $tag,
+                'isPicked' => false,
+            ]);
+        }
+
+        foreach ($digitalDesignerTags as $tag) {
+            Tag::create([
+                'profile_id' => $profile->id,
+                'category_name' => 'Digital Designer',
+                'tag_name' => $tag,
+                'isPicked' => false, 
+            ]);
+        }
 
         Auth::login($user);
 
