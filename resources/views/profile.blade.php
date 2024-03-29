@@ -14,18 +14,6 @@
         <!-- Profile image -->
         <label for="profile_image">Profile image:</label>
         <input type="file" id="profile_image" name="profile_image" accept="image/png, image/jpeg, image/jpg, image/svg">
-
-        <!-- Street Name -->
-        <label for="street_name">Street Name:</label>
-        <input type="text" id="street_name" name="street_name" value="{{ old('street_name', $profile->street_name) }}">
-    
-        <!-- Post Code -->
-        <label for="post_code">Post Code:</label>
-        <input type="text" id="post_code" name="post_code" value="{{ old('post_code', $profile->post_code) }}">
-
-        <!-- City -->
-        <label for="city">City:</label>
-        <input type="text" id="city" name="city" value="{{ old('city', $profile->city) }}">
         
         <!-- Contact Email -->
         <label for="contact_email">Contact Email:</label>
@@ -55,10 +43,28 @@
         <label for="about">About:</label>
         <textarea id="about" name="about">{{ old('about', $profile->about) }}</textarea>
     
-        <button type="submit">Save Profile</button>
+        <!-- This Or That -->
+        @foreach ($questions as $question)
+        <div class="question">
+            <label>{{ $question->question }}</label>
+
+            <input type="radio" id="choice_one_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_one">
+            <label for="choice_one_{{ $question->id }}">{{ $question->option_one }}</label>
+
+            <input type="radio" id="choice_two_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_two">
+            <label for="choice_two_{{ $question->id }}">{{ $question->option_two }}</label>
+        </div>
+    @endforeach        
+
+        <button type="submit">Spara din profil</button>
     </form>
 
-    
+    @foreach ($questions as $question)
+    <div class="question">
+        <p>{{ $question->question }}</p>
+        <p>Answer: {{ $question->chosen_option == 'option_one' ? $question->option_one : $question->option_two }}</p>
+    </div>
+    @endforeach
     @if (session('message'))
     <div class="alert alert-success">
         {{ session('message') }}
@@ -66,6 +72,12 @@
     @endif
     @else
     <!-- Display static profile content. Maybe use different layout sections?? -->
+    @foreach ($questions as $question)
+    <div class="question">
+        <p>{{ $question->question }}</p>
+        <p>Answer: {{ $question->chosen_option == 'option_one' ? $question->option_one : $question->option_two }}</p>
+    </div>
+    @endforeach
     @endif
 
 </section>

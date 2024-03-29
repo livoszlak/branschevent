@@ -39,19 +39,19 @@ class ProfileController extends Controller
      */
     public function show(int $id)
     {
-        $profile = Profile::with('tags')->findOrFail($id);
+        $profile = Profile::with('tags', 'thisOrThat')->findOrFail($id);
 
         if (!$profile) {
-            return redirect()->route('error')->with('error', 'Profile not found');
+            return redirect()->route('attendees')->with('error', 'Profile not found');
         }
 
         if (Auth::check()) {
             $editable = (Auth::user()->id === $profile->user_id);
-        } else {
-            return redirect()->route('login');
         }
 
-        return view('profile', ['profile' => $profile, 'editable' => $editable]);
+        $questions = $profile->thisOrThat;
+
+        return view('profile', ['profile' => $profile, 'editable' => $editable, 'questions' => $questions]);
     }
 
 
@@ -63,10 +63,11 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $profile = Profile::findOrFail($id);
+        $questions = $profile->thisOrThat;
         if (Auth::check() && Auth::user()->id === $profile->user_id) {
-            return view('profile', ['profile' => $profile, 'editable' => true]);
+            return view('profile', ['profile' => $profile, 'questions' => $questions, 'editable' => true]);
         } else {
-            return view('profile', ['profile' => $profile, 'editable' => false]);
+            return view('profile', ['profile' => $profile, 'questions' => $questions, 'editable' => false]);
         }
     }
 
@@ -105,6 +106,16 @@ class ProfileController extends Controller
         $profile->fill($data);
 
         $profile->save();
+
+        if ($request->has('questions')) {
+            foreach ($request->questions as $questionId => $chosenOption) {
+                $question = $profile->thisOrThat()->find($questionId);
+                if ($question) {
+                    $question->chosen_option = $chosenOption;
+                    $question->save();
+                }
+            }
+        }
 
         session()->flash('message', 'Dina uppgifter är uppdaterade!');
 

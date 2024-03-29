@@ -63,6 +63,7 @@ class RegisterController extends Controller
             $thisOrThat->question = $question['question'];
             $thisOrThat->option_one = $question['option_one'];
             $thisOrThat->option_two = $question['option_two'];
+            $thisOrThat->chosen_option = null;
             $thisOrThat->save();
         }
 
