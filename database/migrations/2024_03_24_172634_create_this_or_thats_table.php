@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('this_or_thats', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('profile_id')->constrained()->onDelete('cascade');
+            $table->string('question');
+            $table->string('option_one');
+            $table->string('option_two');
+            $table->string('chosen_option')->nullable();
             $table->timestamps();
         });
     }

@@ -39,19 +39,19 @@ class ProfileController extends Controller
      */
     public function show(int $id)
     {
-        $profile = Profile::with('tags')->findOrFail($id);
+        $profile = Profile::with('tags', 'thisOrThat')->findOrFail($id);
 
         if (!$profile) {
-            return redirect()->route('error')->with('error', 'Profile not found');
+            return redirect()->route('attendees')->with('error', 'Profile not found');
         }
 
         if (Auth::check()) {
             $editable = (Auth::user()->id === $profile->user_id);
-        } else {
-            return redirect()->route('login');
         }
 
-        return view('profile', ['profile' => $profile, 'editable' => $editable]);
+        $questions = $profile->thisOrThat;
+
+        return view('profile', ['profile' => $profile, 'editable' => $editable, 'questions' => $questions]);
     }
 
 
@@ -63,10 +63,11 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $profile = Profile::findOrFail($id);
+        $questions = $profile->thisOrThat;
         if (Auth::check() && Auth::user()->id === $profile->user_id) {
-            return view('profile', ['profile' => $profile, 'editable' => true]);
+            return view('profile', ['profile' => $profile, 'questions' => $questions, 'editable' => true]);
         } else {
-            return view('profile', ['profile' => $profile, 'editable' => false]);
+            return view('profile', ['profile' => $profile, 'questions' => $questions, 'editable' => false]);
         }
     }
 
@@ -79,9 +80,6 @@ class ProfileController extends Controller
         $request['has_LIA'] = $request->has('has_LIA') ? true : false;
 
         $data = $request->validate([
-            'street_name' => ['nullable', 'string', 'max:255'],
-            'post_code' => ['nullable', 'string', 'max:255'],
-            'city' => ['nullable', 'string', 'max:255'],
             'about' => ['nullable', 'string'],
             'has_LIA' => ['nullable', 'boolean'],
             'contact_email' => ['nullable', 'string', 'email'],
@@ -90,11 +88,11 @@ class ProfileController extends Controller
             'profile_image' => ['nullable', 'image']
         ]);
 
-        
+
         // If the user leaves fields empty when editing their profile, when they previously entered information, this prevents it from writing over the old value with null
         $data = array_filter($data, function ($value) {
             return !is_null($value);
-        }); 
+        });
 
         if ($request->hasFile('profile_image')) {
             $file = $request->file('profile_image');
@@ -108,6 +106,16 @@ class ProfileController extends Controller
         $profile->fill($data);
 
         $profile->save();
+
+        if ($request->has('questions')) {
+            foreach ($request->questions as $questionId => $chosenOption) {
+                $question = $profile->thisOrThat()->find($questionId);
+                if ($question) {
+                    $question->chosen_option = $chosenOption;
+                    $question->save();
+                }
+            }
+        }
 
         session()->flash('message', 'Dina uppgifter är uppdaterade!');
 

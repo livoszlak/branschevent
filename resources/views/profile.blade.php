@@ -43,10 +43,28 @@
         <label for="about">About:</label>
         <textarea id="about" name="about">{{ old('about', $profile->about) }}</textarea>
     
-        <button type="submit">Save Profile</button>
+        <!-- This Or That -->
+        @foreach ($questions as $question)
+        <div class="question">
+            <label>{{ $question->question }}</label>
+
+            <input type="radio" id="choice_one_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_one">
+            <label for="choice_one_{{ $question->id }}">{{ $question->option_one }}</label>
+
+            <input type="radio" id="choice_two_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_two">
+            <label for="choice_two_{{ $question->id }}">{{ $question->option_two }}</label>
+        </div>
+    @endforeach        
+
+        <button type="submit">Spara din profil</button>
     </form>
 
-    
+    @foreach ($questions as $question)
+    <div class="question">
+        <p>{{ $question->question }}</p>
+        <p>Answer: {{ $question->chosen_option == 'option_one' ? $question->option_one : $question->option_two }}</p>
+    </div>
+    @endforeach
     @if (session('message'))
     <div class="alert alert-success">
         {{ session('message') }}
@@ -54,6 +72,12 @@
     @endif
     @else
     <!-- Display static profile content. Maybe use different layout sections?? -->
+    @foreach ($questions as $question)
+    <div class="question">
+        <p>{{ $question->question }}</p>
+        <p>Answer: {{ $question->chosen_option == 'option_one' ? $question->option_one : $question->option_two }}</p>
+    </div>
+    @endforeach
     @endif
 
 </section>

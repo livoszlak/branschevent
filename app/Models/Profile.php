@@ -26,6 +26,11 @@ class Profile extends Model
         return $this->hasMany(ThisOrThat::class);
     }
 
+    public function thisOrThat(): HasMany
+    {
+        return $this->hasMany(ThisOrThat::class);
+    }
+
     protected $fillable = [
         'user_id',
         'about',
