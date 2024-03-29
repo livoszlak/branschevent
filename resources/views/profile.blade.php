@@ -14,18 +14,6 @@
         <!-- Profile image -->
         <label for="profile_image">Profile image:</label>
         <input type="file" id="profile_image" name="profile_image" accept="image/png, image/jpeg, image/jpg, image/svg">
-
-        <!-- Street Name -->
-        <label for="street_name">Street Name:</label>
-        <input type="text" id="street_name" name="street_name" value="{{ old('street_name', $profile->street_name) }}">
-    
-        <!-- Post Code -->
-        <label for="post_code">Post Code:</label>
-        <input type="text" id="post_code" name="post_code" value="{{ old('post_code', $profile->post_code) }}">
-
-        <!-- City -->
-        <label for="city">City:</label>
-        <input type="text" id="city" name="city" value="{{ old('city', $profile->city) }}">
         
         <!-- Contact Email -->
         <label for="contact_email">Contact Email:</label>

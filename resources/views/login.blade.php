@@ -8,3 +8,13 @@
         <button type="submit">Logga in</button>
     </form>
 </div>
+<div>
+    @if ($errors->any())
+    <div class="error-container">
+        @foreach ($errors->all() as $error)
+            <p class="error">    
+            {{ $error }}
+            </p>
+        @endforeach
+    @endif
+</div>

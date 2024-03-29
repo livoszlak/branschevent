@@ -28,9 +28,6 @@ class Profile extends Model
 
     protected $fillable = [
         'user_id',
-        'street_name',
-        'post_code',
-        'city',
         'about',
         'has_LIA',
         'contact_email',
