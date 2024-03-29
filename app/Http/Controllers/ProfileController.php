@@ -79,9 +79,6 @@ class ProfileController extends Controller
         $request['has_LIA'] = $request->has('has_LIA') ? true : false;
 
         $data = $request->validate([
-            'street_name' => ['nullable', 'string', 'max:255'],
-            'post_code' => ['nullable', 'string', 'max:255'],
-            'city' => ['nullable', 'string', 'max:255'],
             'about' => ['nullable', 'string'],
             'has_LIA' => ['nullable', 'boolean'],
             'contact_email' => ['nullable', 'string', 'email'],
@@ -90,11 +87,11 @@ class ProfileController extends Controller
             'profile_image' => ['nullable', 'image']
         ]);
 
-        
+
         // If the user leaves fields empty when editing their profile, when they previously entered information, this prevents it from writing over the old value with null
         $data = array_filter($data, function ($value) {
             return !is_null($value);
-        }); 
+        });
 
         if ($request->hasFile('profile_image')) {
             $file = $request->file('profile_image');

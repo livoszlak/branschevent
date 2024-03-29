@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Tag;
+use App\Models\ThisOrThat;
 
 class RegisterController extends Controller
 {
@@ -47,7 +48,24 @@ class RegisterController extends Controller
         $profile = Profile::create([
             'user_id' => $user->id,
         ]);
-        
+
+        $questions = [
+            ['question' => 'Karaoke eller ölhak på AW?', 'option_one' => 'Karaoke', 'option_two' => 'Ölhak'],
+            ['question' => 'Om vårt företag var ett djur skulle vi vara...', 'option_one' => 'Hund', 'option_two' => 'Katt'],
+            ['question' => 'Soluppgång eller solnedgång?', 'option_one' => 'Soluppgång', 'option_two' => 'Solnedgång'],
+            ['question' => 'På kickoff-resa åker vi till...', 'option_one' => 'Köpenhamn', 'option_two' => 'London'],
+            ['question' => 'Vår arbetsmiljö är...', 'option_one' => 'Lugn och avslappnad', 'option_two' => 'Intensiv och fartfylld'],
+        ];
+
+        foreach ($questions as $question) {
+            $thisOrThat = new ThisOrThat;
+            $thisOrThat->profile_id = $profile->id;
+            $thisOrThat->question = $question['question'];
+            $thisOrThat->option_one = $question['option_one'];
+            $thisOrThat->option_two = $question['option_two'];
+            $thisOrThat->save();
+        }
+
         $webDeveloperTags = [
             'HTML',
             'CSS',
@@ -71,6 +89,7 @@ class RegisterController extends Controller
             'Figma',
             'Logo-design',
             'Fonts',
+
             // Lägg till mer sen
         ];
 
@@ -88,7 +107,7 @@ class RegisterController extends Controller
                 'profile_id' => $profile->id,
                 'category_name' => 'Digital Designer',
                 'tag_name' => $tag,
-                'isPicked' => false, 
+                'isPicked' => false,
             ]);
         }
 
