@@ -46,7 +46,9 @@
         <h4>Tags:</h4>
         <ul>
             @foreach ($profile->tags as $tag)
-                <li>{{ $tag->tag_name }}</li>
+                <li>
+                    <a href="#" class="tag-toggle" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
+                </li>
             @endforeach
         </ul>
 
