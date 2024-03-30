@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\TagController;
 
 // Basic landing page route
 Route::get('/', function () {
@@ -41,6 +42,8 @@ Route::resource('/profile', ProfileController::class, ['parameters' => ['profile
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/{profile}', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/tag/{tag}/toggle', [TagController::class, 'toggle'])->name('tag.toggle');
+
     /* Route::post('/profile', [ProfileController::class, 'store'])->name('profile.store'); */
 });
 
