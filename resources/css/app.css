@@ -6,8 +6,12 @@
 
 .navWrapper{
     height: 400px;
-    width: 100%;
+    width: 115%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.navButton{
+    width: 50%;
 }

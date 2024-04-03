@@ -1,8 +1,8 @@
 <section>
     <div class="footerWrapper">
         <div class="footerPictures">
-            <img src="{{ asset('pictures/gbgstad.svg') }}" alt="SVG 1">
             <img src="{{ asset('pictures/yrgologo.svg') }}" alt="SVG 2">
+            <img src="{{ asset('pictures/gbgstad.svg') }}" alt="SVG 1">
         </div>
         <div class="footerInfo">
             <ul>

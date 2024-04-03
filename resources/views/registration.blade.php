@@ -1,21 +1,30 @@
-<div>
-    <div class="tempNav">
-        <ul>
-            <li><a href="">Vilka kommer?</a></li>
-            <li><a href="">Företagsprofil</a></li>
-            <li><a href="">Logga in</a></li>
-        </ul>
+@extends('layouts.app')
+
+@section('header')
+    {{-- specific header content --}}
+    @include('layouts.header')
+@endsection
+
+@section('nav')
+    {{-- specific header content --}}
+    @include('layouts.nav')
+@endsection
+
+@section('content')
+<div class="formRegistrationWrapper">
+    <div class="promptForInfo">
+        <h2>Kul att du hör av dig!</h2>
+        <p>Här anger du grundläggande information för att kunna anmäla dig till evenemanget. Det är möjligt att lägga till mer information i nästa steg.</p>
     </div>
-    <h2>Lorem ipsum dolor sit amet consectetur. Tristique luctus faucibus ultricies cursus elementum.</h2>
     <form method="POST" action="{{ route('register') }}">
         @csrf
         <div class="form group">    
-            <label for="name">Företagsnamn</label>
+            <label for="name">Företag</label>
             <input id="name" type="text" name="name" value=" {{ old('name') }}" required autocomplete="name" autofocus>
         </div>
 
         <div class="form group">
-            <label for="contact_name">Contact Person</label>
+            <label for="contact_name">Kontaktperson</label>
             <input id="contact_name" type="text" name="contact_name" value=" {{ old('contact_name') }}" required autocomplete="contact_name" autofocus>
         </div>
 
@@ -35,13 +44,30 @@
         </div>
     
         <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">Lösenord</label>
             <input id="password" type="password" name="password" value="{{ old('password') }}" required autocomplete="password">
         </div>
+
+        <div class="promptForInfo">
+            <p>Vi ber om ett lösenord så att du enkelt kan logga in och redigera din information senare.</p>
+        </div>
+
+        <div class="gdpr">
+            {{-- form med checkbox? --}}
+            <a href="">LÄS MER OM BEHANDLING AV PERSONUPPGIFTER</a>
+        </div>
     
-        <button type="submit">RSVP</button>
+        <div class="submitButton">
+            <button type="submit">ANMÄL!</button>
+        </div>
     </form>
 </div>
+@endsection
+
+@section('footer')
+    {{-- specific footer content --}}
+    @include('layouts.footer')
+@endsection
 
 @if ($errors->any())
     <div class="errors">
