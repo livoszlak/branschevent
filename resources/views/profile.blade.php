@@ -56,7 +56,7 @@
             <input type="radio" id="choice_two_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_two">
             <label for="choice_two_{{ $question->id }}">{{ $question->option_two }}</label>
         </div>
-    @endforeach        
+        @endforeach        
 
         <button type="submit">Spara din profil</button>
     </form>
@@ -72,6 +72,7 @@
         {{ session('message') }}
     </div>
     @endif
+
     @else
     <!-- Display static profile content. Maybe use different layout sections?? -->
     @foreach ($questions as $question)
