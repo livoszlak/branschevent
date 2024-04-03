@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
         foreach ($questions as $question) {
             ThisOrThat::create([
                 'profile_id' => 1,
-                'question' => $question,
+                'question' => $question['question'],
                 'option_one' => $question['option_one'],
                 'option_two' => $question['option_two'],
                 'chosen_option' => null,
