@@ -9,8 +9,11 @@
                 <li>Lärdomsgatan 4, <br>
                     443 32 Göteborg </li>
                 <li>031 - 23 23 34 </li>
-                <li><a href="https://www.linkedin.com/school/yrgo/">Linkedin</a></li>
-                <li><a href="https://www.yrgo.se">Hemsida</a></li>
+                <div class="footerLinks">
+                    <li><a href="https://www.yrgo.se"><img src="{{asset('pictures/websitelogo.png')}}" alt=""></a></li>
+                    <li><a href="https://www.facebook.com/yrgogoteborg/"><img src="{{asset('pictures/facebooklogo.png')}}" alt=""></a></li>
+                    <li><a href="https://www.linkedin.com/school/yrgo/"><img src="{{asset('pictures/linkedin.png')}}" alt=""></a></li>
+                </div>
             </ul>
         </div>
     </div>

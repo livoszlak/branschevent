@@ -13,11 +13,10 @@
 @section('content')
     <div class="landingpageWrapper">
         <div class="welcomePage">
-            <h1>Välkommen till vårat event</h1>
+            <section class="welcomeHero">
+                <img src="{{ asset('pictures/Hero.png') }}" alt="">
+            </section>
             <section>
-                <p>Detta är ett event för YRGO där Studenter och Företag kan networka och knyta kontakter! <br>
-                blafjanefablablablablabla</p>
-    
                 @if(Auth::user())
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
@@ -29,35 +28,46 @@
             </section>
         </div>
         <div class="whoIsComingPage">
-            <section>
-                <h1>Välkommen till det bästa eventet</h1>
-                <p>Lorem ipsum dolor sit amet consectetur. Dictum interdum aliquam sit cras lacus feugiat. Proin quis euismod odio adipiscing nunc feugiat ante. Arcu dui ut ornare lorem. Volutpat tristique eu bibendum nulla nisi faucibus scelerisque sed.
-                </p>
-                <button class="button whoIsComingButton"></button>
-            </section>
-            <section>
-                <h3>ROLLING TEXT</h3>
-            </section>
-            <section>
-                <img src="#" alt="img of visual arena at lindholmen">
-                <ul>
-                    <li>Visual Arena</li>
-                    <li>Lindholmen Science Park</li>
-                    <li>Lindholmspiren 3 <br> 417 56 Göteborg</li>
-                </ul>
-                <p>Bullet point?</p>
-            </section>
+            <h1>Välkommen till det bästa eventet</h1>
+            <p class="inter">Vi studenter från Yrgo, Digital Design och Webbutveckling, bjuder in branschkollegor till ett LIA-event. Det är ett tillfälle där vi alla kan mötas, nätverka och lära känna varandra bättre. Vi ser fram emot att dela våra erfarenheter och kunskaper med er, och samtidigt lära oss mer om era olika verksamheter och karriärmöjligheter.
+                <br><br>
+                Vi tror att detta event kommer att vara en utmärkt möjlighet för både studenter och branschkollegor att utforska möjligheter till framtida samarbeten och praktikplatser. Så ta chansen att mingla, utbyta idéer och kanske till och med hitta er framtida praktikant.
+            </p>
+            <button class="button whoIsComingButton inter">VEM KOMMER?</button>
+        </div>
+        <div class="rollingText">
+            <h3>ROLLING TEXT</h3>
+        </div>
+        <div class="whereWrapper">
+            <img src="{{asset('pictures/location.png')}}" alt="img of visual arena at lindholmen">
+            <ul class="removeMargin">
+                <h1 class="removeMargin">Vart någonstans?</h1>
+                <li>Visual Arena</li>
+                <li>Lindholmen Science Park</li>
+                <br>
+                <li>Lindholmspiren 3 <br> 417 56 Göteborg</li>
+            </ul>
         </div>
         <div class="weatYrgo">
-            <section>
-                <img src="#" alt="bild på yrgo?">
-                <p>Lorem ipsum dolor sit amet consectetur. Dictum interdum aliquam sit cras lacus feugiat. Proin quis euismod odio adipiscing nunc feugiat ante. Arcu dui ut ornare lorem. Volutpat tristique eu bibendum nulla nisi faucibus scelerisque sed.
+            <div class="aboutTitleContainer">
+                <img class="LIApicture" src="{{asset('pictures/tempRectangle.png')}}" alt="bild på yrgo?">
+                <h2 class="LIAtextFloating">Vår LIA-period</h2>
+            </div>
+            <div class="aboutTextContainer">
+                <p>LIA är en viktigt period för oss studenter. Det ger oss möjlighet att träna och utveckla våra färdigheter i en verklig arbetsmiljö inom vår framtida yrkesroll. Under LIA får vi inte bara praktisk erfarenhet utan även chansen att knyta värdefulla kontakter i branschen. 
+                    <br><br>
+                    Vår LIA-period är mellan <br>
+                    25 november 2024- 30 maj 2025.
                 </p>
-                <p>Lorem ipsum dolor sit amet consectetur. Dictum interdum aliquam sit cras lacus feugiat. Proin quis euismod odio adipiscing nunc feugiat ante. Arcu dui ut ornare lorem. Volutpat tristique eu bibendum nulla nisi faucibus scelerisque sed.
-                </p>
-                <a href="https://www.yrgo.se/program/digital-designer/">DIGITAL DESIGN</a>
-                <a href="https://www.yrgo.se/program/webbutvecklare/">WEBBUTVECKLARE</a>
-            </section>
+                <div class="classLink">
+                    <img src="{{asset('pictures/Design.png')}}" alt="">
+                    <a href="https://www.yrgo.se/program/digital-designer/">DIGITAL DESIGN</a>
+                </div>
+                <div class="classLink">
+                    <img src="{{asset('pictures/Development.png')}}" alt="">
+                    <a href="https://www.yrgo.se/program/webbutvecklare/">WEBBUTVECKLARE</a>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
