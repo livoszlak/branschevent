@@ -1,6 +1,17 @@
 @extends('layouts.app')
 
-<section>
+@section('header')
+    {{-- specific header content --}}
+    @include('layouts.header')
+@endsection
+
+@section('nav')
+    {{-- specific header content --}}
+    @include('layouts.nav')
+@endsection
+
+@section('content')
+<main>
     <h3>Hello user</h3>
     <p>here u can change your profile blablabla</p>
 
@@ -83,5 +94,10 @@
     </div>
     @endforeach
     @endif
+</main>
+@endsection
 
-</section>
+@section('footer')
+    {{-- specific footer content --}}
+    @include('layouts.footer')
+@endsection

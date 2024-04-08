@@ -39,6 +39,8 @@ class ProfileController extends Controller
      */
     public function show(int $id)
     {
+        $editable = false;
+
         $profile = Profile::with('tags', 'thisOrThat')->findOrFail($id);
 
         if (!$profile) {
