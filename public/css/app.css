@@ -49,9 +49,10 @@ body {
 
 main {
     background-color: var(--bg-grey);
+    padding: 16px 24px 0;
 }
 
-.p {
+p {
     font-family: var(--main-font-family);
     font-size: 16px;
     font-style: normal;
@@ -65,7 +66,6 @@ a {
     font-family: var(--main-font-family);
     text-decoration-line: underline;
     text-transform: uppercase;
-    line-height: 16px; /* 114.286% */
 }
 
 a.small {
@@ -160,7 +160,6 @@ a.medium {
 .navButton {
     display: flex;
     height: 48px;
-    padding: 4px;
     justify-content: center;
     align-items: center;
     gap: 4px;
@@ -168,6 +167,12 @@ a.medium {
     font-family: var(--main-font-family);
     border: 1px solid var(--nav-link-stroke);
     background-color: var(--nav-link-bg);
+    text-decoration: none;
+}
+
+.navButton.active {
+    background-color: var(--text-color-black);
+    color: var(--text-color-light);
 }
 
 .navButton:hover {
