@@ -31,6 +31,8 @@
 
     {{-- Scripts --}}
     <script src="{{ asset('js/tagPoster.js') }}"></script>
+
+    <script src="{{ asset('js/buttonlistener.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
