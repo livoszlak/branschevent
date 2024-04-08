@@ -58,13 +58,13 @@ class RegisterController extends Controller
         ];
 
         foreach ($questions as $question) {
-            $thisOrThat = new ThisOrThat;
-            $thisOrThat->profile_id = $profile->id;
-            $thisOrThat->question = $question['question'];
-            $thisOrThat->option_one = $question['option_one'];
-            $thisOrThat->option_two = $question['option_two'];
-            $thisOrThat->chosen_option = null;
-            $thisOrThat->save();
+            ThisOrThat::create([
+                'profile_id' => $profile->id,
+                'question' => $question['question'],
+                'option_one' => $question['option_one'],
+                'option_two' => $question['option_two'],
+                /* 'chosen_option' => null */
+            ]);
         }
 
         $webDeveloperTags = [
