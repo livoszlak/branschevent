@@ -1,10 +1,12 @@
 <section>
     <div class="footerWrapper">
-        <div class="footerPictures">
-            <img src="{{ asset('pictures/yrgologo.svg') }}" alt="SVG 2">
-            <img src="{{ asset('pictures/gbgstad.svg') }}" alt="SVG 1">
+        <div class="footerPageLinks">
+            <a href="/">HEM</a>
+            <a href="#">VEM KOMMER?</a>
+            <a href="#">DIN ANMÄLAN</a>
         </div>
         <div class="footerInfo">
+            <img src="{{ asset('pictures/yrgologo.svg') }}" alt="SVG 2">
             <ul>
                 <li>Lärdomsgatan 4, <br>
                     443 32 Göteborg </li>
@@ -15,6 +17,10 @@
                     <li><a href="https://www.linkedin.com/school/yrgo/"><img src="{{asset('pictures/linkedin.png')}}" alt=""></a></li>
                 </div>
             </ul>
+        </div>
+        <div class="footerPictures">
+            <p>© 2024 Yrgo, högre yrkesutbildning Göteborg</p>
+            <img src="{{ asset('pictures/gbgstad.svg') }}" alt="SVG 1">
         </div>
     </div>
 </section>
