@@ -1,0 +1,115 @@
+:root {
+    --main-font-family: "Inter", sans-serif;
+
+    --yrgo-red: #f52a3b;
+}
+
+body{
+    margin:0px;
+    box-sizing: border-box;
+}
+
+.inter{
+    font-family: "Inter", sans-serif;
+}
+
+/* ----------------------------- MISC/BUTTONS ---------------------------- */
+
+.button{
+    display: flex;
+    height: 48px;
+    padding: var(--numbers-margin-button-medium-top-bottom, 24px) var(--numbers-margin-button-medium-left-right, 24px);
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    background: var(--Colors-Button-Secondary-Fill-Default, #FCFA58);
+    /* Button drop shadow */
+    box-shadow: -4px 4px 7px 0px rgba(0, 26, 82, 0.25);
+    border:none;
+}
+
+.removeMargin{
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    padding:0px
+}
+
+/* ----------------------------- HEADER ---------------------------- */
+
+.headerWrapper{
+    height: 94px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+/* ----------------------------- NAV ---------------------------- */
+
+.navWrapper{
+    display: flex;
+    align-items: flex-start;
+    gap: -1px;
+    align-self: stretch;
+}
+    
+.navButton{
+    display: flex;
+    height: 48px;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    flex: 1 0 0;
+    font-family: "Inter", sans-serif;
+    border: 1px solid var(--Colors-Strokes-Nav-link, #000);
+    background: var(--Colors-Navbar-Link-background-default, #F0F3F4);
+}
+
+/* ----------------------------- FOOTER ---------------------------- */
+
+.footerWrapper{
+    display: flex;
+    width: 390px;
+    height: 425px;
+    padding: 48px 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+}
+
+.footerPictures{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.footerInfo{
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    align-self: stretch;
+}
+
+.footerInfo ul{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: "Inter", sans-serif;
+    list-style-type: none;
+}
+
+.footerLinks{
+    display: flex;
+    gap: 27px;
+}
+
+.footerPageLinks{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+    align-self: stretch;
+}
