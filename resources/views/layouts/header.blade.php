@@ -1,10 +1,19 @@
 <section>
     <div class="headerWrapper">
-        <div>
-            <a href="/"><img src="{{ asset('pictures/yrgoheaderlogo.svg') }}" alt="SVG 3"></a>
+        <div class="whiteBlankSpace">
         </div>
-        <div>
-            <h1>LOGO X EVENT</h1> {{-- logga x eventnamn här sen --}}
+
+        <div class="lightblueBlankSpace">
         </div>
+
+        <div class="blueBlankSpace">
+            <a href="/"><img src="{{asset('pictures/home.png')}}" alt=""></a>
+        </div>
+
+        <div class="headerBranding">
+            <img src="{{asset('pictures/Yrgo.png')}}" alt="">
+            <h1 class="headerh1">YRGO <br> DIGIMIX</h1>
+        </div>
+
     </div>
 </section>

@@ -15,6 +15,9 @@
         <div class="welcomePage">
             <section class="welcomeHero">
                 <img src="{{ asset('pictures/Hero.png') }}" alt="">
+                <button class="Anmalforetag" id="Anmalforetag">
+                    ANMÄL FÖRETAG
+                </button>
             </section>
             <section>
                 @if(Auth::user())
@@ -35,8 +38,29 @@
             </p>
             <button class="button whoIsComingButton inter">VEM KOMMER?</button>
         </div>
-        <div class="rollingText">
-            <h3>ROLLING TEXT</h3>
+        <div class="marquee">
+            <div class="marquee-content scroll">
+                @foreach ($companies as $company)
+                    <h3 class="">- {{ $company }}</h3>
+                    <h3>- JEPPE</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
+                    <h3>- HCUDCSC</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
+                    <h3>- TESTFÖRETAG</h3>
+                    <h3>- TESTFÖRETAG</h3>
+                    <h3>- TESTFÖRETAG</h3>
+                @endforeach
+                
+            </div>
+            <div class="marquee-content scroll">
+                @foreach ($companies as $company)
+                    <h3 class="">- {{ $company }}</h3>
+                    <h3>- :-)</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
+                    <h3>- MONKEY</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
+                    <h3>- TESTFÖRETAG</h3>
+                    <h3>- TESTFÖRETAG</h3>
+                    <h3>- TESTFÖRETAG</h3>
+                @endforeach
+                
+            </div>
         </div>
         <div class="whereWrapper">
             <img src="{{asset('pictures/location.png')}}" alt="img of visual arena at lindholmen">
@@ -50,8 +74,10 @@
         </div>
         <div class="weatYrgo">
             <div class="aboutTitleContainer">
-                <img class="LIApicture" src="{{asset('pictures/tempRectangle.png')}}" alt="bild på yrgo?">
-                <h2 class="LIAtextFloating">Vår LIA-period</h2>
+                <div class="LIApicture">
+                    <img src="{{asset('pictures/tempRectangle.png')}}" alt="bild på yrgo?">
+                    <h2 class="LIAtextFloating">Vår LIA-period</h2>
+                </div>
             </div>
             <div class="aboutTextContainer">
                 <p>LIA är en viktigt period för oss studenter. Det ger oss möjlighet att träna och utveckla våra färdigheter i en verklig arbetsmiljö inom vår framtida yrkesroll. Under LIA får vi inte bara praktisk erfarenhet utan även chansen att knyta värdefulla kontakter i branschen. 
@@ -67,6 +93,7 @@
                     <img src="{{asset('pictures/Development.png')}}" alt="">
                     <a href="https://www.yrgo.se/program/webbutvecklare/">WEBBUTVECKLARE</a>
                 </div>
+                <div class="extraGap"></div>
             </div>
         </div>
     </div>

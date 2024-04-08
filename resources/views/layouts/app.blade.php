@@ -28,6 +28,7 @@
 
     {{-- Scripts --}}
     <script src="{{ asset('js/tagPoster.js') }}"></script>
+    <script src="{{ asset('js/buttonlistener.js') }}"></script>
 </body>
 </html>
 

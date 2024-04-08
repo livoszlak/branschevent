@@ -13,6 +13,10 @@ body{
     font-family: "Inter", sans-serif;
 }
 
+h1, h2, h3, p{
+    font-family: "Inter", sans-serif;
+}
+
 /* ----------------------------- MISC/BUTTONS ---------------------------- */
 
 .button{
@@ -38,12 +42,78 @@ body{
 /* ----------------------------- HEADER ---------------------------- */
 
 .headerWrapper{
-    height: 94px;
+    height: 118px;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 24px;
+    /* padding: 24px; */
     box-sizing: border-box;
+    background: #CCD1DC;
+    position: relative;
+}
+
+.whiteBlankSpace{
+    height: 100px;
+    width: 50%;
+    background: white;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    border-radius: 0px 150px 0px 0px;
+}
+
+.lightblueBlankSpace{
+    height: 60px;
+    width: 80px;
+    background: #AEEEEDAD;
+    opacity: 0.68;
+    position: absolute;
+    right: 20%;
+    top: 12.5%;
+    z-index: 1;
+    border-radius: 1px 30px 1px 30px;
+}
+
+.blueBlankSpace{
+    height: 100%;
+    width: 25%;
+    background: #334875;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 50px 0px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerh1{
+    z-index: 1;
+}
+
+.headerBranding{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    padding-left: 24px;
+}
+
+.headerBranding img{
+    height: 46px;
+    width: 49px;
+}
+
+.headerBranding h1{
+    color: #000;
+    text-align: right;
+    font-family: 'Inter', sans-serif;
+    font-size: 18.332px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16.295px; /* 88.889% */
+    letter-spacing: 2.809px;
+    text-transform: uppercase;
 }
 
 /* ----------------------------- NAV ---------------------------- */
@@ -93,17 +163,38 @@ body{
     align-self: stretch;
 }
 
+.gbgstad{
+    width: 86px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
 .footerInfo ul{
     display: flex;
     flex-direction: column;
     gap: 8px;
     font-family: "Inter", sans-serif;
     list-style-type: none;
+    padding-inline-start: 0px;
+    margin-block-start: 0px;
+}
+
+.footerInfo ul li{
+    font-size: 12px;
 }
 
 .footerLinks{
     display: flex;
-    gap: 27px;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 163px;
+}
+
+.footerInfoColtwo{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 17px;
 }
 
 .footerPageLinks{
@@ -112,4 +203,10 @@ body{
     align-items: start;
     gap: 8px;
     align-self: stretch;
+}
+
+.footerPageLinks a{
+    color: black;
+    text-underline-offset: 3px;
+    font-size: 10px;
 }
