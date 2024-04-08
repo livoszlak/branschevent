@@ -11,6 +11,7 @@
 @endsection
 
 @section('content')
+<main>
     <div class="landingpageWrapper">
         <div class="welcomePage">
             <section class="welcomeHero">
@@ -70,6 +71,7 @@
             </div>
         </div>
     </div>
+</main>
 @endsection
 
 @section('footer')

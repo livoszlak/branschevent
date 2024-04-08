@@ -1,3 +1,17 @@
+@extends('layouts.app')
+
+@section('header')
+    {{-- specific header content --}}
+    @include('layouts.header')
+@endsection
+
+@section('nav')
+    {{-- specific header content --}}
+    @include('layouts.nav')
+@endsection
+
+@section('content')
+<main>
 <div>
     <form method="POST" action="{{ route('login') }}">
         @csrf
@@ -8,7 +22,7 @@
         <button type="submit">Logga in</button>
     </form>
 </div>
-<div>
+
     @if ($errors->any())
     <div class="error-container">
         @foreach ($errors->all() as $error)
@@ -17,4 +31,11 @@
             </p>
         @endforeach
     @endif
-</div>
+    </div>
+
+@endsection
+
+@section('footer')
+    {{-- specific footer content --}}
+    @include('layouts.footer')
+@endsection

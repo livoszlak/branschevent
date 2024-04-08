@@ -11,6 +11,7 @@
 @endsection
 
 @section('content')
+<main>
 <div class="formRegistrationWrapper">
     <div class="promptForInfo">
         <h2>Kul att du hör av dig!</h2>
@@ -62,19 +63,20 @@
         </div>
     </form>
 </div>
+
+    @if ($errors->any())
+        <div class="errors">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+</main>
 @endsection
 
 @section('footer')
     {{-- specific footer content --}}
     @include('layouts.footer')
 @endsection
-
-@if ($errors->any())
-    <div class="errors">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif

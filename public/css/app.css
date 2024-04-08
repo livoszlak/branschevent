@@ -1,43 +1,145 @@
 :root {
     --main-font-family: "Inter", sans-serif;
+    --h4-size: 34px;
+    --h5-size: 24px;
+    --link-size-s: 14px;
+    --link-size-m: 18px;
 
-    --yrgo-red: #f52a3b;
+    --bg-grey: #f0f3f4;
+    --dark-blue: #334875;
+    --marquee-light-blue: #aeeeed;
+    --text-color-black: #000;
+    --text-color-light: #f0f3f4;
+
+    --input-bg-inactive: #ccd1dc;
+    --input-bg-activated: #aeeeed;
+    --input-bg-focused: #f2f2f2;
+    --input-bg-error: #f2f2f2;
+    --input-stroke: #334875;
+    --input-hover: #808ca8;
+
+    --nav-link-bg: #f0f3f4;
+    --nav-link-bg-hover: #001a52;
+    --nav-link-stroke: #000;
+
+    --tag-bg: #aeeeed;
+    --tag-text: #001a52;
+    --tag-bg-hover: #dff8f8;
+    --tag-stroke-hover: #334875;
+    --tag-bg-selected: #334875;
+    --tag-text-selected: #ccd1dc;
+
+    --btn-red: #f52a3b;
+    --btn-yellow: #fcfa58;
+    --btn-blue: #334875;
+    --btn-focused: #e0e0e0;
+    --btn-text-light: #f2f2f2;
+    --btn-primary-stroke: 1px solid var(--btn-red);
+    --btn-secondary-stroke: 1px solid #001a52;
+
+    --business-card-bg: #ccd1dc;
+
+    --box-shadow: -4px 4px 7px 0px rgba(0, 26, 82, 0.25);
 }
 
-body{
-    margin:0px;
+body {
+    margin: 0px;
     box-sizing: border-box;
 }
 
-.inter{
-    font-family: "Inter", sans-serif;
+main {
+    background-color: var(--bg-grey);
+}
+
+.p {
+    font-family: var(--main-font-family);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+}
+
+a {
+    color: #000;
+    font-family: var(--main-font-family);
+    text-decoration-line: underline;
+    text-transform: uppercase;
+    line-height: 16px; /* 114.286% */
+}
+
+a.small {
+    font-size: var(--link-size-s);
+    letter-spacing: 1.25px;
+}
+
+a.medium {
+    font-size: var(--link-size-m);
+    letter-spacing: 1.25px;
 }
 
 /* ----------------------------- MISC/BUTTONS ---------------------------- */
 
-.button{
+/* .button {
     display: flex;
     height: 48px;
-    padding: var(--numbers-margin-button-medium-top-bottom, 24px) var(--numbers-margin-button-medium-left-right, 24px);
+    padding: var(--numbers-margin-button-medium-top-bottom, 24px)
+        var(--numbers-margin-button-medium-left-right, 24px);
     justify-content: center;
     align-items: center;
     gap: 4px;
 
-    background: var(--Colors-Button-Secondary-Fill-Default, #FCFA58);
-    /* Button drop shadow */
+    background: var(--Colors-Button-Secondary-Fill-Default, #fcfa58);
+   
     box-shadow: -4px 4px 7px 0px rgba(0, 26, 82, 0.25);
-    border:none;
+    border: none;
+} */
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    border: none;
 }
 
-.removeMargin{
+.btn-s {
+    height: 32px;
+    padding: 18px 24px;
+}
+
+.btn-m {
+    height: 48px;
+    padding: 24px;
+}
+
+.primary {
+    background-color: var(--yrgo-red);
+}
+
+.secondary {
+    background-color: var(--btn-yellow);
+}
+
+.secondary:active {
+    background-color: var(--btn-blue);
+}
+
+.primary:active,
+.secondary:active {
+    box-shadow: none;
+}
+
+.removeMargin {
     margin-block-start: 0px;
     margin-block-end: 0px;
-    padding:0px
+    padding: 0px;
 }
 
 /* ----------------------------- HEADER ---------------------------- */
 
-.headerWrapper{
+.headerWrapper {
     height: 94px;
     width: 100%;
     display: flex;
@@ -48,14 +150,14 @@ body{
 
 /* ----------------------------- NAV ---------------------------- */
 
-.navWrapper{
+.navWrapper {
     display: flex;
     align-items: flex-start;
     gap: -1px;
     align-self: stretch;
 }
-    
-.navButton{
+
+.navButton {
     display: flex;
     height: 48px;
     padding: 4px;
@@ -63,14 +165,18 @@ body{
     align-items: center;
     gap: 4px;
     flex: 1 0 0;
-    font-family: "Inter", sans-serif;
-    border: 1px solid var(--Colors-Strokes-Nav-link, #000);
-    background: var(--Colors-Navbar-Link-background-default, #F0F3F4);
+    font-family: var(--main-font-family);
+    border: 1px solid var(--nav-link-stroke);
+    background-color: var(--nav-link-bg);
+}
+
+.navButton:hover {
+    background-color: var(--nav-link-bg-hover);
 }
 
 /* ----------------------------- FOOTER ---------------------------- */
 
-.footerWrapper{
+.footerWrapper {
     display: flex;
     width: 390px;
     height: 425px;
@@ -80,33 +186,33 @@ body{
     gap: 48px;
 }
 
-.footerPictures{
+.footerPictures {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-.footerInfo{
+.footerInfo {
     display: flex;
     align-items: flex-start;
     gap: 40px;
     align-self: stretch;
 }
 
-.footerInfo ul{
+.footerInfo ul {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    font-family: "Inter", sans-serif;
+    font-family: var(--main-font-family);
     list-style-type: none;
 }
 
-.footerLinks{
+.footerLinks {
     display: flex;
     gap: 27px;
 }
 
-.footerPageLinks{
+.footerPageLinks {
     display: flex;
     flex-direction: column;
     align-items: start;
