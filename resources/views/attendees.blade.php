@@ -30,8 +30,3 @@
     {{-- specific footer content --}}
     @include('layouts.footer')
 @endsection
-
-@section('footer')
-    {{-- specific footer content --}}
-    @include('layouts.footer')
-@endsection
