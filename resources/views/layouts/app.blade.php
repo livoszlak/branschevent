@@ -14,6 +14,7 @@
     <link href="{{ asset('css/registration.css') }}" rel="stylesheet">
     <link href="{{ asset('css/attendees.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/welcome.css')}}" rel="stylesheet">
     <title>YRGOEVENT</title>
 </head>
 <body>
@@ -31,7 +32,6 @@
 
     {{-- Scripts --}}
     <script src="{{ asset('js/tagPoster.js') }}"></script>
-
     <script src="{{ asset('js/buttonlistener.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
