@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\SearchController;
 
 // Basic landing page route
 Route::get('/', [WelcomeController::class, 'index']);
@@ -30,6 +31,9 @@ Route::post('/login', [LoginController::class, 'login']);
 
 // Route to logout user
 Route::post('/logout', LogoutController::class, 'logout')->name('logout');
+
+// Route to search for profiles.
+Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 // Route to show a user profile
 Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
