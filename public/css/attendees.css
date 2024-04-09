@@ -6,6 +6,7 @@ main {
     justify-content: center;
     align-items: center;
     gap: 48px;
+    width: 100vw;
 }
 
 .arrow-wrapper {
@@ -13,6 +14,20 @@ main {
     align-items: center;
     gap: 4px;
     align-self: stretch;
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+}
+
+.card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 48px;
 }
 
 .business-card {

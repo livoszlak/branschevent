@@ -11,12 +11,29 @@
 @endsection
 
 @section('content')
+<div class="marquee">
+    <div class="marquee-content scroll">
+        @foreach ($users as $user)
+            <h3 class="">{{ $user->name }} </h3>
+        @endforeach    
+    </div>
+    <div class="marquee-content scroll">
+        @foreach ($users as $user)
+            <h3 class="">{{ $user->name }}</h3>
+        @endforeach
+    </div>
+</div>
 <main>
     <div class="arrow-wrapper">
-        <img src="{{ asset('pictures/arrow.svg') }}"></div>
+        <a href="{{ url('/') }}">
+        <img src="{{ asset('pictures/arrow.svg') }}">
+        </a>
     </div>
+    </div>
+    <div class="header-wrapper">
     <p class="h1-mobile">Deltagare på YRGOxLIA '24</p>
-<div>
+    </div>
+<div class="card-wrapper">
     @foreach ($users as $user)
     <div class="business-card" data-href="{{ route('profile.show', ['id' => $user->id]) }}">
         <div class="profile-img">
