@@ -34,7 +34,8 @@
     <p class="h1-mobile">Deltagare på YRGOxLIA '24</p>
     </div>
     <div class="search-wrapper">
-        <form>
+        <form action="{{ route('search') }}" method="GET">
+            @csrf
             <input type="text" name="search-input" placeholder="Sök på företag/namn/tag">
         </form>
     </div>
