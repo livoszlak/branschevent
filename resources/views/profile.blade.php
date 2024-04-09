@@ -12,20 +12,30 @@
 
 @section('content')
 <main>
-    <h3>Hello user</h3>
-    <p>here u can change your profile blablabla</p>
-
+    <div class="arrow-wrapper">
+        <a href="{{ url()->previous() }}">
+            <img src="{{ asset('pictures/arrow.svg') }}">
+        </a>
+        @if($editable)
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button class="btn btn-s primary" type="submit">LOGGA UT</button>
+        </form>
+        @endif
+    </div>
     @if ($editable)
+    <div class="informational-banner">
+        <p class="h1-mobile">Du är anmäld!</p>
+        <p>För att studenterna på Yrgo ska kunna lära känna er verksamhet så bra som möjligt, är det uppskattat om ni fyller i så mycket som möjligt i kommande steg. På så sätt kan de hitta rätt när de ska söka LIA-platser.</p>
+    </div>
     <!-- Display editable form fields if user is visiting their own profile -->
     <form method="POST" action="{{ route('profile.update', ['profile' => $profile->id]) }}" enctype="multipart/form-data">
        
         @csrf
         @method('PUT')
-
-        <div class="profile-img"><img src="{{ asset('storage/profile_images/' . $profile->profile_image) }}"></div>
         <!-- Profile image -->
-        <label for="profile_image">Profile image:</label>
         <input type="file" id="profile_image" name="profile_image" accept="image/png, image/jpeg, image/jpg, image/svg">
+        <label for="profile_image" name="profile_image" id="profile_image" class="image-upload"></label>
         
         <!-- Contact Email -->
         <label for="contact_email">Contact Email:</label>
@@ -87,6 +97,11 @@
 
     @else
     <!-- Display static profile content. Maybe use different layout sections?? -->
+
+    @if($profile->profile_image)
+    <div class="profile-img"><img src="{{ asset('storage/profile_images/' . $profile->profile_image) }}"></div>
+    @endif
+
     @foreach ($questions as $question)
     <div class="question">
         <p>{{ $question->question }}</p>
