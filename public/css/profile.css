@@ -3,3 +3,25 @@
     height: 167px;
     width: 167px;
 }
+
+input[type="file"] {
+    display: none;
+}
+
+.image-upload {
+    display: flex;
+    width: 167px;
+    height: 167px;
+    flex-shrink: 0;
+    border-radius: 100px 100px 0px 100px;
+    background-color: var(--img-upload-blue);
+    background-image: url("../pictures/plus.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+label:focus-within {
+    width: 280px;
+    height: 48px;
+}

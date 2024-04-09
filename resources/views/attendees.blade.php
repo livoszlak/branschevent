@@ -25,10 +25,9 @@
 </div>
 <main>
     <div class="arrow-wrapper">
-        <a href="{{ url('/') }}">
-        <img src="{{ asset('pictures/arrow.svg') }}">
+        <a href="{{ url()->previous() }}">
+            <img src="{{ asset('pictures/arrow.svg') }}">
         </a>
-    </div>
     </div>
     <div class="header-wrapper">
     <p class="h1-mobile">Deltagare på YRGOxLIA '24</p>
@@ -42,11 +41,11 @@
 <div class="card-wrapper">
     @foreach ($users as $user)
     <div class="business-card" data-href="{{ route('profile.show', ['id' => $user->id]) }}">
+        @if($user->profile->profile_image)
         <div class="profile-img">
-            @if($user->profile->profile_image)
             <img src="{{ asset('storage/profile_images/' . $user->profile->profile_image) }}">
-            @endif
         </div>
+        @endif
         <div class="text-wrapper">
             <p class="company-name">{{ $user->name }}</p>
             <a class="small inner-link" href="{{ $user->profile->contact_url }}">WEBBSIDA</a>
