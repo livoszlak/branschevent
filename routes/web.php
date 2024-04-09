@@ -8,11 +8,10 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\WelcomeController;
 
 // Basic landing page route
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WelcomeController::class, 'index']);
 
 Route::get('/registration', function () {
     return view('registration');
