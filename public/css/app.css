@@ -19,6 +19,7 @@
     --input-bg-error: #f2f2f2;
     --input-stroke: #334875;
     --input-hover: #808ca8;
+    --input-text: #747474;
 
     --nav-link-bg: #f0f3f4;
     --nav-link-bg-hover: #001a52;
@@ -149,18 +150,18 @@ p.h1-mobile {
 
 /* ----------------------------- HEADER ---------------------------- */
 
-.headerWrapper{
+.headerWrapper {
     height: 118px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     /* padding: 24px; */
     box-sizing: border-box;
-    background: #CCD1DC;
+    background: #ccd1dc;
     position: relative;
 }
 
-.whiteBlankSpace{
+.whiteBlankSpace {
     height: 100px;
     width: 50%;
     background: white;
@@ -170,10 +171,10 @@ p.h1-mobile {
     border-radius: 0px 150px 0px 0px;
 }
 
-.lightblueBlankSpace{
+.lightblueBlankSpace {
     height: 60px;
     width: 80px;
-    background: #AEEEEDAD;
+    background: #aeeeedad;
     opacity: 0.68;
     position: absolute;
     right: 20%;
@@ -182,7 +183,7 @@ p.h1-mobile {
     border-radius: 1px 30px 1px 30px;
 }
 
-.blueBlankSpace{
+.blueBlankSpace {
     height: 100%;
     width: 25%;
     background: #334875;
@@ -195,11 +196,11 @@ p.h1-mobile {
     justify-content: center;
 }
 
-.headerh1{
+.headerh1 {
     z-index: 1;
 }
 
-.headerBranding{
+.headerBranding {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -207,15 +208,15 @@ p.h1-mobile {
     padding-left: 24px;
 }
 
-.headerBranding img{
+.headerBranding img {
     height: 46px;
     width: 49px;
 }
 
-.headerBranding h1{
+.headerBranding h1 {
     color: #000;
     text-align: right;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 18.332px;
     font-style: normal;
     font-weight: 400;
@@ -280,13 +281,13 @@ p.h1-mobile {
     align-self: stretch;
 }
 
-.gbgstad{
+.gbgstad {
     width: 86px;
     height: 28px;
     flex-shrink: 0;
 }
 
-.footerInfo ul{
+.footerInfo ul {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -296,7 +297,7 @@ p.h1-mobile {
     margin-block-start: 0px;
 }
 
-.footerInfo ul li{
+.footerInfo ul li {
     font-size: 12px;
 }
 
@@ -307,7 +308,7 @@ p.h1-mobile {
     width: 163px;
 }
 
-.footerInfoColtwo{
+.footerInfoColtwo {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -322,7 +323,7 @@ p.h1-mobile {
     align-self: stretch;
 }
 
-.footerPageLinks a{
+.footerPageLinks a {
     color: black;
     text-underline-offset: 3px;
     font-size: 10px;
