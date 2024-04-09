@@ -5,6 +5,8 @@
     --link-size-s: 14px;
     --link-size-m: 18px;
 
+    --h1-mobile-size: 34px;
+
     --bg-grey: #f0f3f4;
     --dark-blue: #334875;
     --marquee-light-blue: #aeeeed;
@@ -78,8 +80,12 @@ a.medium {
     letter-spacing: 1.25px;
 }
 
-h1, h2, h3, p{
-    font-family: "Inter", sans-serif;
+p.h1-mobile {
+    font-family: var(--main-font-family);
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
 }
 
 /* ----------------------------- MISC/BUTTONS ---------------------------- */
