@@ -33,6 +33,11 @@
     <div class="header-wrapper">
     <p class="h1-mobile">Deltagare på YRGOxLIA '24</p>
     </div>
+    <div class="search-wrapper">
+        <form>
+            <input type="text" name="search-input" placeholder="Sök på företag/namn/tag">
+        </form>
+    </div>
 <div class="card-wrapper">
     @foreach ($users as $user)
     <div class="business-card" data-href="{{ route('profile.show', ['id' => $user->id]) }}">
