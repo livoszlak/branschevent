@@ -1,3 +1,49 @@
+:root {
+    --main-font-family: "Inter", sans-serif;
+    --h4-size: 34px;
+    --h5-size: 24px;
+    --link-size-s: 14px;
+    --link-size-m: 18px;
+
+    --h1-mobile-size: 34px;
+
+    --bg-grey: #f0f3f4;
+    --dark-blue: #334875;
+    --marquee-light-blue: #aeeeed;
+    --text-color-black: #000;
+    --text-color-light: #f0f3f4;
+
+    --input-bg-inactive: #ccd1dc;
+    --input-bg-activated: #aeeeed;
+    --input-bg-focused: #f2f2f2;
+    --input-bg-error: #f2f2f2;
+    --input-stroke: #334875;
+    --input-hover: #808ca8;
+
+    --nav-link-bg: #f0f3f4;
+    --nav-link-bg-hover: #001a52;
+    --nav-link-stroke: #000;
+
+    --tag-bg: #aeeeed;
+    --tag-text: #001a52;
+    --tag-bg-hover: #dff8f8;
+    --tag-stroke-hover: #334875;
+    --tag-bg-selected: #334875;
+    --tag-text-selected: #ccd1dc;
+
+    --btn-red: #f52a3b;
+    --btn-yellow: #fcfa58;
+    --btn-blue: #334875;
+    --btn-focused: #e0e0e0;
+    --btn-text-light: #f2f2f2;
+    --btn-primary-stroke: 1px solid var(--btn-red);
+    --btn-secondary-stroke: 1px solid #001a52;
+
+    --business-card-bg: #ccd1dc;
+
+    --box-shadow: -4px 4px 7px 0px rgba(0, 26, 82, 0.25);
+}
+
 /* ----------------------------- SIDA ---------------------------- */
 
 .landingpageWrapper{
@@ -7,7 +53,7 @@
     flex-direction: column;
     align-items: center;
     gap: var(--units-8, 96px);
-    font-family: "Inter", sans-serif;
+    font-family: var(--main-font-family);
 }
 
 .welcomeHero{
@@ -67,8 +113,6 @@
 
 .LIAtextFloating{
     color: var(--color-grey-Background, #F0F3F4);
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Inter;
     font-size: 34px;
     font-style: normal;
     font-weight: 700;
@@ -103,17 +147,10 @@
 }
 
 .Anmalforetag{
-    display: inline-flex;
-    height: 48px;
-    padding: 24px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    flex-shrink: 0;
-    background: #F52A3B;
+    background: var(--btn-red);
     box-shadow: -4px 4px 7px 0px rgba(0, 26, 82, 0.25);
     color: white;
-    font-family: "Inter", sans-serif;
+    font-family: var(--main-font-family);
 
     /* -- large button text -- */
     font-size: 18px;
@@ -127,6 +164,20 @@
     top: 75%;
     left: 35%;
     z-index: 2;
+}
+
+.whoIsComingBtn{
+    background: var(--btn-yellow);
+    box-shadow: -4px 4px 7px 0px rgba(0, 26, 82, 0.25);
+    
+    /* button/large */
+    font-family: var(--main-font-family);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 88.889% */
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
 }
 
 .marquee{
@@ -154,7 +205,6 @@
     padding-inline-end: 0px;
     text-transform: uppercase;
     color: #000;
-    font-family: Inter;
     font-size: 21px;
     font-style: normal;
     font-weight: 400;
