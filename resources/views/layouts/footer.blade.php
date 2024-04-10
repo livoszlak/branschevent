@@ -1,5 +1,4 @@
-<section>
-    <div class="footerWrapper">
+<div class="footerWrapper">
         <div class="footerPageLinks inter">
             <a href="/">HEM</a>
             <a href="#">VEM KOMMER?</a>
@@ -25,4 +24,3 @@
             <img class="gbgstad" src="{{ asset('pictures/gbgstad.png') }}" alt="A logo of Göteborgs stad.">
         </div>
     </div>
-</section>
