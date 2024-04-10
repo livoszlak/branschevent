@@ -110,17 +110,47 @@
 </div>
 
 <!-- This Or That -->
-@foreach ($questions as $question)
-<div class="question">
-    <label>{{ $question->question }}</label>
 
-    <input type="radio" id="choice_one_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_one">
-    <label for="choice_one_{{ $question->id }}">{{ $question->option_one }}</label>
+<div class="questionWrapper">
+    <p class="femsnabba removeMargin">SVARA PÅ YRGOS 5 SNABBA</p>
+    <div class="circle">
+        <a id='show-popup-link' href=""><img src="{{asset('pictures/Arrows.svg')}}" alt=""></a>
+    </div>
+</div>
 
-    <input type="radio" id="choice_two_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_two">
-    <label for="choice_two_{{ $question->id }}">{{ $question->option_two }}</label>
+<!-- Hidden popup container for questions -->
+@foreach ($questions as $index => $question)
+<div id="question-popup-{{ $index }}" class="popup-overlay" style="display: none;">
+    <div class="popup-content">
+        <div id="question-{{ $index }}" class="question">
+            <div class="cross">
+                <img id="exit" class="crossIMG" src="{{asset('pictures/cross.svg')}}" alt="">
+            </div>
+    
+            <label><p>{{ $question->question }}</p></label>
+            
+            <div class="answers">
+                <div class="answer answerOne">
+                    <img src="{{asset('pictures/icons/People.svg')}}" alt="">
+                    <label for="choice_one_{{ $question->id }}">{{ $question->option_one }}</label>
+                    <input type="radio" id="choice_one_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_one">
+                </div>
+                <div class="answer answerTwo">
+                    <img src="{{asset('pictures/icons/People.svg')}}" alt="">
+                    <input type="radio" id="choice_two_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_two">
+                    <label for="choice_two_{{ $question->id }}">{{ $question->option_two }}</label>
+                </div>
+            </div>
+            <div class="skip">
+                <a href="#" class="next-question">Next Question</a>
+            </div>
+        </div>
+    </div>
 </div>
 @endforeach        
+
+<!-- Submit button -->
+<button id="submit-button" style="display: none;">Submit Answers</button>
 
     @foreach ($questions as $question)
     <div class="question">
@@ -158,4 +188,6 @@
 
 @section('scripts')
     <script src="{{ asset('js/profile.js') }}"></script>
+    {{-- <script src="{{ asset('js/popup.js') }}"></script> --}}
+    <script src="{{ asset('js/femsnabba.js') }}"></script>
 @endsection
