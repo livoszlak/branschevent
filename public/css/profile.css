@@ -56,8 +56,8 @@ label:focus-within {
     font-family: var(--main-font-family);
 }
 
-input[type="text"],
-input[type="email"] {
+.input-group > input[type="text"],
+.input-group > input[type="email"] {
     display: flex;
     height: 40px;
     padding: 8px 16px;
