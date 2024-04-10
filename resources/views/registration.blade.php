@@ -33,15 +33,25 @@
                 <input id="contact_name" type="text" name="contact_name" value=" {{ old('contact_name') }}" required autocomplete="contact_name" autofocus>
             </div>
 
-            <div class="form-group">
+{{--             <div class="form-group">
                 <p>Antal personer som deltar</p>
                 <button class="-">-</button>
                 <div class="personerAntal">
                     <label for="antalPersoner">0</label>
                     <input id="participant_count" type="number" name="participant_count" value=" {{ old('participant_count') }}" required autocomplete="participant_count" autofocus> {{-- personer som deltar value --}} 
-                </div>
+     {{--            </div>
                 <button class="+">+</button>
-            </div>
+            </div>  --}}
+
+            <div class="participant-input">
+                <label for="participant_count">Antal personer som deltar</label>
+                <div class="input-wrapper">
+                    <div class="minus" id="minus"></div>
+                        <span id="participants">1</span>
+                        <div class="plus" id="plus"></div>
+                    </div>
+                </div>
+            <input id="participant_count" type="number" name="participant_count" value="1" required autocomplete="participant_count" autofocus>
         
             <div class="form-group">
                 <label for="email">Email</label>
@@ -83,4 +93,8 @@
 @section('footer')
     {{-- specific footer content --}}
     @include('layouts.footer')
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/registration.js') }}"></script>
 @endsection
