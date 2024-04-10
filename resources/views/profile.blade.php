@@ -63,6 +63,17 @@
             <label for="contact_email">Email</label>
             <input type="email" id="contact_email" name="contact_email" value="{{ old('contact_email', $profile->contact_email) }}">
         </div>
+
+        <!-- Participants -->
+        <div class="participant-input">
+            <label for="participant_count">Antal personer som deltar</label>
+            <div class="input-wrapper">
+                <div class="minus" id="minus"></div>
+                    <span id="participants">{{ $user->participant_count }}</span>
+                    <div class="plus" id="plus"></div>
+                </div>
+            </div>
+        <input id="participant_count" type="number" name="participant_count" value="{{ $user->participant_count > 1 ? $user->participant_count : 1 }}" required autocomplete="participant_count" autofocus>
         
         <!-- Contact URL -->
         <div class="input-group">
