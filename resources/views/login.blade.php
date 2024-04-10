@@ -22,6 +22,17 @@
             <p class="removeMargin">Här kan du logga in på din profil för att ändra eller lägga till uppgifter</p>
         </div>
     </div>
+
+    @if ($errors->any())
+    <div class="error-container">
+        @foreach ($errors->all() as $error)
+            <p class="error">    
+            {{ $error }}
+            </p>
+        @endforeach
+    </div>
+    @endif
+    
     <div class="formWrapper">
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -47,16 +58,6 @@
             <button class="submitButton" type="submit"><p>Logga in</p></button>
             <button class="newAccount"><a href="/registration">SKAPA NY ANMÄLAN</a></button>
         </form>
-    </div>
-
-    @if ($errors->any())
-    <div class="error-container">
-        @foreach ($errors->all() as $error)
-            <p class="error">    
-            {{ $error }}
-            </p>
-        @endforeach
-    @endif
     </div>
 
 @endsection
