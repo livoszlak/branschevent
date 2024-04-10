@@ -175,12 +175,16 @@ p.h1-mobile {
 }
 /* ----------------------------- HEADER ---------------------------- */
 
+section.header{
+    display: flex;
+    width: 100%;
+}
+
 .headerWrapper {
     height: 118px;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    /* padding: 24px; */
     box-sizing: border-box;
     background: #ccd1dc;
     position: relative;
