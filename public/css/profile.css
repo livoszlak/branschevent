@@ -1,5 +1,155 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .profile-img > img {
     border-radius: 100px 100px 0px 100px;
     height: 167px;
     width: 167px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.image-upload {
+    display: flex;
+    width: 167px;
+    height: 167px;
+    flex-shrink: 0;
+    border-radius: 100px 100px 0px 100px;
+    background-color: var(--img-upload-blue);
+    background-image: url("../pictures/plus.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+label:focus-within {
+    width: 280px;
+    height: 48px;
+}
+
+label {
+    font-family: var(--main-font-family);
+    font-size: var(--link-size-m);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+}
+
+.image-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: var(--link-size-m);
+    gap: 8px;
+    margin-bottom: 64px;
+}
+
+.image-input-wrapper > p {
+    margin: 0;
+    padding: 0;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    height: 79px;
+    align-self: stretch;
+    font-size: var(--link-size-m);
+    font-family: var(--main-font-family);
+    margin-bottom: 32px;
+}
+
+.input-group > input[type="text"],
+.input-group > input[type="email"] {
+    display: flex;
+    height: 40px;
+    padding: 8px 16px;
+    max-width: calc(342px - 48px) !important;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    background-color: var(--input-bg-inactive);
+    border: none;
+    outline: none;
+    background-position: 280px 12px;
+    background-repeat: no-repeat;
+}
+
+input[name="name"] {
+    background-image: url("../pictures/icons/suitcase.svg");
+}
+
+input[name="contact_name"] {
+    background-image: url("../pictures/icons/face.svg");
+}
+
+input[name="contact_email"] {
+    background-image: url("../pictures/icons/email.svg");
+}
+
+input[name="contact_url"] {
+    background-image: url("../pictures/icons/link.svg");
+}
+
+input[name="contact_LinkedIn"] {
+    background-image: url("../pictures/icons/linkedin.svg");
+}
+
+.participant-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.minus {
+    background-repeat: no-repeat;
+    background-image: url("../pictures/icons/minus.svg");
+    height: 24px;
+    width: 32px;
+    background-position: center;
+    padding: 8px;
+}
+
+.plus {
+    background-repeat: no-repeat;
+    background-image: url("../pictures/icons/plus-small.svg");
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    padding: 8px;
+}
+
+.input-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    font-family: var(--main-font-family);
+    font-size: var(--h5-size);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.18px;
+}
+
+input[type="number"] {
+    visibility: hidden;
+}
+
+#participants {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 74px;
 }

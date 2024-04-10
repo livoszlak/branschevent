@@ -9,13 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/registration.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/attendees.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/welcome.css')}}" rel="stylesheet">
-    <title>YRGOEVENT</title>
+    @yield('css')
+
+    <title>YRGOnnect</title>
 </head>
 <body>
     {{-- Include header content --}}
@@ -31,9 +28,10 @@
     @yield('footer')
 
     {{-- Scripts --}}
-    <script src="{{ asset('js/tagPoster.js') }}"></script>
+    @yield('scripts')
+{{--     <script src="{{ asset('js/tagPoster.js') }}"></script>
     <script src="{{ asset('js/buttonlistener.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script> --}}
 </body>
 </html>
 

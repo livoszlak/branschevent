@@ -1,2 +1,10 @@
 import "./bootstrap";
 import "../css/app.css";
+import "../css/attendees.css";
+import "../css/login.css";
+import "../css/profile.css";
+import "../css/registration.css";
+import "../css/search.css";
+import "../css/welcome.css";
+import "../js/profile.js";
+import "../js/welcome.js";

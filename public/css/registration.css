@@ -1,7 +1,57 @@
-.mainRegistration{
+.mainRegistration {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
     gap: 64px;
+}
+
+.participant-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.minus {
+    background-repeat: no-repeat;
+    background-image: url("../pictures/icons/minus.svg");
+    height: 24px;
+    width: 32px;
+    background-position: center;
+    padding: 8px;
+}
+
+.plus {
+    background-repeat: no-repeat;
+    background-image: url("../pictures/icons/plus-small.svg");
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    padding: 8px;
+}
+
+.input-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    font-family: var(--main-font-family);
+    font-size: var(--h5-size);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.18px;
+}
+
+input[type="number"] {
+    visibility: hidden;
+}
+
+#participants {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 74px;
 }

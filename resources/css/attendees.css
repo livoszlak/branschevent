@@ -91,13 +91,13 @@ input[name="search-input"] {
     &:active {
         background-color: var(--input-bg-activated);
         border: none;
-        outline: none;
+        outline: 2px solid var(--input-stroke);
     }
 
     &:focus {
         background-color: var(--input-bg-activated);
         border: none;
-        outline: none;
+        outline: 2px solid var(--input-stroke);
     }
 
     &:hover {

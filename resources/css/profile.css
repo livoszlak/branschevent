@@ -1,0 +1,70 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-img > img {
+    border-radius: 100px 100px 0px 100px;
+    height: 167px;
+    width: 167px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.image-upload {
+    display: flex;
+    width: 167px;
+    height: 167px;
+    flex-shrink: 0;
+    border-radius: 100px 100px 0px 100px;
+    background-color: var(--img-upload-blue);
+    background-image: url("../pictures/plus.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+label:focus-within {
+    width: 280px;
+    height: 48px;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: var(--link-size-m);
+    gap: 8px;
+    margin-bottom: 64px;
+}
+
+.input-wrapper > p {
+    margin: 0;
+    padding: 0;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    align-self: stretch;
+    font-size: var(--link-size-m);
+    font-family: var(--main-font-family);
+}
+
+.input-group > input[type="text"],
+.input-group > input[type="email"] {
+    display: flex;
+    height: 40px;
+    padding: 8px 16px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    background-color: var(--input-bg-inactive);
+    border: none;
+    outline: none;
+}

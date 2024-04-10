@@ -42,6 +42,7 @@ class ProfileController extends Controller
         $editable = false;
 
         $profile = Profile::with('tags', 'thisOrThat')->findOrFail($id);
+        $user = User::findOrFail($id);
 
         if (!$profile) {
             return redirect()->route('attendees')->with('error', 'Profile not found');
@@ -53,7 +54,7 @@ class ProfileController extends Controller
 
         $questions = $profile->thisOrThat;
 
-        return view('profile', ['profile' => $profile, 'editable' => $editable, 'questions' => $questions]);
+        return view('profile', ['profile' => $profile, 'editable' => $editable, 'questions' => $questions, 'user' => $user]);
     }
 
 
@@ -66,6 +67,7 @@ class ProfileController extends Controller
         $user = Auth::user();
         $profile = Profile::findOrFail($id);
         $questions = $profile->thisOrThat;
+
         if (Auth::check() && Auth::user()->id === $profile->user_id) {
             return view('profile', ['profile' => $profile, 'questions' => $questions, 'editable' => true]);
         } else {
@@ -78,13 +80,14 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile)
     {
-
+        $user = User::findOrFail($profile->id);
         $request['has_LIA'] = $request->has('has_LIA') ? true : false;
 
         $data = $request->validate([
             'about' => ['nullable', 'string'],
             'has_LIA' => ['nullable', 'boolean'],
             'contact_email' => ['nullable', 'string', 'email'],
+            'participant_count' => ['nullable'],
             'contact_LinkedIn' => ['nullable', 'string'],
             'contact_url' => ['nullable', 'string'],
             'profile_image' => ['nullable', 'image']
@@ -103,11 +106,15 @@ class ProfileController extends Controller
             $data['profile_image'] = $filename;
         }
 
+        $data['participant_count'] = (int)$data['participant_count'];
         $data['user_id'] = Auth::id();
 
         $profile->fill($data);
-
         $profile->save();
+
+        $user->participant_count = $data['participant_count'];
+        $user->save();
+
 
         if ($request->has('questions')) {
             foreach ($request->questions as $questionId => $chosenOption) {

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('css')
+    <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
+@endsection
+
 @section('header')
     {{-- specific header content --}}
     @include('layouts.header')
@@ -13,21 +17,13 @@
 @section('content')
 <section class="welcomeHero">
     <img src="{{ asset('pictures/Hero.png') }}" alt="">
-    <button  class="Anmalforetag btn btn-m" id="Anmalforetag">
+    <button class="Anmalforetag btn btn-m" id="Anmalforetag">
         <a href="/registration">ANMÄL FÖRETAG</a>
     </button>
 </section>
 <main>
     <div class="landingpageWrapper">
         <div class="welcomePage">
-            <section>
-                @if(Auth::user())
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit">Logga ut</button>
-                    </form>
-                @endif
-            </section>
         </div>
         <div class="whoIsComingPage">
             <h1>Välkommen till det bästa eventet</h1>
@@ -102,4 +98,8 @@
 @section('footer')
     {{-- specific footer content --}}
     @include('layouts.footer')
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/welcome.js') }}"></script>
 @endsection

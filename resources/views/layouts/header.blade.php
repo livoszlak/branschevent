@@ -1,4 +1,4 @@
-<section class="header">
+
     <div class="headerWrapper">
         <div class="whiteBlankSpace">
         </div>
@@ -16,4 +16,3 @@
         </div>
 
     </div>
-</section>
