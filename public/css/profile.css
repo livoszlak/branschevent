@@ -3,6 +3,10 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 64px;
+}
+
+.form-wrapper {
 }
 
 .profile-img > img {
@@ -311,4 +315,12 @@ input[type="number"] {
     transform: translate(-50%, -50%);
 }
 
+.radio-wrapper {
+    display: flex;
+    flex-direction: row;
+}
 
+.radio-btn-wrapper {
+    display: flex;
+    flex-direction: row;
+}

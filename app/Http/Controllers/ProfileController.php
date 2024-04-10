@@ -81,7 +81,7 @@ class ProfileController extends Controller
     public function update(Request $request, Profile $profile)
     {
         $user = User::findOrFail($profile->id);
-        $request['has_LIA'] = $request->has('has_LIA') ? true : false;
+        $request['has_LIA'] = $request->has_LIA == 'true' ? true : false;
 
         $data = $request->validate([
             'about' => ['nullable', 'string'],
