@@ -49,19 +49,19 @@
         <!-- Företagsnamn -->
         <div class="input-group">    
             <label for="name">Företag</label>
-            <input id="name" type="text" name="name" value=" {{ old('name') }}" required autocomplete="name" autofocus>
+            <input id="name" type="text" name="name" value=" {{ $user->name }}" required autocomplete="name" autofocus>
         </div>
 
         <!-- Kontaktperson -->
         <div class="input-group">
             <label for="contact_name">Kontaktperson</label>
-            <input id="contact_name" type="text" name="contact_name" value=" {{ old('contact_name') }}" placeholder="{{ old('contact_name') }}" required autocomplete="contact_name" autofocus>
+            <input id="contact_name" type="text" name="contact_name" value=" {{ old('contact_name') }}" placeholder="{{ $user->contact_name }}" required autocomplete="contact_name" autofocus>
         </div>
 
         <!-- Contact Email -->
         <div class="input-group">
             <label for="contact_email">Email</label>
-            <input type="email" id="contact_email" name="contact_email" value="{{ old('contact_email', $profile->contact_email) }}">
+            <input type="email" id="contact_email" name="contact_email" value="{{ $user->email }}">
         </div>
 
         <!-- Participants -->
@@ -72,8 +72,8 @@
                     <span id="participants">{{ $user->participant_count }}</span>
                     <div class="plus" id="plus"></div>
                 </div>
+                <input id="participant_count" type="number" name="participant_count" value="{{ $user->participant_count > 1 ? $user->participant_count : 1 }}" required autocomplete="participant_count" autofocus>
             </div>
-        <input id="participant_count" type="number" name="participant_count" value="{{ $user->participant_count > 1 ? $user->participant_count : 1 }}" required autocomplete="participant_count" autofocus>
         
         <!-- Contact URL -->
         <div class="input-group">
