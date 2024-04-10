@@ -93,21 +93,6 @@ p.h1-mobile {
 
 /* ----------------------------- MISC/BUTTONS ---------------------------- */
 
-/* .button {
-    display: flex;
-    height: 48px;
-    padding: var(--numbers-margin-button-medium-top-bottom, 24px)
-        var(--numbers-margin-button-medium-left-right, 24px);
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-
-    background: var(--Colors-Button-Secondary-Fill-Default, #fcfa58);
-   
-    box-shadow: -4px 4px 7px 0px rgba(0, 26, 82, 0.25);
-    border: none;
-} */
-
 .btn {
     display: inline-flex;
     justify-content: center;
@@ -152,12 +137,16 @@ p.h1-mobile {
 
 /* ----------------------------- HEADER ---------------------------- */
 
+section.header{
+    display: flex;
+    width: 100%;
+}
+
 .headerWrapper {
     height: 118px;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    /* padding: 24px; */
     box-sizing: border-box;
     background: #ccd1dc;
     position: relative;
