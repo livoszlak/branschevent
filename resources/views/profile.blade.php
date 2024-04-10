@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('css')
+    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+@endsection
+
 @section('header')
     {{-- specific header content --}}
     @include('layouts.header')
@@ -30,13 +34,28 @@
     </div>
     <!-- Display editable form fields if user is visiting their own profile -->
     <form method="POST" action="{{ route('profile.update', ['profile' => $profile->id]) }}" enctype="multipart/form-data">
-       
         @csrf
         @method('PUT')
+
         <!-- Profile image -->
+        <div class="input-wrapper">
         <input type="file" id="profile_image" name="profile_image" accept="image/png, image/jpeg, image/jpg, image/svg">
         <label for="profile_image" name="profile_image" id="profile_image" class="image-upload"></label>
+        <p id="upload-response">Ladda upp logga</p>
+        </div>
         
+        <!-- Företagsnamn -->
+        <div class="input-group">    
+            <label for="name">Företag</label>
+            <input id="name" type="text" name="name" value=" {{ old('name') }}" required autocomplete="name" autofocus>
+        </div>
+
+        <!-- Kontaktperson -->
+        <div class="input-group">
+            <label for="contact_name">Kontaktperson</label>
+            <input id="contact_name" type="text" name="contact_name" value=" {{ old('contact_name') }}" placeholder="{{ old('contact_name') }}" required autocomplete="contact_name" autofocus>
+        </div>
+
         <!-- Contact Email -->
         <label for="contact_email">Contact Email:</label>
         <input type="email" id="contact_email" name="contact_email" value="{{ old('contact_email', $profile->contact_email) }}">
@@ -115,4 +134,8 @@
 @section('footer')
     {{-- specific footer content --}}
     @include('layouts.footer')
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/profile.js') }}"></script>
 @endsection

@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('css')
+    <link href="{{ asset('css/attendees.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+@endsection
+
 @section('header')
     {{-- specific header content --}}
     @include('layouts.header')
