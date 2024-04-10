@@ -158,31 +158,31 @@ input[type="number"] {
     width: 74px;
 }
 
-.questionWrapper{
+.questionWrapper {
     display: flex;
     height: 382px;
     width: 100%;
     background: url("../pictures/5snabbaGraphic.svg") no-repeat center center;
     background-size: contain;
     flex-direction: column;
-    justify-content:flex-end;
+    justify-content: flex-end;
     align-items: center;
     position: relative;
 }
 
-.circle{
+.circle {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 52px;
     height: 50px;
-    background-color: #FFF;
+    background-color: #fff;
     border-radius: 25px;
     position: absolute;
     bottom: 40px;
 }
 
-.femsnabba{
+.femsnabba {
     display: flex;
     width: 208.478px;
     height: 66.957px;
@@ -192,7 +192,7 @@ input[type="number"] {
     position: absolute;
     bottom: 100px;
 
-    color: var(--Color-Graphics-Yrgo-red, #F52A3B);
+    color: var(--Color-Graphics-Yrgo-red, #f52a3b);
     text-align: center;
     font-size: 21.304px;
     font-weight: 400;
@@ -201,16 +201,16 @@ input[type="number"] {
     text-transform: uppercase;
 }
 
-.question{
+.question {
     display: flex;
     width: 100%;
-/*     padding: 0px 48px; */
+    /*     padding: 0px 48px; */
     flex-direction: column;
     align-items: center;
     gap: 32px;
 }
 
-.cross{
+.cross {
     display: flex;
     width: 100%;
     padding: 0px 24px;
@@ -219,7 +219,7 @@ input[type="number"] {
     gap: 4px;
 }
 
-.question label{
+.question label {
     display: flex;
     padding: 0px 24px;
     justify-content: center;
@@ -228,8 +228,8 @@ input[type="number"] {
     align-self: stretch;
 }
 
-.question label p{
-    color: #FFF;
+.question label p {
+    color: #fff;
     text-align: center;
     font-size: 24px;
     font-style: normal;
@@ -238,7 +238,7 @@ input[type="number"] {
     letter-spacing: 0.18px;
 }
 
-.answers{
+.answers {
     display: flex;
     width: 298px;
     height: 334px;
@@ -249,7 +249,7 @@ input[type="number"] {
     gap: 24px;
 }
 
-.answer{
+.answer {
     display: flex;
     padding: 16px 32px;
     flex-direction: column;
@@ -259,31 +259,31 @@ input[type="number"] {
     align-self: stretch;
 }
 
-.answerOne{
+.answerOne {
     border-radius: 64px 64px 0px 64px;
-    background: #FFF;
+    background: #fff;
 
     /* Drop shadow */
     box-shadow: -4px 4px 7px 0px rgba(0, 26, 82, 0.25);
 }
 
-.answerTwo{
+.answerTwo {
     border-radius: 64px 64px 64px 0px;
-    background: #CCD1DC;
+    background: #ccd1dc;
 
     /* Drop shadow */
     box-shadow: -4px 4px 7px 0px rgba(0, 26, 82, 0.25);
 }
 
-.skip{
+.skip {
     display: flex;
     align-items: center;
-    justify-content: center ;
+    justify-content: center;
     gap: 4px;
 }
 
-.skip a{
-    color: #FFF;
+.skip a {
+    color: #fff;
     text-align: center;
 
     /* underline/regular */
@@ -323,4 +323,7 @@ input[type="number"] {
 .radio-btn-wrapper {
     display: flex;
     flex-direction: row;
+}
+
+input[type="radio"] {
 }
