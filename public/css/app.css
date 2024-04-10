@@ -58,6 +58,7 @@ main {
     background-color: var(--bg-grey);
     /* padding: 16px 24px 0; */
     padding: 0 24px;
+    width: 100%;
 }
 
 p {
@@ -271,6 +272,7 @@ p.h1-mobile {
     align-items: flex-start;
     gap: -1px;
     align-self: stretch;
+    width: 100%;
 }
 
 .navButton {
@@ -299,7 +301,7 @@ p.h1-mobile {
 
 .footerWrapper {
     display: flex;
-    width: 100%;
+    width: 100vw;
     height: 425px;
     padding: 48px 24px;
     flex-direction: column;

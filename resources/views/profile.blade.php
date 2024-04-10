@@ -27,21 +27,23 @@
         </form>
         @endif
     </div>
+
     @if ($editable)
     <div class="informational-banner">
         <p class="h1-mobile">Du är anmäld!</p>
         <p>För att studenterna på Yrgo ska kunna lära känna er verksamhet så bra som möjligt, är det uppskattat om ni fyller i så mycket som möjligt i kommande steg. På så sätt kan de hitta rätt när de ska söka LIA-platser.</p>
     </div>
-    <!-- Display editable form fields if user is visiting their own profile -->
+
+    <div class="form-wrapper">
     <form method="POST" action="{{ route('profile.update', ['profile' => $profile->id]) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
         <!-- Profile image -->
-        <div class="input-wrapper">
-        <input type="file" id="profile_image" name="profile_image" accept="image/png, image/jpeg, image/jpg, image/svg">
-        <label for="profile_image" name="profile_image" id="profile_image" class="image-upload"></label>
-        <p id="upload-response">Ladda upp logga</p>
+        <div class="image-input-wrapper">
+            <input type="file" id="profile_image" name="profile_image" accept="image/png, image/jpeg, image/jpg, image/svg">
+            <label for="profile_image" name="profile_image" id="profile_image" class="image-upload"></label>
+                <p id="upload-response">Ladda upp logga</p>
         </div>
         
         <!-- Företagsnamn -->
@@ -57,16 +59,22 @@
         </div>
 
         <!-- Contact Email -->
-        <label for="contact_email">Contact Email:</label>
-        <input type="email" id="contact_email" name="contact_email" value="{{ old('contact_email', $profile->contact_email) }}">
+        <div class="input-group">
+            <label for="contact_email">Email</label>
+            <input type="email" id="contact_email" name="contact_email" value="{{ old('contact_email', $profile->contact_email) }}">
+        </div>
         
         <!-- Contact URL -->
-        <label for="contact_url">Contact URL:</label>
-        <input type="text" id="contact_url" name="contact_url" value="{{ old('contact_url', $profile->contact_url) }}">
+        <div class="input-group">
+            <label for="contact_url">Webbsida</label>
+            <input type="text" id="contact_url" name="contact_url" value="{{ old('contact_url', $profile->contact_url) }}">
+        </div>
 
         <!-- Contact LinkedIn -->
-        <label for="contact_LinkedIn">Contact LinkedIn:</label>
-        <input type="text" id="contact_LinkedIn" name="contact_LinkedIn" value="{{ old('contact_LinkedIn', $profile->contact_LinkedIn) }}">
+        <div class="input-group">
+            <label for="contact_LinkedIn">LinkedIn</label>
+            <input type="text" id="contact_LinkedIn" name="contact_LinkedIn" value="{{ old('contact_LinkedIn', $profile->contact_LinkedIn) }}">
+        </div>
 
         <!-- Has LIA -->
         <label for="has_LIA">Has LIA:</label>
@@ -86,21 +94,22 @@
         <label for="about">About:</label>
         <textarea id="about" name="about">{{ old('about', $profile->about) }}</textarea>
     
-        <!-- This Or That -->
-        @foreach ($questions as $question)
-        <div class="question">
-            <label>{{ $question->question }}</label>
-
-            <input type="radio" id="choice_one_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_one">
-            <label for="choice_one_{{ $question->id }}">{{ $question->option_one }}</label>
-
-            <input type="radio" id="choice_two_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_two">
-            <label for="choice_two_{{ $question->id }}">{{ $question->option_two }}</label>
-        </div>
-        @endforeach        
-
         <button type="submit">Spara din profil</button>
     </form>
+</div>
+
+<!-- This Or That -->
+@foreach ($questions as $question)
+<div class="question">
+    <label>{{ $question->question }}</label>
+
+    <input type="radio" id="choice_one_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_one">
+    <label for="choice_one_{{ $question->id }}">{{ $question->option_one }}</label>
+
+    <input type="radio" id="choice_two_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_two">
+    <label for="choice_two_{{ $question->id }}">{{ $question->option_two }}</label>
+</div>
+@endforeach        
 
     @foreach ($questions as $question)
     <div class="question">
