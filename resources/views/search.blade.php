@@ -23,52 +23,30 @@
         </a>
     </div>
 
+    <div class="header-wrapper">
+        <p class="h1-mobile">Sökresultat</p>
+        </div>
+
     <div class="card-wrapper">
-        @foreach ($profiles as $profile)
-        <a href="{{ route('profile.show', ['id' => $profile->id]) }}">
+        @foreach ($users as $user)
+        <a href="{{ route('profile.show', ['id' => $user->id]) }}">
         <div class="business-card">
-            @if($profile->profile_image)
+            @if($user->profile->profile_image)
             <div class="profile-img">
-                <img src="{{ asset('storage/profile_images/' . $profile->profile_image) }}">
+                <img src="{{ asset('storage/profile_images/' . $user->profile->profile_image) }}">
             </div>
             @endif
             <div class="text-wrapper">
-                <p class="company-name">{{ $profile->user->name }}</p>
+                <p class="company-name">{{ $user->name }}</p>
             </div>
         </div>
         </a>
         @endforeach
     </div>
-        <a href="{{ url('/') }}">
-        <img src="{{ asset('pictures/arrow.svg') }}">
-        </a>
     </div>
     </div>
-    <div class="header-wrapper">
-    <p class="h1-mobile">Sökresultat</p>
-    </div>
-    <div class="search-wrapper">
-        <form action="{{ route('search') }}" method="GET">
-            @csrf
-            <input type="text" name="search-input" placeholder="Sök på företag/namn/tag">
-        </form>
-    </div>
-<div class="card-wrapper">
-    @foreach ($users as $user)
-    <div class="business-card" data-href="{{ route('profile.show', ['id' => $user->id]) }}">
-        <div class="profile-img">
-            @if($user->profile->profile_image)
-            <img src="{{ asset('storage/profile_images/' . $user->profile->profile_image) }}">
-            @endif
-        </div>
-        <div class="text-wrapper">
-            <p class="company-name">{{ $user->name }}</p>
-            <a class="small inner-link" href="{{ $user->profile->contact_url }}">WEBBSIDA</a>
-            <a class="small inner-link" href="{{ $user->profile->contact_LinkedIn }}">LINKEDIN</a>
-        </div>
-    </div>
-    @endforeach
-</div>
+
+
 </main>
 @endsection
 
