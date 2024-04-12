@@ -17,7 +17,7 @@
 @section('content')
 <section class="welcomeHero">
     <img src="{{ asset('pictures/Hero.png') }}" alt="">
-    <button class="Anmalforetag btn btn-m" id="Anmalforetag">
+    <button class="Anmalforetag btn btn-m primary" id="Anmalforetag">
         <a href="/registration">ANMÄL FÖRETAG</a>
     </button>
 </section>
@@ -31,7 +31,7 @@
                 <br><br>
                 Vi tror att detta event kommer att vara en utmärkt möjlighet för både studenter och branschkollegor att utforska möjligheter till framtida samarbeten och praktikplatser. Så ta chansen att mingla, utbyta idéer och kanske till och med hitta er framtida praktikant.
             </p>
-            <button class="btn btn-m whoIsComingBtn">VEM KOMMER?</button>
+            <button class="btn btn-l secondary">VEM KOMMER?</button>
         </div>
         <div class="marquee">
             <div class="marquee-content scroll">
