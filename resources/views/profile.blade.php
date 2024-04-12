@@ -40,11 +40,9 @@
             </div>
         @elseif ($errors->any())
             <div class="errors">
-                <ul>
                     @foreach ($errors->all() as $error)
                         <p class="body-2">{{ $error }}</p>
                     @endforeach
-                </ul>
             </div>
         @endif
 
@@ -60,45 +58,47 @@
                     <p id="upload-response" class="body-1">Ladda upp logga</p>
             </div>
             
-            <!-- Företagsnamn -->
-            <div class="input-group">    
-                <label for="name" class="body-1">Företag</label>
-                <input id="name" type="text" name="name" value=" {{ $user->name }}" required autocomplete="name" autofocus>
-            </div>
-
-            <!-- Kontaktperson -->
-            <div class="input-group">
-                <label for="contact_name" class="body-1">Kontaktperson</label>
-                <input id="contact_name" type="text" name="contact_name" value=" {{ $user->contact_name }}" placeholder="{{ $user->contact_name }}" required autocomplete="contact_name" autofocus>
-            </div>
-
-            <!-- Contact Email -->
-            <div class="input-group">
-                <label for="contact_email" class="body-1">Email</label>
-                <input type="email" id="contact_email" name="contact_email" value="{{ $user->email }}">
-            </div>
-
-            <!-- Participants -->
-            <div class="participant-input">
-                <label for="participant_count" class="body-1">Antal personer som deltar</label>
-                <div class="input-wrapper">
-                    <div class="minus" id="minus"></div>
-                        <span id="participants">{{ $user->participant_count }}</span>
-                        <div class="plus" id="plus"></div>
-                    </div>
-                    <input id="participant_count" type="number" name="participant_count" value="{{ $user->participant_count > 1 ? $user->participant_count : 1 }}" required autocomplete="participant_count" autofocus>
+            <div class="group-1">
+                <!-- Företagsnamn -->
+                <div class="input-group">    
+                    <label for="name" class="body-1">Företag</label>
+                    <input id="name" type="text" name="name" value=" {{ $user->name }}" required autocomplete="name" autofocus>
                 </div>
-            
-            <!-- Contact URL -->
-            <div class="input-group">
-                <label for="contact_url" class="body-1">Webbsida</label>
-                <input type="text" id="contact_url" name="contact_url" value="{{ old('contact_url', $profile->contact_url) }}">
-            </div>
 
-            <!-- Contact LinkedIn -->
-            <div class="input-group">
-                <label for="contact_LinkedIn" class="body-1">LinkedIn</label>
-                <input type="text" id="contact_LinkedIn" name="contact_LinkedIn" value="{{ old('contact_LinkedIn', $profile->contact_LinkedIn) }}">
+                <!-- Kontaktperson -->
+                <div class="input-group">
+                    <label for="contact_name" class="body-1">Kontaktperson</label>
+                    <input id="contact_name" type="text" name="contact_name" value=" {{ $user->contact_name }}" placeholder="{{ $user->contact_name }}" required autocomplete="contact_name" autofocus>
+                </div>
+
+                <!-- Contact Email -->
+                <div class="input-group">
+                    <label for="contact_email" class="body-1">Email</label>
+                    <input type="email" id="contact_email" name="contact_email" value="{{ $user->email }}">
+                </div>
+
+                <!-- Participants -->
+                <div class="participant-input">
+                    <label for="participant_count" class="body-1">Antal personer som deltar</label>
+                    <div class="input-wrapper">
+                        <div class="minus" id="minus"></div>
+                            <span id="participants">{{ $user->participant_count }}</span>
+                            <div class="plus" id="plus"></div>
+                        </div>
+                        <input id="participant_count" type="number" name="participant_count" value="{{ $user->participant_count > 1 ? $user->participant_count : 1 }}" required autocomplete="participant_count" autofocus>
+                    </div>
+                
+                <!-- Contact URL -->
+                <div class="input-group">
+                    <label for="contact_url" class="body-1">Webbsida</label>
+                    <input type="text" id="contact_url" name="contact_url" value="{{ old('contact_url', $profile->contact_url) }}">
+                </div>
+
+                <!-- Contact LinkedIn -->
+                <div class="input-group">
+                    <label for="contact_LinkedIn" class="body-1">LinkedIn</label>
+                    <input type="text" id="contact_LinkedIn" name="contact_LinkedIn" value="{{ old('contact_LinkedIn', $profile->contact_LinkedIn) }}">
+                </div>
             </div>
 
             <!-- Has LIA -->
@@ -152,8 +152,8 @@
             <!-- About -->
             <div class="about-wrapper" style="position: relative;">
                 <label for="about" id="aboutlabel" class="h3-mobile-bold">Om oss</label>
-                <textarea id="about" name="about" maxlength="150">{{ old('about', $profile->about) }}</textarea>
-                <span id="counter">150 / 150</span>
+                <textarea id="about" name="about" maxlength="150" class="body-2">{{ old('about', $profile->about) }}</textarea>
+                <span id="counter" class="caption-regular">150 / 150</span>
             </div>
             <div class="button-wrapper">
             <button class="btn btn-m primary">Spara din profil</button>
@@ -256,7 +256,16 @@
                 $(".tab-content-wrapper > div").eq(index).css('display', 'flex');
             });
         });
-        </script>
+
+        $(document).ready(function() {
+            $('#about').on('keyup', function() {
+                var maxLength = 150;
+                var length = $(this).val().length;
+                var length = maxLength-length;
+                $('#counter').text(length + ' / ' + maxLength);
+            });
+        });
+    </script>
     <script src="{{ asset('js/profile.js') }}"></script>
     {{-- <script src="{{ asset('js/popup.js') }}"></script> --}}
     <script src="{{ asset('js/femsnabba.js') }}"></script>
