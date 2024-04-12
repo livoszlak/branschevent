@@ -217,6 +217,12 @@
     <div class="profile-img"><img src="{{ asset('storage/profile_images/' . $profile->profile_image) }}"></div>
     @endif
 
+    @foreach($profile->tags as $tag)
+    @if ($tag->isPicked)
+    <p>{{ $tag->tag_name }}</p>
+    @endif
+    @endforeach
+
     @foreach ($questions as $question)
     <div class="question">
         <p>{{ $question->question }}</p>
