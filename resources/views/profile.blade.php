@@ -69,7 +69,7 @@
             <!-- Kontaktperson -->
             <div class="input-group">
                 <label for="contact_name" class="body-1">Kontaktperson</label>
-                <input id="contact_name" type="text" name="contact_name" value=" {{ old('contact_name') }}" placeholder="{{ $user->contact_name }}" required autocomplete="contact_name" autofocus>
+                <input id="contact_name" type="text" name="contact_name" value=" {{ $user->name }}" placeholder="{{ $user->contact_name }}" required autocomplete="contact_name" autofocus>
             </div>
 
             <!-- Contact Email -->
