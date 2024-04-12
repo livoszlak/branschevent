@@ -170,11 +170,28 @@
     </div>
 </div>
 
+<div id="popup-last-overlay" class="popup-last-overlay" style="display: none;">
+    <div class="popup-content">
+        <div  class="question">
+            <label><p>Tack för att ni tog er tid till att svara!</p></label>
+            <div class="answers">
+                <div class="answer answerOne">
+                    <img src="{{asset('pictures/icons/checkbox.svg')}}" alt="">
+                    <label for="">Dina svar är nu inskickade.</label>
+                </div>
+            </div>
+            <div class="skip">
+                <button id="submit-button" class="submit-button" class=""><p>STÄNG</p></button>   
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Hidden popup container for questions -->
 @foreach ($questions as $index => $question)
 <div id="question-popup-{{ $index }}" class="popup-overlay" style="display: none;">
     <div class="popup-content">
-        <div id="question-{{ $index }}" class="question">
+        <div id="question-{{ $index }}" class="question" data-question-id="{{ $question->id }}">
             <div class="cross">
                 <img id="exit" class="crossIMG" src="{{asset('pictures/cross.svg')}}" alt="">
             </div>
@@ -183,26 +200,25 @@
             
             <div class="answers">
                 <div class="answer answerOne">
-                    <img src="{{asset('pictures/icons/People.svg')}}" alt="">
+                    <div class="answerIMG imgOne_{{ $index }}"></div>
                     <label for="choice_one_{{ $question->id }}">{{ $question->option_one }}</label>
                     <input type="radio" id="choice_one_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_one">
                 </div>
                 <div class="answer answerTwo">
-                    <img src="{{asset('pictures/icons/People.svg')}}" alt="">
+                    <div class="answerIMG imgTwo_{{ $index }}"></div>
                     <input type="radio" id="choice_two_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_two">
                     <label for="choice_two_{{ $question->id }}">{{ $question->option_two }}</label>
                 </div>
             </div>
             <div class="skip">
                 <a href="#" class="next-question">Next Question</a>
+                <button id="submit-button" style="display: none;">Submit Answers</button>   
             </div>
         </div>
     </div>
 </div>
 @endforeach        
 
-<!-- Submit button -->
-<button id="submit-button" style="display: none;">Submit Answers</button>
 
     @foreach ($questions as $question)
     <div class="question">
