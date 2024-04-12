@@ -6,6 +6,13 @@ main {
     gap: 64px;
 }
 
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .profile-img > img {
     border-radius: 100px 100px 0px 100px;
     height: 167px;
@@ -379,4 +386,112 @@ span#counter {
     width: 100%;
     align-items: center;
     justify-content: center;
+}
+
+/* TAG MENU */
+
+.tag-select-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    gap: 16px;
+}
+
+.tab-container {
+    margin: 0 !important;
+    padding: 0px;
+    height: 100%;
+}
+
+.tab-nav-wrapper {
+    width: 360px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tab-wrapper > a {
+    text-decoration: none;
+    text-transform: none;
+}
+
+.tab-wrapper > svg {
+    height: 33px;
+    width: 33px;
+}
+
+/* .current-tab {
+    color: #000 !important;
+} */
+
+.tab-wrapper.current-tab {
+    border-bottom: 2px solid #000;
+}
+
+.tab1-c,
+.tab2-c,
+.tab3-c {
+    display: none;
+}
+
+.tab-content-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 11px 19px;
+    align-self: stretch;
+    flex-wrap: wrap;
+    transition: all 0.3s ease-in-out;
+}
+
+.tab-wrapper {
+    display: flex;
+    padding: 8px 4px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    border-bottom: 2px solid #bdbdbd;
+    transition: border-bottom-color 0.3s ease-in-out;
+}
+
+.tab-wrapper:hover {
+    border-bottom: 2px solid #000;
+}
+
+.tab-nav-wrapper > a {
+    padding: 15px 0 8px 0;
+    margin: 0;
+    text-decoration: none;
+    color: #000;
+}
+
+.tab-nav-wrapper {
+    /* border-bottom: 2px solid #bdbdbd; */
+}
+
+.two:hover ~ hr {
+    margin-left: 20%;
+    background: #006097;
+}
+
+.three:hover ~ hr {
+    margin-left: 40%;
+    background: #f18b2d;
+}
+
+.tab-nav-wrapper > ul hr {
+    height: 5px;
+    width: 20%;
+    margin: 0;
+    background: #00a0df;
+    border: none;
+    transition: 0.3s ease-in-out;
+    float: left;
 }

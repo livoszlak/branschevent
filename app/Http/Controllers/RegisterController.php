@@ -67,6 +67,23 @@ class RegisterController extends Controller
             ]);
         }
 
+        $softwareTags = [
+            'Adobe Photoshop',
+            'Adobe InDesign',
+            'Adobe Illustrator',
+            'Figma',
+            'Adobe After Effects',
+            'Canva',
+            'Webflow',
+            'Maze',
+            'VS Code',
+            'Sublime Text',
+            'Atom',
+            'Webstorm',
+            'Eclipse',
+            'Rider'
+        ];
+
         $webDeveloperTags = [
             'HTML',
             'CSS',
@@ -74,24 +91,41 @@ class RegisterController extends Controller
             'PHP',
             'React',
             'Node.js',
-            'Vue,js',
-            'Front-end',
-            'Back-end',
+            'Vue.js',
+            'Frontend',
+            'Backend',
             'Laravel',
-            // Lägg till mer sen
+            'Angular',
+            'Bootstrap',
+            'Tailwind',
+            'C#',
+            'ASP.NET',
+            'Agil utveckling',
+            'Wordpress',
+            'Drupal',
+            'Python',
+            'Ruby',
+            'Debugging',
+            'SEO'
         ];
 
         $digitalDesignerTags = [
-            'UI Design',
-            'UX Design',
-            'Graphic Design',
-            'Adobe Photoshop',
-            'Front-end',
-            'Figma',
-            'Logo-design',
-            'Fonts',
-
-            // Lägg till mer sen
+            'UI',
+            'UX',
+            'Grafisk design',
+            'Motion graphics',
+            'Illustration',
+            'Typografi',
+            'Visuell identitet',
+            'Branding',
+            'Prototyping',
+            'Wireframing',
+            'Designsystem',
+            'Användartesting',
+            'Responsiv design',
+            'Copywriting',
+            'Användarresearch',
+            'Accessible design'
         ];
 
         foreach ($webDeveloperTags as $tag) {
@@ -107,6 +141,15 @@ class RegisterController extends Controller
             Tag::create([
                 'profile_id' => $profile->id,
                 'category_name' => 'Digital Designer',
+                'tag_name' => $tag,
+                'isPicked' => false,
+            ]);
+        }
+
+        foreach ($softwareTags as $tag) {
+            Tag::create([
+                'profile_id' => $profile->id,
+                'category_name' => 'Software',
                 'tag_name' => $tag,
                 'isPicked' => false,
             ]);

@@ -69,7 +69,7 @@
             <!-- Kontaktperson -->
             <div class="input-group">
                 <label for="contact_name" class="body-1">Kontaktperson</label>
-                <input id="contact_name" type="text" name="contact_name" value=" {{ $user->name }}" placeholder="{{ $user->contact_name }}" required autocomplete="contact_name" autofocus>
+                <input id="contact_name" type="text" name="contact_name" value=" {{ $user->contact_name }}" placeholder="{{ $user->contact_name }}" required autocomplete="contact_name" autofocus>
             </div>
 
             <!-- Contact Email -->
@@ -115,14 +115,37 @@
             </div>
             
             {{-- Tags system later --}}
-            <h4>Tags:</h4>
-            <ul>
-                @foreach ($profile->tags as $tag)
-                    <li>
+            @foreach($profile->tags as $tag)
+            @if ($tag->isPicked)
+            <p>{{ $tag->tag_name }}</p>
+            @endif
+            @endforeach
+
+            <div class="tag-select-wrapper">
+                <div class="tab-nav-wrapper">
+                    <div class="tab-wrapper one"><img src="{{ asset('pictures/icons/software.svg') }}"><a href="#" class="body-2">Software</a></div>
+                    <div class="tab-wrapper two"><img src="{{ asset('pictures/icons/design.svg') }}"><a href="#" class="body-2">Design</a></div>
+                    <div class="tab-wrapper three"><img src="{{ asset('pictures/icons/webdev.svg') }}"><a href="#" class="body-2">Web dev</a></div>
+                </div>
+                
+                <div class="tab-content-wrapper">
+                    <div class="tab1-c">
+                        @foreach ($softwareTags as $tag)
+                            <a href="#" class="tag-toggle" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
+                        @endforeach
+                    </div>
+                    <div class="tab2-c">
+                        @foreach ($designTags as $tag)
                         <a href="#" class="tag-toggle" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
-                    </li>
-                @endforeach
-            </ul>
+                        @endforeach
+                    </div>
+                    <div class="tab3-c">
+                        @foreach ($developerTags as $tag)
+                        <a href="#" class="tag-toggle" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
 
             <!-- About -->
             <div class="about-wrapper" style="position: relative;">
@@ -210,6 +233,19 @@
 @endsection
 
 @section('scripts')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $(".tab-nav-wrapper .tab-wrapper").click(function (event) {
+        event.preventDefault();
+        $(".current-tab").removeClass("current-tab");
+        $(this).addClass("current-tab");
+        $(".tab-content-wrapper > div").hide();
+        var index = $(this).index();
+        $(".tab-content-wrapper > div").eq(index).show();
+    });
+});
+    </script>
     <script src="{{ asset('js/profile.js') }}"></script>
     {{-- <script src="{{ asset('js/popup.js') }}"></script> --}}
     <script src="{{ asset('js/femsnabba.js') }}"></script>
