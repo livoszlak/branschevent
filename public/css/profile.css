@@ -3,6 +3,10 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 64px;
+}
+
+.form-wrapper {
 }
 
 .profile-img > img {
@@ -398,3 +402,14 @@ input[type="number"] {
     background-image: url('../pictures/icons/arrowup.svg');
     height: 28px;
 }
+
+.radio-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.radio-btn-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+

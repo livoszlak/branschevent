@@ -45,7 +45,8 @@
     </div>
 <div class="card-wrapper">
     @foreach ($users as $user)
-    <div class="business-card" data-href="{{ route('profile.show', ['id' => $user->id]) }}">
+    <a href="{{ route('profile.show', ['id' => $user->id]) }}">
+    <div class="business-card">
         @if($user->profile->profile_image)
         <div class="profile-img">
             <img src="{{ asset('storage/profile_images/' . $user->profile->profile_image) }}">
@@ -53,10 +54,9 @@
         @endif
         <div class="text-wrapper">
             <p class="company-name">{{ $user->name }}</p>
-            <a class="small inner-link" href="{{ $user->profile->contact_url }}">WEBBSIDA</a>
-            <a class="small inner-link" href="{{ $user->profile->contact_LinkedIn }}">LINKEDIN</a>
         </div>
     </div>
+    </a>
     @endforeach
 </div>
 </main>
@@ -65,4 +65,8 @@
 @section('footer')
     {{-- specific footer content --}}
     @include('layouts.footer')
+@endsection
+
+@section('scripts')
+
 @endsection
