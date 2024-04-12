@@ -50,11 +50,11 @@ class RegisterController extends Controller
         ]);
 
         $questions = [
-            ['question' => 'Karaoke eller ölhak på AW?', 'option_one' => 'Karaoke', 'option_two' => 'Ölhak'],
-            ['question' => 'Om vårt företag var ett djur skulle vi vara...', 'option_one' => 'Hund', 'option_two' => 'Katt'],
-            ['question' => 'Soluppgång eller solnedgång?', 'option_one' => 'Soluppgång', 'option_two' => 'Solnedgång'],
-            ['question' => 'På kickoff-resa åker vi till...', 'option_one' => 'Köpenhamn', 'option_two' => 'London'],
-            ['question' => 'Vår arbetsmiljö är...', 'option_one' => 'Lugn och avslappnad', 'option_two' => 'Intensiv och fartfylld'],
+            ['question' => 'Hänger kollegorna utanför kontoret?', 'option_one' => ' Ja, många av oss har blivit goda vänner och ses ofta utanför arbetsstid.', 'option_two' => 'Ibland, men flera har hektiska liv och behöver sin space på fritiden.'],
+            ['question' => 'Vart väljer kollegorna att äta lunch tillsammans?', 'option_one' => 'Det mysiga lilla kaféet med hemlagad mat ', 'option_two' => 'Den trendiga food truck-gatan med internationell street food'],
+            ['question' => 'Vad gör ni helst på AW:n?', 'option_one' => 'Karaokekväll!', 'option_two' => 'Ölhak på långgatorna!'],
+            ['question' => 'Om ert företag var ett djur, vilket skulle det vara?', 'option_one' => 'En lojal och trofast St Bernardshund', 'option_two' => 'En nyfiken och självständig katt'],
+            ['question' => 'Tre ord som beskriver er som företag?', 'option_one' => 'Lekfull, innovativ och passionerad', 'option_two' => 'Ambitiös, stöttande och professionell.'],
         ];
 
         foreach ($questions as $question) {

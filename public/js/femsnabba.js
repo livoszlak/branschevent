@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var currentQuestionIndex = 0;
     var questionPopups = document.querySelectorAll('.popup-overlay');
 
+    // Funktion för att visa frågor.
     function showQuestion(index) {
         questionPopups.forEach(function(popup, i) {
             if (i === index) {
@@ -9,6 +10,47 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 popup.style.display = 'none';
             }
+        });
+    }
+
+    // Funktion för att submitta svar.
+    function submitAnswers() {
+        
+        var chosenOptions = [];
+    
+        questionPopups.forEach(function(popup) {
+            var questionId = popup.querySelector('.question').getAttribute('data-question-id');
+            console.log(questionId);
+            var selectedOption = popup.querySelector('input[type="radio"]:checked');
+    
+            if (selectedOption) {
+                chosenOptions.push({
+                    id: questionId,
+                    chosen_option: selectedOption.value
+                });
+            }
+        });
+        // Send AJAX request to submit chosen options
+        fetch('/submit-answers', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            },
+            body: JSON.stringify({ 
+                chosen_options: chosenOptions,
+                _method: 'PUT'
+             })
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Chosen options updated successfully');
+            } else {
+                console.error('Failed to update chosen options');
+            }
+        })
+        .catch(error => {
+            console.error('Error updating chosen options:', error);
         });
     }
 
@@ -27,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Göm popup
         document.getElementById('question-popup-' + currentQuestionIndex).style.display = 'none';
+        currentQuestionIndex = 0;
     });
 
     // Event listener för "Nästa fråga"-knappen
@@ -37,8 +80,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (currentQuestionIndex < questionPopups.length) {
                 showQuestion(currentQuestionIndex);
             } else {
-                // Visa "Skicka svar"-knappen när alla frågor har besvarats
-                document.getElementById('submit-button').style.display = 'block';
+                document.getElementById('question-popup-' + (currentQuestionIndex - 1)).style.display = 'none';
+                if (currentQuestionIndex === questionPopups.length) {
+                    document.getElementById('popup-last-overlay').style.display = 'block';
+                }
             }
         });
     });
@@ -46,6 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event listener för "Skicka svar"-knappen
     document.getElementById('submit-button').addEventListener('click', function(event) {
         event.preventDefault();
+        document.getElementById('popup-last-overlay').style.display = 'none';
         submitAnswers();
+        currentQuestionIndex = 0;
     });
 });

@@ -12,9 +12,9 @@ class SearchController extends Controller
         $searchInput = $request->input('search-input');
 
         $users = User::whereHas('profile', function($query) use ($searchInput) {
-            $query->where('name', 'like', "%$searchInput%"); // Assuming 'name' is the column for user names in the profiles table
+            $query->where('name', 'like', "%$searchInput%"); 
         })->orWhereHas('profile.tags', function($query) use ($searchInput) {
-            $query->where('tag_name', 'like', "%$searchInput%"); // Assuming 'tag_name' is the column for tag names
+            $query->where('tag_name', 'like', "%$searchInput%");
         })->get();
 
         return view('search', compact('users'));

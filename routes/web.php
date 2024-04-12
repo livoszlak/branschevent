@@ -10,6 +10,8 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ThisorthatController;
+use Illuminate\Support\Facades\Log;
 
 // Basic landing page route
 Route::get('/', [WelcomeController::class, 'index']);
@@ -37,6 +39,8 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 // Route to show a user profile
 Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
+
+Route::put('/submit-answers', [ThisorthatController::class, 'store'])->name('store');
 
 // Route for all CRUD operations on user profile for auth users
 Route::resource('/profile', ProfileController::class, ['parameters' => ['profile' => 'profile']])->except(['show']);
