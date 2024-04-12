@@ -56,15 +56,15 @@ class ProfileController extends Controller
 
         $softwareTags = $profile->tags->filter(function ($tag) {
             return $tag->category_name == 'Software';
-        });
+        })->sortBy('tag_name');
 
         $developerTags = $profile->tags->filter(function ($tag) {
             return $tag->category_name == 'Web Developer';
-        });
+        })->sortBy('tag_name');
 
         $designTags = $profile->tags->filter(function ($tag) {
             return $tag->category_name == 'Digital Designer';
-        });
+        })->sortBy('tag_name');
 
         return view('profile', ['profile' => $profile, 'editable' => $editable, 'questions' => $questions, 'user' => $user, 'softwareTags' => $softwareTags, 'developerTags' => $developerTags, 'designTags' => $designTags]);
     }

@@ -114,7 +114,7 @@
                     </div>
             </div>
             
-            {{-- Tags system later --}}
+            {{-- Tags --}}
             @foreach($profile->tags as $tag)
             @if ($tag->isPicked)
             <p>{{ $tag->tag_name }}</p>
@@ -122,6 +122,8 @@
             @endforeach
 
             <div class="tag-select-wrapper">
+                <p class="h2-mobile-bold">Vad vi söker</p>
+                <p class="body-2">Välj upp till 10 tags</p>
                 <div class="tab-nav-wrapper">
                     <div class="tab-wrapper one"><img src="{{ asset('pictures/icons/software.svg') }}"><a href="#" class="body-2">Software</a></div>
                     <div class="tab-wrapper two"><img src="{{ asset('pictures/icons/design.svg') }}"><a href="#" class="body-2">Design</a></div>
@@ -131,17 +133,17 @@
                 <div class="tab-content-wrapper">
                     <div class="tab1-c">
                         @foreach ($softwareTags as $tag)
-                            <a href="#" class="tag-toggle" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
+                            <a href="#" class="tag-toggle tag body-2" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
                         @endforeach
                     </div>
                     <div class="tab2-c">
                         @foreach ($designTags as $tag)
-                        <a href="#" class="tag-toggle" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
+                        <a href="#" class="tag-toggle tag body-2" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
                         @endforeach
                     </div>
                     <div class="tab3-c">
                         @foreach ($developerTags as $tag)
-                        <a href="#" class="tag-toggle" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
+                        <a href="#" class="tag-toggle tag body-2" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
                         @endforeach
                     </div>
                 </div>
@@ -233,6 +235,12 @@
     <div class="profile-img"><img src="{{ asset('storage/profile_images/' . $profile->profile_image) }}"></div>
     @endif
 
+    @foreach($profile->tags as $tag)
+    @if ($tag->isPicked)
+    <p>{{ $tag->tag_name }}</p>
+    @endif
+    @endforeach
+
     @foreach ($questions as $question)
     <div class="question">
         <p>{{ $question->question }}</p>
@@ -250,18 +258,21 @@
 
 @section('scripts')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-    $(".tab-nav-wrapper .tab-wrapper").click(function (event) {
-        event.preventDefault();
-        $(".current-tab").removeClass("current-tab");
-        $(this).addClass("current-tab");
-        $(".tab-content-wrapper > div").hide();
-        var index = $(this).index();
-        $(".tab-content-wrapper > div").eq(index).show();
-    });
-});
-    </script>
+    <script>
+        $(document).ready(function() {
+            $(".tab-content-wrapper > div").first().css('display', 'flex');
+            $(".tab-wrapper:first").addClass('current-tab');
+
+            $(".tab-nav-wrapper .tab-wrapper").click(function (event) {
+                event.preventDefault();
+                $(".current-tab").removeClass("current-tab");
+                $(this).addClass("current-tab");
+                $(".tab-content-wrapper > div").hide();
+                var index = $(this).index();
+                $(".tab-content-wrapper > div").eq(index).css('display', 'flex');
+            });
+        });
+        </script>
     <script src="{{ asset('js/profile.js') }}"></script>
     {{-- <script src="{{ asset('js/popup.js') }}"></script> --}}
     <script src="{{ asset('js/femsnabba.js') }}"></script>
