@@ -54,7 +54,19 @@ class ProfileController extends Controller
 
         $questions = $profile->thisOrThat;
 
-        return view('profile', ['profile' => $profile, 'editable' => $editable, 'questions' => $questions, 'user' => $user]);
+        $softwareTags = $profile->tags->filter(function ($tag) {
+            return $tag->category_name == 'Software';
+        });
+
+        $developerTags = $profile->tags->filter(function ($tag) {
+            return $tag->category_name == 'Web Developer';
+        });
+
+        $designTags = $profile->tags->filter(function ($tag) {
+            return $tag->category_name == 'Digital Designer';
+        });
+
+        return view('profile', ['profile' => $profile, 'editable' => $editable, 'questions' => $questions, 'user' => $user, 'softwareTags' => $softwareTags, 'developerTags' => $developerTags, 'designTags' => $designTags]);
     }
 
 
