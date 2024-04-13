@@ -15,11 +15,11 @@
 @endsection
 
 @section('content')
+<button class="Anmalforetag btn btn-m primary" id="Anmalforetag">
+    <a href="/registration">ANMÄL FÖRETAG</a>
+</button>
 <section class="welcomeHero">
     <img src="{{ asset('pictures/Hero.png') }}" alt="">
-    <button class="Anmalforetag btn btn-m primary" id="Anmalforetag">
-        <a href="/registration">ANMÄL FÖRETAG</a>
-    </button>
 </section>
 <main>
     <div class="landingpageWrapper">

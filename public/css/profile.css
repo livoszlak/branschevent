@@ -432,6 +432,7 @@ input[type="number"] {
 .imgTwo_4{
     background-image: url('../pictures/icons/arrowup.svg');
     height: 28px;
+}
   
 
 .LIA-container {
@@ -503,8 +504,8 @@ input[type="radio"]:checked::before {
     width: 100%;
 }
 
-#aboutlabelwrapper {
-}
+/* #aboutlabelwrapper {
+} */
 
 textarea#about {
     display: flex;
@@ -621,9 +622,9 @@ span#counter {
     color: #000;
 }
 
-.tab-nav-wrapper {
-    /* border-bottom: 2px solid #bdbdbd; */
-}
+/* .tab-nav-wrapper {
+    border-bottom: 2px solid #bdbdbd;
+} */
 
 .two:hover ~ hr {
     margin-left: 20%;
@@ -662,8 +663,6 @@ a.tag {
     transform: translateY(0);
 }
 
-
 .max-width {
     max-width: 560px;
 }
-

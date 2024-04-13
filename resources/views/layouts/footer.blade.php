@@ -1,6 +1,6 @@
 <div class="footerWrapper">
         <div class="footerPageLinks inter">
-            <a href="#">SITEMAP</a>
+            <p class="">SITEMAP</p>
             <a href="/">HEM</a>
             <a href="/attendees">VEM KOMMER?</a>
             <a href="{{ Auth::user() ?  route('profile.show', ['id' => Auth::user()->id]) : url('/login') }}">DIN ANMÄLAN</a>
