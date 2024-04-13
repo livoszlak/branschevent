@@ -74,9 +74,9 @@
             <input id="participant_count" type="number" name="participant_count" value="1" required autocomplete="participant_count" autofocus>
         
             <div class="input-group">
-                <label for="contact_email" class="body-1">Email</label>
+                <label for="email" class="body-1">Email</label>
                 <div class="input-relative">
-                <input type="email" id="contact_email" name="contact_email" placeholder="Mejl Yrgos studenter kan nå er på">
+                <input type="email" id="email" name="email" placeholder="Mejl Yrgos studenter kan nå er på">
                 <img src="{{ asset('pictures/icons/email.svg') }}" class="input-icon">
                 </div>
             </div>
@@ -84,8 +84,8 @@
             <div class="input-group">
                 <label for="password" class="body-1">Lösenord</label>
                 <div class="input-relative">
-                <input type="email" id="password" name="password" placeholder="Minst 8 tecken">
-                <img src="{{ asset('pictures/icons/email.svg') }}" class="input-icon">
+                <input type="password" id="password" name="password" placeholder="Minst 8 tecken">
+                <img src="{{ asset('pictures/icons/security.svg') }}" class="input-icon">
                 </div>
             </div>
             </div>
