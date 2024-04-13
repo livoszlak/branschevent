@@ -1,9 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
 .mainRegistration {
+    padding-top: 24px;
     display: flex;
-    width: 100%;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 64px;
 }
 
 .participant-input {
@@ -79,11 +83,28 @@ input[type="number"] {
 .input-relative > input[type="email"],
 .input-relative > input[type="text"] {
     width: 100%;
-    height: calc(40px - 8px);
+    height: 42px;
     padding: 8px 16px;
     background-color: var(--input-bg-inactive);
     border: none;
     outline: none;
+}
+
+.input-relative > input[type="email"]:hover,
+.input-relative > input[type="text"]:hover {
+    background-color: var(--input-bg-hover);
+}
+
+.input-relative > input[type="email"]:active,
+.input-relative > input[type="text"]:active {
+    background-color: var(--input-bg-activated);
+    border: 1px solid var(--input-stroke);
+}
+
+.input-relative > input[type="email"]:focus,
+.input-relative > input[type="text"]:focus {
+    background-color: var(--input-bg-focused);
+    border: 1px solid var(--input-stroke);
 }
 
 .input-icon {
@@ -91,4 +112,18 @@ input[type="number"] {
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.form-group-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.max-width {
+    max-width: 560px;
 }

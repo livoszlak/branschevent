@@ -16,12 +16,10 @@
 
 @section('content')
 <main class="loginMain">
-    <div class="loginBanner">
-        <div class="informational-banner">
+        <div class="informational-banner" id="info-login">
             <p class="h2-mobile-bold">Logga in</p>
             <p class="body-2">Här kan du logga in på din profil för att ändra eller lägga till uppgifter</p>
         </div>
-    </div>
 
         @if ($errors->any())
         <div class="errors" id="login-error">
