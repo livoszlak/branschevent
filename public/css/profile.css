@@ -403,6 +403,7 @@ input[type="number"] {
 .imgTwo_4{
     background-image: url('../pictures/icons/arrowup.svg');
     height: 28px;
+}
   
 
 .LIA-container {
@@ -476,8 +477,8 @@ input[type="radio"]:checked::before {
     width: 100%;
 }
 
-#aboutlabelwrapper {
-}
+/* #aboutlabelwrapper {
+} */
 
 textarea#about {
     display: flex;
@@ -632,8 +633,6 @@ a.tag {
     transform: translateY(0);
 }
 
-
 .max-width {
     max-width: 560px;
 }
-

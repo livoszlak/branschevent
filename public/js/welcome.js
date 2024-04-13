@@ -7,11 +7,12 @@ window.addEventListener("scroll", function () {
     var scrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
 
-    var threshold = 0.5;
+    var threshold = 2000;
 
     if (scrollPosition > threshold) {
-        button.style.position = "fixed";
-    } else {
         button.style.position = "absolute";
+        button.style = "bottom: 200";
+    } else {
+        button.style.position = "fixed";
     }
 });

@@ -17,9 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(response => response.json())
             .then(data => {
-                // Handle response
                 if (data.success) {
-                    // Toggle tag appearance or update UI as needed
                     this.classList.toggle('tag-picked');
                 }
             })

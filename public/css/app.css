@@ -592,6 +592,12 @@ section.header {
     font-size: 10px;
 }
 
+.footerPageLinks p{
+    color: black;
+    text-underline-offset: 3px;
+    font-size: 10px;
+}
+
 @media screen and (min-width: 768px) {
     .informational-banner#info-login {
         margin: 48px 0 0;
