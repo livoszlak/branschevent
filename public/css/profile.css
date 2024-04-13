@@ -77,21 +77,6 @@ label:focus-within {
     font-family: var(--main-font-family);
 }
 
-/* .input-group > input[type="text"],
-.input-relative > .input-group > input[type="email"] {
-    height: 40px;
-    padding: 8px 16px;
-    max-width: 342px !important;
-    justify-content: space-between;
-    align-items: center;
-    align-self: stretch;
-    background-color: var(--input-bg-inactive);
-    border: none;
-    outline: none;
-    background-position: 330px 8px;
-    background-repeat: no-repeat;
-} */
-
 .input-relative {
     display: flex;
     position: relative;
@@ -108,32 +93,29 @@ label:focus-within {
     outline: none;
 }
 
+.input-relative > input[type="email"]:hover,
+.input-relative > input[type="text"]:hover {
+    background-color: var(--input-bg-hover);
+}
+
+.input-relative > input[type="email"]:active,
+.input-relative > input[type="text"]:active {
+    background-color: var(--input-bg-activated);
+    border: 1px solid var(--input-stroke);
+}
+
+.input-relative > input[type="email"]:focus,
+.input-relative > input[type="text"]:focus {
+    background-color: var(--input-bg-focused);
+    border: 1px solid var(--input-stroke);
+}
+
 .input-icon {
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
 }
-
-/* input[name="name"] {
-    background-image: url("../pictures/icons/suitcase.svg");
-}
-
-input[name="contact_name"] {
-    background-image: url("../pictures/icons/face.svg");
-}
-
-input[name="contact_email"] {
-    background-image: url("../pictures/icons/email.svg");
-}
-
-input[name="contact_url"] {
-    background-image: url("../pictures/icons/link.svg");
-}
-
-input[name="contact_LinkedIn"] {
-    background-image: url("../pictures/icons/linkedin.svg");
-} */
 
 .participant-input {
     display: flex;
@@ -439,7 +421,8 @@ input[type="number"] {
     flex-direction: column;
     gap: 32px;
     align-self: stretch;
-    margin: 64px 0;
+    margin: 0 auto;
+    padding: 64px 0;
 }
 
 .LIA-txt-wrapper {
@@ -492,7 +475,8 @@ input[type="radio"]:checked::before {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-    margin: 64px 0;
+    margin: 0 auto;
+    padding: 64px 0;
     max-width: 560px;
 }
 
@@ -521,7 +505,7 @@ textarea#about {
 
 span#counter {
     position: absolute;
-    bottom: 16px;
+    bottom: 80px;
     right: 16px;
     z-index: 4;
     padding: 5px;

@@ -63,6 +63,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    /**
+     * Participant count function
+     */
     var participantCount = document.getElementById("participant_count");
     var participants = document.getElementById("participants");
 

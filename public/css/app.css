@@ -20,7 +20,7 @@
     --input-bg-focused: #f2f2f2;
     --input-bg-error: #f2f2f2;
     --input-stroke: #334875;
-    --input-hover: #808ca8;
+    --input-bg-hover: #808ca8;
     --input-text: #747474;
 
     --nav-link-bg: #f0f3f4;
@@ -130,7 +130,7 @@ span {
 }
 
 .button-large {
-    font-weight: 400;
+    font-weight: 300;
     line-height: 16px;
     letter-spacing: 1.25px;
     text-transform: uppercase;
@@ -138,7 +138,7 @@ span {
 }
 
 .button-medium {
-    font-weight: 400;
+    font-weight: 300;
     line-height: 16px;
     letter-spacing: 1.25px;
     text-transform: uppercase;
@@ -287,6 +287,7 @@ p.h3-bold {
     text-decoration: none;
     box-shadow: var(--box-shadow);
     font-family: var(--main-font-family);
+    width: fit-content;
 }
 
 .btn-s {
@@ -298,10 +299,6 @@ p.h3-bold {
 .btn-l {
     height: 48px;
     padding: 24px 24px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: 1.25px;
 }
 
 .btn-l {
@@ -364,6 +361,7 @@ p.h3-bold {
 .informational-banner {
     display: flex;
     width: 100%;
+    max-width: 1136px;
     padding: 24px;
     gap: 24px;
     flex-direction: column;
@@ -376,10 +374,27 @@ input {
         background-color: var(--input-bg-activated);
     }
 
-    &:focus-within {
+    &:focus {
         border: 1px solid var(--input-stroke);
         background-color: var(--in);
     }
+}
+
+.success,
+.errors {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.errors {
+    color: var(--btn-red);
+    gap: 8px;
+}
+
+.success {
+    gap: 12px;
 }
 
 /* ----------------------------- HEADER ---------------------------- */
@@ -575,4 +590,15 @@ section.header {
     color: black;
     text-underline-offset: 3px;
     font-size: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .informational-banner#info-login {
+        margin: 48px 0 0;
+    }
+}
+@media screen and (min-width: 1137px) {
+    .informational-banner {
+        border-radius: 30px 30px 0px 30px;
+    }
 }

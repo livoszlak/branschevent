@@ -15,22 +15,52 @@
 @endsection
 
 @section('content')
-<main class="mainRegistration">
-    <div class="formRegistrationWrapper">
-        <div class="promptForInfo">
-            <h2>Kul att du hör av dig!</h2>
-            <p>Här anger du grundläggande information för att kunna anmäla dig till evenemanget. Det är möjligt att lägga till mer information i nästa steg.</p>
-        </div>
+
+<div class="arrow-wrapper" style="padding: 16px 24px">
+    <a href="{{ url()->previous() }}">
+        <img src="{{ asset('pictures/arrow.svg') }}">
+    </a>
+</div>
+<div class="informational-banner">
+    <p class="h2-mobile-bold">Kul att du vill komma</p>
+    <p class="body-2">Här anger du grundläggande information för att kunna anmäla dig till evenemanget. Det är möjligt att lägga till mer information i nästa steg.</p>
+    <p class="body-2">Har du redan anmält ditt företag?</p>
+    <a href="{{ route('login') }}"><button class="btn btn-m secondary button-large">Logga in</button></a>
+</div>
+
+<main class="mainRegistration">    
+    @if (session('message'))
+    <div class="success">
+        <img src="{{ asset('pictures/icons/People.svg') }}">
+        <p class="body-1">{{ session('message') }}</p>
+    </div>
+    @elseif ($errors->any())
+    <div class="errors">
+        <img src="{{ asset('pictures/icons/warning.svg') }}">
+        @foreach ($errors->all() as $error)
+        <p class="body-2">{{ $error }}</p>
+        @endforeach
+    </div>
+    @endif
+    
+    <div class="form-wrapper">
         <form method="POST" action="{{ route('register') }}">
             @csrf
-            <div class="form group">    
-                <label for="name">Företag</label>
-                <input id="name" type="text" name="name" value=" {{ old('name') }}" required autocomplete="name" autofocus>
+            <div class="form-group-1 max-width">
+            <div class="input-group">    
+                <label for="name" class="body-1">Företag</label>
+                <div class="input-relative">
+                <input id="name" type="text" name="name" placeholder="Namn på företaget">
+                <img src="{{ asset('pictures/icons/suitcase.svg') }}" class="input-icon">
+            </div>
             </div>
 
-            <div class="form group">
-                <label for="contact_name">Kontaktperson</label>
-                <input id="contact_name" type="text" name="contact_name" value=" {{ old('contact_name') }}" required autocomplete="contact_name" autofocus>
+            <div class="input-group">
+                <label for="contact_name" class="body-1">Kontaktperson</label>
+                <div class="input-relative">
+                <input id="contact_name" type="text" name="contact_name" placeholder="Kontaktperson från företaget">
+                <img src="{{ asset('pictures/icons/face.svg') }}" class="input-icon">
+            </div>
             </div>
 
             <div class="participant-input">
@@ -43,17 +73,23 @@
                 </div>
             <input id="participant_count" type="number" name="participant_count" value="1" required autocomplete="participant_count" autofocus>
         
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email">
-            </div>
-        
-            <div class="form-group">
-                <label for="password">Lösenord</label>
-                <input id="password" type="password" name="password" value="{{ old('password') }}" required autocomplete="password">
+            <div class="input-group">
+                <label for="contact_email" class="body-1">Email</label>
+                <div class="input-relative">
+                <input type="email" id="contact_email" name="contact_email" placeholder="Mejl Yrgos studenter kan nå er på">
+                <img src="{{ asset('pictures/icons/email.svg') }}" class="input-icon">
+                </div>
             </div>
 
-            <div class="promptForInfo">
+            <div class="input-group">
+                <label for="password" class="body-1">Lösenord</label>
+                <div class="input-relative">
+                <input type="email" id="password" name="password" placeholder="Minst 8 tecken">
+                <img src="{{ asset('pictures/icons/email.svg') }}" class="input-icon">
+                </div>
+            </div>
+            </div>
+            <div class="informational-banner">
                 <p>Vi ber om ett lösenord så att du enkelt kan logga in och redigera din information senare.</p>
             </div>
 
