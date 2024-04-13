@@ -58,23 +58,32 @@
                     <p id="upload-response" class="body-1">Ladda upp logga</p>
             </div>
             
-            <div class="group-1">
+            <div class="form-group-1 max-width">
                 <!-- Företagsnamn -->
                 <div class="input-group">    
                     <label for="name" class="body-1">Företag</label>
+                    <div class="input-relative">
                     <input id="name" type="text" name="name" value=" {{ $user->name }}" required autocomplete="name" autofocus>
+                    <img src="{{ asset('pictures/icons/suitcase.svg') }}" class="input-icon">
+                </div>
                 </div>
 
                 <!-- Kontaktperson -->
                 <div class="input-group">
                     <label for="contact_name" class="body-1">Kontaktperson</label>
+                    <div class="input-relative">
                     <input id="contact_name" type="text" name="contact_name" value=" {{ $user->contact_name }}" placeholder="{{ $user->contact_name }}" required autocomplete="contact_name" autofocus>
+                    <img src="{{ asset('pictures/icons/face.svg') }}" class="input-icon">
+                </div>
                 </div>
 
                 <!-- Contact Email -->
                 <div class="input-group">
                     <label for="contact_email" class="body-1">Email</label>
+                    <div class="input-relative">
                     <input type="email" id="contact_email" name="contact_email" value="{{ $user->email }}">
+                    <img src="{{ asset('pictures/icons/email.svg') }}" class="input-icon">
+                    </div>
                 </div>
 
                 <!-- Participants -->
@@ -91,28 +100,34 @@
                 <!-- Contact URL -->
                 <div class="input-group">
                     <label for="contact_url" class="body-1">Webbsida</label>
+                    <div class="input-relative">
                     <input type="text" id="contact_url" name="contact_url" value="{{ old('contact_url', $profile->contact_url) }}">
+                    <img src="{{ asset('pictures/icons/link.svg') }}" class="input-icon">
+                </div>
                 </div>
 
                 <!-- Contact LinkedIn -->
                 <div class="input-group">
                     <label for="contact_LinkedIn" class="body-1">LinkedIn</label>
+                    <div class="input-relative">
                     <input type="text" id="contact_LinkedIn" name="contact_LinkedIn" value="{{ old('contact_LinkedIn', $profile->contact_LinkedIn) }}">
+                    <img src="{{ asset('pictures/icons/linkedin.svg') }}" class="input-icon">
                 </div>
+            </div>
             </div>
 
-            <!-- Has LIA -->
-            <div class="LIA-container">
-                <div class="LIA-txt-wrapper">
-                    <label for="has_LIA" class="h4-desktop-bold">Tar emot LIA</label>
-                    <p class="body-2">Period: November 2024 - Maj 2025</p>
-                </div>
-                    <div class="radio-wrapper">
-                        <div class="radio-btn-wrapper">
-                            <p class="h3-desktop-bold">Ja</p> <input type="radio" id="has_LIA_true" name="has_LIA" value="true" {{ $profile->has_LIA ? 'checked' : '' }}></div>
-                        <div class="radio-btn-wrapper"><p class="h3-desktop-bold">Vet ej</p> <input type="radio" id="has_LIA_false" name="has_LIA" value="false" {{ !$profile->has_LIA ? 'checked' : '' }}></div>
+                <!-- Has LIA -->
+                <div class="LIA-container max-width">
+                    <div class="LIA-txt-wrapper">
+                        <label for="has_LIA" class="h4-desktop-bold">Tar emot LIA</label>
+                        <p class="body-2">Period: November 2024 - Maj 2025</p>
                     </div>
-            </div>
+                        <div class="radio-wrapper">
+                            <div class="radio-btn-wrapper">
+                                <p class="h3-desktop-bold">Ja</p> <input type="radio" id="has_LIA_true" name="has_LIA" value="true" {{ $profile->has_LIA ? 'checked' : '' }}></div>
+                            <div class="radio-btn-wrapper"><p class="h3-desktop-bold">Vet ej</p> <input type="radio" id="has_LIA_false" name="has_LIA" value="false" {{ !$profile->has_LIA ? 'checked' : '' }}></div>
+                        </div>
+                </div>
             
             {{-- Tags --}}
             @foreach($profile->tags as $tag)
@@ -121,9 +136,9 @@
             @endif
             @endforeach
 
-            <div class="tag-select-wrapper">
-                <p class="h2-mobile-bold">Vad vi söker</p>
-                <p class="body-2">Välj upp till 10 tags</p>
+            <div class="tag-select-wrapper max-width">
+                <p class="h2-mobile-bold" style="margin-bottom: 24px">Vad vi söker</p>
+                <p class="body-2" style="margin-bottom: 24px">Välj upp till 10 tags</p>
                 <div class="tab-nav-wrapper">
                     <div class="tab-wrapper one"><img src="{{ asset('pictures/icons/software.svg') }}"><a href="#" class="body-2">Software</a></div>
                     <div class="tab-wrapper two"><img src="{{ asset('pictures/icons/design.svg') }}"><a href="#" class="body-2">Design</a></div>
@@ -150,8 +165,9 @@
             </div>
 
             <!-- About -->
-            <div class="about-wrapper" style="position: relative;">
-                <label for="about" id="aboutlabel" class="h3-mobile-bold">Om oss</label>
+            <div class="about-wrapper max-width" style="position: relative;">
+                <div class="label-wrapper" id="aboutlabelwrapper">
+                <label for="about" id="aboutlabel"><p class="h3-mobile-bold">Om oss</p></label><img src="{{asset('pictures/icons/edit.svg')}}" alt=""></div>
                 <textarea id="about" name="about" maxlength="150" class="body-2">{{ old('about', $profile->about) }}</textarea>
                 <span id="counter" class="caption-regular">150 / 150</span>
             </div>

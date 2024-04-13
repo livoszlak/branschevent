@@ -33,18 +33,8 @@
                 <input id="contact_name" type="text" name="contact_name" value=" {{ old('contact_name') }}" required autocomplete="contact_name" autofocus>
             </div>
 
-{{--             <div class="form-group">
-                <p>Antal personer som deltar</p>
-                <button class="-">-</button>
-                <div class="personerAntal">
-                    <label for="antalPersoner">0</label>
-                    <input id="participant_count" type="number" name="participant_count" value=" {{ old('participant_count') }}" required autocomplete="participant_count" autofocus> {{-- personer som deltar value --}} 
-     {{--            </div>
-                <button class="+">+</button>
-            </div>  --}}
-
             <div class="participant-input">
-                <label for="participant_count">Antal personer som deltar</label>
+                <label for="participant_count" class="body-1">Antal personer som deltar</label>
                 <div class="input-wrapper">
                     <div class="minus" id="minus"></div>
                         <span id="participants">1</span>
