@@ -55,3 +55,40 @@ input[type="number"] {
     align-items: center;
     width: 74px;
 }
+
+/**
+* Input CSS from profile to match
+*/
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    height: 79px;
+    align-self: stretch;
+    font-size: var(--link-size-m);
+    font-family: var(--main-font-family);
+}
+
+.input-relative {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+.input-relative > input[type="email"],
+.input-relative > input[type="text"] {
+    width: 100%;
+    height: calc(40px - 8px);
+    padding: 8px 16px;
+    background-color: var(--input-bg-inactive);
+    border: none;
+    outline: none;
+}
+
+.input-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}

@@ -16,11 +16,28 @@
 
 @section('content')
 <main class="mainRegistration">
+    <div class="informational-banner">
+        <p class="h2-mobile-bold">Kul att du vill komma</p>
+        <p class="body-2">Här anger du grundläggande information för att kunna anmäla dig till evenemanget. Det är möjligt att lägga till mer information i nästa steg.</p>
+        <p class="body-2">Har du redan anmält ditt företag?</p>
+        <a href="{{ route('login') }}"><button class="btn btn-m secondary button-large">Logga in</button></a>
+    </div>
+    
+    @if (session('message'))
+    <div class="success">
+        <img src="{{ asset('pictures/icons/People.svg') }}">
+        <p class="body-1">{{ session('message') }}</p>
+    </div>
+    @elseif ($errors->any())
+    <div class="errors">
+        <img src="{{ asset('pictures/icons/warning.svg') }}">
+        @foreach ($errors->all() as $error)
+        <p class="body-2">{{ $error }}</p>
+        @endforeach
+    </div>
+    @endif
+    
     <div class="formRegistrationWrapper">
-        <div class="promptForInfo">
-            <h2>Kul att du hör av dig!</h2>
-            <p>Här anger du grundläggande information för att kunna anmäla dig till evenemanget. Det är möjligt att lägga till mer information i nästa steg.</p>
-        </div>
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <div class="form group">    
