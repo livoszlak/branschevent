@@ -49,6 +49,8 @@
 
     --business-card-bg: #ccd1dc;
 
+    --caption-grey: #828282;
+
     --box-shadow: -4px 4px 7px 0px rgba(0, 26, 82, 0.25);
 }
 
@@ -72,7 +74,8 @@ h3,
 h4,
 h5,
 h6,
-label {
+label,
+span {
     font-family: var(--main-font-family);
     font-style: normal;
 }
