@@ -1,8 +1,13 @@
-.loginMain{
+.loginMain {
     padding-top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px 64px;
 }
 
-.loginBanner{
+.loginBanner {
     display: flex;
     width: 100%;
     padding: 24px;
@@ -13,7 +18,7 @@
     background: var(--banner-bg-green);
 }
 
-.loginInfoLayout{
+.loginInfoLayout {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -21,7 +26,7 @@
     align-self: stretch;
 }
 
-.loginInfoLayout h1{
+.loginInfoLayout h1 {
     align-self: stretch;
     color: #000;
 
@@ -33,7 +38,7 @@
     line-height: 36px;
 }
 
-.loginInfoLayout p{
+.loginInfoLayout p {
     align-self: stretch;
     color: #000;
     font-size: 16px;
@@ -43,14 +48,19 @@
     letter-spacing: 0.5px;
 }
 
-.formWrapper form{
+.errors#login-error {
+    padding: 64px 0 0;
+}
+
+.formWrapper form {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 32px;
+    padding: 64px 0 32px;
 }
 
-.loginLabelInput{
+.loginLabelInput {
     display: flex;
     width: 342px;
     flex-direction: column;
@@ -59,7 +69,7 @@
     font-family: var(--main-font-family);
 }
 
-.loginInputLayout{
+.loginInputLayout {
     display: flex;
     height: 48px;
     padding: 0px 16px;
@@ -69,20 +79,20 @@
     background: var(--input-bg-inactive);
 }
 
-.loginInput{
+.loginInput {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex: 1 0 0;
 }
 
-.loginInput input{
+.loginInput input {
     width: 100%;
     background: var(--input-bg-inactive);
     border: none;
 }
 
-.submitButton{
+.submitButton {
     display: flex;
     height: 48px;
     padding: 24px 24px;
@@ -94,8 +104,8 @@
     box-shadow: -4px 4px 7px 0px rgba(0, 26, 82, 0.25);
 }
 
-.submitButton p{
-    color: var(--Colors-Button-Primary-Text-Default, #F2F2F2);
+.submitButton p {
+    color: var(--Colors-Button-Primary-Text-Default, #f2f2f2);
 
     /* button/large */
     font-size: 18px;
@@ -106,7 +116,7 @@
     text-transform: uppercase;
 }
 
-.newAccount{
+.newAccount {
     display: flex;
     height: 48px;
     padding: 24px 24px;
@@ -119,7 +129,7 @@
     box-shadow: -4px 4px 7px 0px rgba(0, 26, 82, 0.25);
 }
 
-.newAccount a{
+.newAccount a {
     color: var(--Colors-Button-Secondary-Text-Default, #000);
 
     font-size: 18px;
@@ -129,4 +139,48 @@
     letter-spacing: 1.25px;
     text-transform: uppercase;
     text-decoration: none;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+/**
+* Input CSS from profile to match
+*/
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    height: 79px;
+    align-self: stretch;
+    font-size: var(--link-size-m);
+    font-family: var(--main-font-family);
+}
+
+.input-relative {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+.input-relative > input[type="email"],
+.input-relative > input[type="text"] {
+    width: 100%;
+    height: calc(40px - 8px);
+    padding: 8px 16px;
+    background-color: var(--input-bg-inactive);
+    border: none;
+    outline: none;
+}
+
+.input-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }

@@ -47,12 +47,12 @@ Route::resource('/profile', ProfileController::class, ['parameters' => ['profile
 
 // Auth middleware grouping for specific routes
 Route::middleware(['auth'])->group(function () {
+    Route::delete('/profile/{id}', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/profile/{profile}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/{profile}', [ProfileController::class, 'update'])->name('profile.update');
     Route::post('/tag/{tag}/toggle', [TagController::class, 'toggle'])->name('tag.toggle');
-
     /* Route::post('/profile', [ProfileController::class, 'store'])->name('profile.store'); */
 });
 
 // Route to attendees view
-Route::get('/attendees', [AttendeesController::class, 'index']);
+Route::get('/attendees', [AttendeesController::class, 'index'])->name('attendees');

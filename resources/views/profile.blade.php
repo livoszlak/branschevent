@@ -31,15 +31,17 @@
     @if ($editable)
         <div class="informational-banner">
             <p class="h2-mobile-bold">Du är anmäld!</p>
-            <p class="body2">För att studenterna på Yrgo ska kunna lära känna er verksamhet så bra som möjligt, är det uppskattat om ni fyller i så mycket som möjligt i kommande steg. På så sätt kan de hitta rätt när de ska söka LIA-platser.</p>
+            <p class="body-2">För att studenterna på Yrgo ska kunna lära känna er verksamhet så bra som möjligt, är det uppskattat om ni fyller i så mycket som möjligt i kommande steg. På så sätt kan de hitta rätt när de ska söka LIA-platser.</p>
         </div>
 
         @if (session('message'))
             <div class="success">
-                <p class="body-2">{{ session('message') }}</p>
+                <img src="{{ asset('pictures/icons/People.svg') }}">
+                <p class="body-1">{{ session('message') }}</p>
             </div>
         @elseif ($errors->any())
             <div class="errors">
+                <img src="{{ asset('pictures/icons/warning.svg') }}">
                     @foreach ($errors->all() as $error)
                         <p class="body-2">{{ $error }}</p>
                     @endforeach
@@ -50,7 +52,7 @@
             <form method="POST" action="{{ route('profile.update', ['profile' => $profile->id]) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-
+                
             <!-- Profile image -->
             <div class="image-input-wrapper">
                 <input type="file" id="profile_image" name="profile_image" accept="image/png, image/jpeg, image/jpg, image/svg">
@@ -169,13 +171,18 @@
                 <div class="label-wrapper" id="aboutlabelwrapper">
                 <label for="about" id="aboutlabel"><p class="h3-mobile-bold">Om oss</p></label><img src="{{asset('pictures/icons/edit.svg')}}" alt=""></div>
                 <textarea id="about" name="about" maxlength="150" class="body-2">{{ old('about', $profile->about) }}</textarea>
-                <span id="counter" class="caption-regular">150 / 150</span>
+                <span id="counter" class="caption-regular"></span>
             </div>
             <div class="button-wrapper">
-            <button class="btn btn-m primary">Spara din profil</button>
+            <button class="btn btn-m primary">Spara ändringar</button>
             </div>
         </form>
     </div>
+    <form action="{{ route('profile.destroy', $profile->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button class="btn btn-s secondary">Ta bort anmälan</button>
+    </form>
 
 <!-- This Or That -->
 
@@ -236,12 +243,12 @@
 @endforeach        
 
 
-    @foreach ($questions as $question)
+{{--     @foreach ($questions as $question)
     <div class="question">
         <p>{{ $question->question }}</p>
         <p>Answer: {{ $question->chosen_option == 'option_one' ? $question->option_one : $question->option_two }}</p>
     </div>
-    @endforeach
+    @endforeach --}}
 
     @else
 
@@ -275,6 +282,9 @@
 @section('scripts')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+
+        /* Tag menu script*/
+
         $(document).ready(function() {
             $(".tab-content-wrapper > div").first().css('display', 'flex');
             $(".tab-wrapper:first").addClass('current-tab');
@@ -289,6 +299,8 @@
             });
         });
 
+        /* Characters left script */
+
         $(document).ready(function() {
             $('#about').on('keyup', function() {
                 var maxLength = 150;
@@ -296,8 +308,10 @@
                 var length = maxLength-length;
                 $('#counter').text(length + ' / ' + maxLength);
             });
+            $('#about').trigger('keyup');
         });
     </script>
+    
     <script src="{{ asset('js/profile.js') }}"></script>
     {{-- <script src="{{ asset('js/popup.js') }}"></script> --}}
     <script src="{{ asset('js/femsnabba.js') }}"></script>
