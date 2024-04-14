@@ -88,7 +88,7 @@ span {
 }
 
 .caption-regular {
-    font-weight: 400;
+    font-weight: 300;
     line-height: 16px;
     letter-spacing: 0.4px;
     font-size: 12px;
@@ -96,7 +96,7 @@ span {
 }
 
 .underline-regular {
-    font-weight: 400;
+    font-weight: 300;
     letter-spacing: 1.5px;
     text-decoration-line: underline;
     text-transform: uppercase;
@@ -105,7 +105,7 @@ span {
 }
 
 .subtitle-regular {
-    font-weight: 400;
+    font-weight: 300;
     line-height: 24px;
     letter-spacing: 0.15px;
     font-size: 16px;
@@ -113,7 +113,7 @@ span {
 }
 
 .subtitle-medium {
-    font-weight: 400;
+    font-weight: 300;
     line-height: 24px;
     letter-spacing: 0.1px;
     font-size: 14px;
@@ -121,7 +121,7 @@ span {
 }
 
 .body-2 {
-    font-weight: 400;
+    font-weight: 300;
     line-height: 20px;
     letter-spacing: 0.5px;
     font-size: 16px;
@@ -129,7 +129,7 @@ span {
 }
 
 .body-1 {
-    font-weight: 400;
+    font-weight: 300;
     line-height: 24px;
     letter-spacing: 0.5px;
     font-size: 18px;
@@ -154,7 +154,7 @@ span {
 
 .link-large {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 16px;
     letter-spacing: 1.25px;
     text-decoration-line: underline;
@@ -163,7 +163,7 @@ span {
 
 .link-medium {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 16px;
     letter-spacing: 1.25px;
     text-decoration-line: underline;
@@ -172,7 +172,7 @@ span {
 
 .header-p-text {
     font-size: 17px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 17px;
     letter-spacing: 1.328px;
     text-transform: uppercase;
@@ -181,7 +181,7 @@ span {
 
 .h1-mobile-regular {
     font-size: 34px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 36px;
 }
 
@@ -206,7 +206,7 @@ span {
 
 .h1-desktop-regular {
     font-size: 60px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 72px;
     letter-spacing: -0.5px;
 }
