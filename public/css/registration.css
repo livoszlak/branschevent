@@ -131,3 +131,73 @@ input[type="number"] {
 .max-width {
     max-width: 560px;
 }
+
+.gdpr-background{
+    display: none;
+    position: fixed;
+    background-color: var(--bg-popup);
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+}
+
+.gdprPopup{
+    display: flex;
+    height: 80%;
+    width: 80%;
+    padding: 48px 32px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    background-color: var(--bg-grey);
+    transform: translateY(100%);
+    transition: transform 1s ease;
+    transition-delay: 0.1s;
+}
+
+.gdprPopup.show {
+    transform: translateY(0);
+}
+
+.gdprPopup-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+}
+
+.input-group-alignstart{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+}
+
+.gdpr-checkbox{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 8px;
+}
+
+.gdpr-checkbox input{
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.submitButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}

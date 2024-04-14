@@ -44,7 +44,7 @@
     @endif
     
     <div class="form-wrapper">
-        <form method="POST" action="{{ route('register') }}">
+        <form id="registrationForm" method="POST" action="{{ route('register') }}">
             @csrf
             <div class="form-group-1 max-width">
             <div class="input-group">    
@@ -88,22 +88,37 @@
                 <img src="{{ asset('pictures/icons/security.svg') }}" class="input-icon">
                 </div>
             </div>
-            </div>
-            <div class="informational-banner">
+            <div class="informational-banner" style="border-radius: 30px 30px 0px 30px">
                 <p>Vi ber om ett lösenord så att du enkelt kan logga in och redigera din information senare.</p>
             </div>
-
-            <div class="gdpr">
-                {{-- form med checkbox? --}}
-                <a href="">LÄS MER OM BEHANDLING AV PERSONUPPGIFTER</a>
+            <div></div>
             </div>
         
+            <div class="input-group-alignstart">
+                {{-- form med checkbox? --}}
+                <div class="gdpr-checkbox">
+                    <input id="checkboxInput" type="checkbox" name="checkbox">
+                    <label for="checkbox"><p>Godkänn lagring av <br> personuppgifter</p></label>
+                </div>
+                <a class="underline-regular" id="show-gdpr" href="">LÄS MER OM BEHANDLING <br> AV PERSONUPPGIFTER</a>
+            </div>
             <div class="submitButton">
-                <button type="submit">ANMÄL!</button>
+                <button class="btn btn-m primary button-large" type="submit">ANMÄL!</button>
             </div>
         </form>
     </div>
-
+    <div id="gdpr-background" class="gdpr-background">
+        <div id="gdprPopup" class="gdprPopup">
+            <div class="gdprPopup-content">
+                <h2 class="h2-mobile-bold">Integritetspolicy</h2>
+                <p class="body-1">Vi tar din integritet på stort allvar och behandlar dina personuppgifter med omsorg och säkerhet. Det vi samlar in används endast för att administrera det specifika eventet. 
+                    <br><br>
+                    Du har rättigheter enligt tillämplig lagstiftning, inklusive rätten att få tillgång till dina personuppgifter, begära rättelse eller radering av uppgifter, samt att invända mot behandling. För ytterligare frågor eller för att utöva dina rättigheter får du gärna kontakta oss.
+                    </p>
+            </div>
+            <button id="close-gdpr-popup" class="btn btn-s primary">OK!</button>
+        </div>
+    </div>
     @if ($errors->any())
         <div class="errors">
             <ul>

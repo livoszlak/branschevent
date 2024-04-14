@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="whereWrapper">
-            <img src="{{asset('pictures/location.png')}}" alt="img of visual arena at lindholmen" style="width: 100%">
+            <img src="{{asset('pictures/kartbild.svg')}}" alt="img of visual arena at lindholmen" style="width: 100%">
                 <p class="h3-mobile-bold" style="padding: 15px 0 10px">Vart någonstans?</p>
                 <p class="body-2">Visual Arena<br>
                 Lindholmen Science Park</p>
