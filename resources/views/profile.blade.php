@@ -2,6 +2,7 @@
 
 @section('css')
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/tagmenuplus.css') }}" rel="stylesheet">
 @endsection
 
 @section('header')
@@ -52,7 +53,7 @@
             <form method="POST" action="{{ route('profile.update', ['profile' => $profile->id]) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                
+
             <!-- Profile image -->
             <div class="image-input-wrapper">
                 <input type="file" id="profile_image" name="profile_image" accept="image/png, image/jpeg, image/jpg, image/svg">
