@@ -19,7 +19,7 @@
     <a href="/registration">ANMÄL FÖRETAG</a>
 </button>
 <section class="welcomeHero">
-    <img src="{{ asset('pictures/Hero.png') }}" alt="">
+    <img src="{{ asset('pictures/Hero.svg') }}" alt="">
 </section>
 <main>
     <div class="landingpageWrapper">
@@ -36,29 +36,23 @@
         <div class="marquee">
             <div class="marquee-content scroll">
                 @foreach ($companies as $company)
-                    <h3 class="">- {{ $company }}</h3>
-                    <h3>- JEPPE</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
-                    <h3>- HCUDCSC</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
-                    <h3>- TESTFÖRETAG</h3>
-                    <h3>- TESTFÖRETAG</h3>
-                    <h3>- TESTFÖRETAG</h3>
+                    <h3 class="">• {{ $company }}</h3>
+                    <h3>• JEPPE</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
+                    <h3>• HCUDCSC</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
                 @endforeach
                 
             </div>
             <div class="marquee-content scroll">
                 @foreach ($companies as $company)
-                    <h3 class="">- {{ $company }}</h3>
-                    <h3>- :-)</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
-                    <h3>- MONKEY</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
-                    <h3>- TESTFÖRETAG</h3>
-                    <h3>- TESTFÖRETAG</h3>
-                    <h3>- TESTFÖRETAG</h3>
+                    <h3 class="">• {{ $company }}</h3>
+                    <h3>• :-)</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
+                    <h3>• MONKEY</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
                 @endforeach
                 
             </div>
         </div>
         <div class="whereWrapper">
-            <img src="{{asset('pictures/location.png')}}" alt="img of visual arena at lindholmen">
+            <img src="{{asset('pictures/location.png')}}" alt="img of visual arena at lindholmen" style="width: 100%">
             <ul class="removeMargin">
                 <h1 class="removeMargin">Vart någonstans?</h1>
                 <li>Visual Arena</li>
@@ -70,7 +64,7 @@
         <div class="weatYrgo">
             <div class="aboutTitleContainer">
                 <div class="LIApicture">
-                    <img src="{{asset('pictures/tempRectangle.png')}}" alt="bild på yrgo?">
+                    <img src="{{asset('pictures/varliaone.png')}}" alt="bild på yrgo?" style="width: 100%">
                     <h2 class="LIAtextFloating">Vår LIA-period</h2>
                 </div>
             </div>
@@ -88,7 +82,7 @@
                     <img src="{{asset('pictures/Development.png')}}" alt="">
                     <a href="https://www.yrgo.se/program/webbutvecklare/">WEBBUTVECKLARE</a>
                 </div>
-                <div class="extraGap"></div>
+                <div id="extraGap" class="extraGap"></div>
             </div>
         </div>
     </div>
