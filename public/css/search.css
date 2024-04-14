@@ -55,3 +55,7 @@ p.company-name {
 a {
     text-decoration: none;
 }
+
+.errors#no-results {
+    align-self: flex-start;
+}

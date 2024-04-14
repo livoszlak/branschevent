@@ -34,38 +34,46 @@
             <img src="{{ asset('pictures/arrow.svg') }}">
         </a>
     </div>
-    <div class="header-wrapper">
-        <p class="h1-mobile">Deltagare på YRGOnnect '24</p>
-    </div>
-    <div class="search-wrapper">
-        <form action="{{ route('search') }}" method="GET">
-            @csrf
-            <div class="input-relative" id="search">
-                <img src="{{ asset('pictures/icons/search.svg') }}" class="input-icon">
-                <input id="search-input" type="text" name="search-input" placeholder="Sök på företag/namn/tag" class="body-1">
+        <div class="header-wrapper">
+            <p class="h1-mobile">Deltagare på YRGOnnect '24</p>
+        </div>
+            @if (session('message'))
+                <div class="success" id="deleted">
+                    <img src="{{ asset('pictures/icons/People.svg') }}">
+                    <p class="body-1">{{ session('message') }}</p>
+                </div>
+            @endif
+        <div class="results-search-wrapper">
+            <div class="search-wrapper">
+                <form action="{{ route('search') }}" method="GET">
+                    @csrf
+                    <div class="input-relative" id="search">
+                        <img src="{{ asset('pictures/icons/search.svg') }}" class="input-icon">
+                        <input id="search-input" type="text" name="search-input" placeholder="Sök på företag/namn/tag" class="body-1">
+                    </div>
+                </form>
             </div>
-        </form>
+            <div class="results-wrapper">
+                @foreach ($users as $user)
+                    <div class="card-wrapper">
+                        <a class="business-card" href="{{ route('profile.show', ['id' => $user->id]) }}">
+                            @if($user->profile->profile_image)
+                                <div class="profile-img" id="business-img">
+                                    <img src="{{ asset('storage/profile_images/' . $user->profile->profile_image) }}" id="business-img">
+                                </div>
+                            @else
+                                <div class="profile-img default" id="business-img">
+                                    <p class="h2-desktop-bold">{{ collect(explode(' ', $user->name))->map(function($word) { return strtoupper(substr($word, 0, 1)); })->implode('') }}</p>
+                                </div>
+                            @endif
+                    <div class="text-wrapper">
+                        <p class="h3-desktop-bold">{{ $user->name }}</p>
+                    </div>
+                </a>
+                    </div>
+                @endforeach
+        </div>
     </div>
-    <div class="results-wrapper">
-    @foreach ($users as $user)
-        <div class="card-wrapper">
-            <a class="business-card" href="{{ route('profile.show', ['id' => $user->id]) }}">
-                @if($user->profile->profile_image)
-                    <div class="profile-img" id="business-img">
-                        <img src="{{ asset('storage/profile_images/' . $user->profile->profile_image) }}" id="business-img">
-                    </div>
-                @else
-                    <div class="profile-img default" id="business-img">
-                        <p class="h2-desktop-bold">{{ collect(explode(' ', $user->name))->map(function($word) { return strtoupper(substr($word, 0, 1)); })->implode('') }}</p>
-                    </div>
-                @endif
-        <div class="text-wrapper">
-            <p class="h3-desktop-bold">{{ $user->name }}</p>
-        </div>
-    </a>
-        </div>
-    @endforeach
-</div>
 </main>
 @endsection
 

@@ -29,6 +29,14 @@
         </div>
 
         <div class="results-wrapper">
+
+            @if(count($users) == 0)
+                <div class="errors" id="no-results">
+                    <img src="{{ asset('pictures/icons/warning.svg') }}">
+                    <p class="body-2">Din sökning matchade inga företag.</p>
+                </div>
+            @endif
+
             @foreach ($users as $user)
                 <div class="card-wrapper">
                     <a class="business-card" href="{{ route('profile.show', ['id' => $user->id]) }}">
