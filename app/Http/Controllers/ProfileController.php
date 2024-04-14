@@ -96,6 +96,8 @@ class ProfileController extends Controller
         $request['has_LIA'] = $request->has_LIA == 'true' ? true : false;
 
         $data = $request->validate([
+            'name' => ['required', 'string'],
+            'contact_name' => ['required', 'string'],
             'about' => ['nullable', 'string'],
             'has_LIA' => ['nullable', 'boolean'],
             'contact_email' => ['nullable', 'string', 'email'],
@@ -125,6 +127,8 @@ class ProfileController extends Controller
         $profile->save();
 
         $user->participant_count = $data['participant_count'];
+        $user->name = $data['name'];
+        $user->contact_name = $data['contact_name'];
         $user->save();
 
 
@@ -143,11 +147,27 @@ class ProfileController extends Controller
         return redirect()->back()->with('Success', 'Profile status updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        $profile = Profile::with('tags', 'thisOrThat')->findOrFail($id);
+        $user = User::findOrFail($profile->user_id);
+
+        // Delete tags
+        foreach ($profile->tags as $tag) {
+            $tag->delete();
+        }
+
+        // Delete thisOrThat
+        foreach ($profile->thisOrThat as $thisOrThat) {
+            $thisOrThat->delete();
+        }
+
+        // Delete profile
+        $profile->delete();
+
+        // Delete user
+        $user->delete();
+
+        return redirect()->route('attendees')->with('success', 'Profile and associated data deleted successfully');
     }
 }
