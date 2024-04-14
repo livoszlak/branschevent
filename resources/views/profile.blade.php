@@ -262,6 +262,7 @@
     </div>
 
     <!-- Selected tags -->
+    @if(count($pickedTags) > 0)
     <div class="selected-tags-container">
         <p class="body-2" style="font-weight: 400">Vi söker dig som kan</p>
         <div class="selected-tags-wrapper">
@@ -272,6 +273,7 @@
             @endforeach
         </div>
     </div>
+    @endif
 
     @if ($profile->has_LIA)
     <div class="LIA-banner">
@@ -281,12 +283,12 @@
     </div>
     @endif
 
-        @foreach ($questions as $question)
+{{--         @foreach ($questions as $question)
             <div class="question">
                 <p>{{ $question->question }}</p>
                     <p>Answer: {{ $question->chosen_option == 'option_one' ? $question->option_one : $question->option_two }}</p>
             </div>
-        @endforeach
+        @endforeach --}}
 
     @if ($profile->about != null)
             <div class="about-container">

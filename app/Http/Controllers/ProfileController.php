@@ -66,7 +66,11 @@ class ProfileController extends Controller
             return $tag->category_name == 'Digital Designer';
         })->sortBy('tag_name');
 
-        return view('profile', ['profile' => $profile, 'editable' => $editable, 'questions' => $questions, 'user' => $user, 'softwareTags' => $softwareTags, 'developerTags' => $developerTags, 'designTags' => $designTags]);
+        $pickedTags = $profile->tags->filter(function ($tag) {
+            return $tag->isPicked;
+        });
+
+        return view('profile', ['profile' => $profile, 'editable' => $editable, 'questions' => $questions, 'user' => $user, 'softwareTags' => $softwareTags, 'developerTags' => $developerTags, 'designTags' => $designTags, 'pickedTags' => $pickedTags]);
     }
 
 
