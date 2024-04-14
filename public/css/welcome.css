@@ -153,23 +153,14 @@
 }
 
 .Anmalforetag {
-    background: var(--btn-red);
-    box-shadow: -4px 4px 7px 0px rgba(0, 26, 82, 0.25);
-    color: white;
-    font-family: var(--main-font-family);
-
-    /* -- large button text -- */
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 16px; /* 88.889% */
-    letter-spacing: 1.25px;
-    text-transform: uppercase;
-
     position: absolute;
     top: 75%;
-    left: 25%;
+    right: 10%;
     z-index: 2;
+}
+
+.Anmalforetag a{
+    color: white;
 }
 
 .marquee {

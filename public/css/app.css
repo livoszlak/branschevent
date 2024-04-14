@@ -422,7 +422,7 @@ section.header {
     position: absolute;
     left: 0px;
     bottom: 0px;
-    border-radius: 0px 150px 0px 0px;
+    border-radius: 0px 75px 0px 0px;
 }
 
 .lightblueBlankSpace {
@@ -471,8 +471,9 @@ section.header {
 }
 
 .headerBranding img {
-    height: 42px;
+    height: 50px;
     width: 38px;
+    padding-right: 4px;
 }
 
 .yrgoTextHeader h2{
@@ -526,6 +527,7 @@ section.header {
     flex-direction: column;
     align-items: center;
     gap: 48px;
+    background-color: var(--bg-grey);
 }
 
 .footerPictures {
