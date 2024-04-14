@@ -245,35 +245,56 @@
         </form>
     </div>
 
-
-
-{{--     @foreach ($questions as $question)
-    <div class="question">
-        <p>{{ $question->question }}</p>
-        <p>Answer: {{ $question->chosen_option == 'option_one' ? $question->option_one : $question->option_two }}</p>
-    </div>
-    @endforeach --}}
-
     @else
 
     <!-- Display static profile content. Maybe use different layout sections?? -->
 
-    @if($profile->profile_image)
-    <div class="profile-img"><img src="{{ asset('storage/profile_images/' . $profile->profile_image) }}"></div>
-    @endif
-
-    @foreach($profile->tags as $tag)
-    @if ($tag->isPicked)
-    <p>{{ $tag->tag_name }}</p>
-    @endif
-    @endforeach
-
-    @foreach ($questions as $question)
-    <div class="question">
-        <p>{{ $question->question }}</p>
-        <p>Answer: {{ $question->chosen_option == 'option_one' ? $question->option_one : $question->option_two }}</p>
+    <!-- Profile image & company name -->
+    <div class="logo-name-container">
+        @if($profile->profile_image)
+            <div class="profile-img"><img src="{{ asset('storage/profile_images/' . $profile->profile_image) }}"></div>
+        @else
+            <div class="profile-img default">
+                <p class="h2-desktop-bold">{{ collect(explode(' ', $user->name))->map(function($word) { return strtoupper(substr($word, 0, 1)); })->implode('') }}</p>
+            </div>
+        @endif
+        <p class="h1-mobile-bold">{{ $user->name }}</p>
     </div>
-    @endforeach
+
+    <!-- Selected tags -->
+    <div class="selected-tags-container">
+        <p class="body-2" style="font-weight: 400">Vi söker dig som kan</p>
+        <div class="selected-tags-wrapper">
+            @foreach($profile->tags as $tag)
+                @if ($tag->isPicked)
+                    <a class="tag tag-picked body-2">{{ $tag->tag_name }}</a>
+                @endif
+            @endforeach
+        </div>
+    </div>
+
+    @if ($profile->has_LIA)
+    <div class="LIA-banner">
+        <img src="{{ asset('pictures/icons/stars.svg') }}">
+        <p class="attention">Vi tar emot LIA 2024!</p>
+        <img src="{{ asset('pictures/icons/stars.svg') }}">
+    </div>
+    @endif
+
+        @foreach ($questions as $question)
+            <div class="question">
+                <p>{{ $question->question }}</p>
+                    <p>Answer: {{ $question->chosen_option == 'option_one' ? $question->option_one : $question->option_two }}</p>
+            </div>
+        @endforeach
+
+    @if ($profile->about != null)
+            <div class="about-container">
+                <p class="h4-desktop-bold">Om oss</p>
+                <p class="body-2">{{ $profile->about }}</p>
+            </div>
+    @endif
+
     @endif
 </main>
 @endsection
