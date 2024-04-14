@@ -38,7 +38,7 @@
                             </div>
                         @else
                             <div class="profile-img default" id="business-img">
-                                <p class="h2-desktop-bold">{{ $user->name[0] }}</p>
+                                <p class="h2-desktop-bold">{{ collect(explode(' ', $user->name))->map(function($word) { return strtoupper(substr($word, 0, 1)); })->implode('') }}</p>
                             </div>
                         @endif
                 <div class="text-wrapper">
