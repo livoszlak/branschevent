@@ -16,7 +16,7 @@
 
 @section('content')
 <button class="Anmalforetag btn btn-m primary" id="Anmalforetag">
-    <a href="/registration">ANMÄL FÖRETAG</a>
+    <a class="button-large" href="{{ route('registration') }}">ANMÄL FÖRETAG</a>
 </button>
 <section class="welcomeHero">
     <img src="{{ asset('pictures/Hero.svg') }}" alt="">
@@ -26,12 +26,12 @@
         <div class="welcomePage">
         </div>
         <div class="whoIsComingPage">
-            <h1>Välkommen till det bästa eventet</h1>
-            <p class="inter">Vi studenter från Yrgo, Digital Design och Webbutveckling, bjuder in branschkollegor till ett LIA-event. Det är ett tillfälle där vi alla kan mötas, nätverka och lära känna varandra bättre. Vi ser fram emot att dela våra erfarenheter och kunskaper med er, och samtidigt lära oss mer om era olika verksamheter och karriärmöjligheter.
+            <p class="h1-mobile-regular">Välkommen till bästa LIA-eventet</p>
+            <p class="body-2">Vi studenter från Yrgo, Digital Design och Webbutveckling, bjuder in branschkollegor till ett LIA-event. Det är ett tillfälle där vi alla kan mötas, nätverka och lära känna varandra bättre. Vi ser fram emot att dela våra erfarenheter och kunskaper med er, och samtidigt lära oss mer om era olika verksamheter och karriärmöjligheter.
                 <br><br>
                 Vi tror att detta event kommer att vara en utmärkt möjlighet för både studenter och branschkollegor att utforska möjligheter till framtida samarbeten och praktikplatser. Så ta chansen att mingla, utbyta idéer och kanske till och med hitta er framtida praktikant.
             </p>
-            <button class="btn btn-l secondary">VEM KOMMER?</button>
+            <button class="btn btn-m secondary"><a class="button-large" href="{{ route('attendees') }}">VEM KOMMER?</a></button>
         </div>
         <div class="marquee">
             <div class="marquee-content scroll">
@@ -53,34 +53,31 @@
         </div>
         <div class="whereWrapper">
             <img src="{{asset('pictures/location.png')}}" alt="img of visual arena at lindholmen" style="width: 100%">
-            <ul class="removeMargin">
-                <h1 class="removeMargin">Vart någonstans?</h1>
-                <li>Visual Arena</li>
-                <li>Lindholmen Science Park</li>
+                <p class="h3-mobile-bold" style="padding: 15px 0 10px">Vart någonstans?</p>
+                <p class="body-2">Visual Arena<br>
+                Lindholmen Science Park</p>
                 <br>
-                <li>Lindholmspiren 3 <br> 417 56 Göteborg</li>
-            </ul>
+                <p class="body-2">Lindholmspiren 3<br>
+                417 56 Göteborg</p>
         </div>
         <div class="weatYrgo">
             <div class="aboutTitleContainer">
                 <div class="LIApicture">
                     <img src="{{asset('pictures/varliaone.png')}}" alt="bild på yrgo?" style="width: 100%">
-                    <h2 class="LIAtextFloating">Vår LIA-period</h2>
+                    <p class="LIAtextFloating h2-mobile-bold">Vår LIA-period</p>
                 </div>
             </div>
             <div class="aboutTextContainer">
-                <p>LIA är en viktigt period för oss studenter. Det ger oss möjlighet att träna och utveckla våra färdigheter i en verklig arbetsmiljö inom vår framtida yrkesroll. Under LIA får vi inte bara praktisk erfarenhet utan även chansen att knyta värdefulla kontakter i branschen. 
-                    <br><br>
-                    Vår LIA-period är mellan <br>
-                    25 november 2024- 30 maj 2025.
-                </p>
+                <p class="body-2">LIA är en viktig period för oss studenter. Det ger oss möjlighet att träna och utveckla våra färdigheter i en verklig arbetsmiljö inom vår framtida yrkesroll. Under LIA får vi inte bara praktisk erfarenhet utan även chansen att knyta värdefulla kontakter i branschen.</p> 
+                    <p class="body-2">Vår LIA-period är mellan 25 november 2024 - 30 maj 2025.</p>
+                    <p class="body-2">Läs mer om våra kurser på YRGOs webbplats:</p>
                 <div class="classLink">
-                    <img src="{{asset('pictures/Design.png')}}" alt="">
-                    <a href="https://www.yrgo.se/program/digital-designer/">DIGITAL DESIGN</a>
+                    <img src="{{asset('pictures/icons/design.svg')}}" alt="">
+                    <a href="https://www.yrgo.se/program/digital-designer/" class="link-large">DIGITAL DESIGN</a>
                 </div>
                 <div class="classLink">
-                    <img src="{{asset('pictures/Development.png')}}" alt="">
-                    <a href="https://www.yrgo.se/program/webbutvecklare/">WEBBUTVECKLARE</a>
+                    <img src="{{asset('pictures/icons/webdev.svg')}}" alt="">
+                    <a href="https://www.yrgo.se/program/webbutvecklare/" class="link-large">WEBBUTVECKLARE</a>
                 </div>
                 <div id="extraGap" class="extraGap"></div>
             </div>

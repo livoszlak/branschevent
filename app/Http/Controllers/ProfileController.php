@@ -168,6 +168,8 @@ class ProfileController extends Controller
         // Delete user
         $user->delete();
 
+        session()->flash('message', 'Din anmälan är nu borttagen, men ni är såklart välkomna att anmäla er igen om omständigheterna skulle ändras!');
+
         return redirect()->route('attendees')->with('success', 'Profile and associated data deleted successfully');
     }
 }
