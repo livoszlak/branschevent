@@ -4,6 +4,7 @@ main {
     justify-content: center;
     align-items: center;
     gap: 64px;
+    padding-bottom: 64px;
 }
 
 .form-wrapper {
@@ -592,14 +593,19 @@ span#counter {
     border-bottom: 2px solid #000;
 }
 
-.tab-nav-wrapper > a {
+.tab-wrapper:focus {
+    border: var(--tab-stroke);
+}
+
+.tab-wrapper > a:hover {
+    color: var(--tab-text-hover);
+}
+
+.tab-wrapper > a {
     padding: 15px 0 8px 0;
     margin: 0;
     text-decoration: none;
-    color: #000;
-}
-
-.tab-nav-wrapper {
+    color: var(--tab-text);
 }
 
 a.tag {
@@ -610,6 +616,7 @@ a.tag {
     gap: 4px;
     border-radius: 12px 12px 0px 12px;
     background-color: var(--tag-bg);
+    color: var(--tag-text);
     text-decoration: none;
     text-transform: none;
 }
