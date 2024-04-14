@@ -9,6 +9,14 @@ main {
 
 .form-wrapper {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.form-wrapper-child{
+    width: 100%;
 }
 
 .form-group-1 {
@@ -172,13 +180,17 @@ input[type="number"] {
 .questionWrapper {
     display: flex;
     height: 382px;
-    width: 100%;
-    background: url("../pictures/5snabbaGraphic.svg") no-repeat center center;
+    background: url("../pictures/5snabbamobilegraphic.svg") no-repeat center center;
     background-size: contain;
+    background-position: center;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     position: relative;
+    width: calc(100% + 48px);
+    margin-left: -24px;
+    margin-right: -24px;
+    margin-bottom: 35px;
 }
 
 .circle {
@@ -210,6 +222,18 @@ input[type="number"] {
     line-height: 24.348px;
     letter-spacing: 1.902px;
     text-transform: uppercase;
+}
+
+.blueunion5snabba{
+    position: absolute;
+    top: 20px;
+    left: 0px;
+}
+
+.redunion5snabba{
+    position: absolute;
+    top: 50px;
+    right: 0px;
 }
 
 .question {

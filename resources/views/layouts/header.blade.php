@@ -14,8 +14,8 @@
             <div class="headerBrandinglogo">
                 <img src="{{asset('pictures/yrgotriangle.svg')}}" alt="">
                 <div class="yrgoTextHeader">
-                    <h2 class="removeMargin h3-mobile-bold">YR</h2>
-                    <H2 class="italicHeader removeMargin h3-mobile-bold">GO</H2>
+                    <h2 class="removeMargin h3-mobile-bold" style="width: 39px; padding-left: 4px; margin-bottom:-3px">YR</h2>
+                    <H2 class="italicHeader removeMargin h3-mobile-bold" style="width: 43.8px">GO</H2>
                 </div>
                 <p class="header-p-text">nnect</p>
             </div>

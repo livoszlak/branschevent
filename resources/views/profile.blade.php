@@ -49,7 +49,7 @@
         @endif
 
         <div class="form-wrapper">
-            <form method="POST" action="{{ route('profile.update', ['profile' => $profile->id]) }}" enctype="multipart/form-data">
+            <form class="form-wrapper-child" method="POST" action="{{ route('profile.update', ['profile' => $profile->id]) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -175,74 +175,76 @@
                 <textarea id="about" name="about" maxlength="150" class="body-2">{{ old('about', $profile->about) }}</textarea>
                 <span id="counter" class="caption-regular"></span>
             </div>
+            <!-- This Or That -->
+            
+            <div class="questionWrapper">
+                <img class="blueunion5snabba" src="{{asset('pictures/blueunion5snabba.svg')}}" alt="">
+                <img class="redunion5snabba" src="{{asset('pictures/redunion5snabba.svg')}}" alt="">
+                <p class="femsnabba removeMargin">SVARA PÅ YRGOS 5 SNABBA</p>
+                <div class="circle">
+                    <a id='show-popup-link' href=""><img src="{{asset('pictures/Arrows.svg')}}" alt=""></a>
+                </div>
+            </div>
+            
+            <div id="popup-last-overlay" class="popup-last-overlay" style="display: none;">
+                <div class="popup-content">
+                    <div  class="question">
+                        <label><p>Tack för att ni tog er tid till att svara!</p></label>
+                        <div class="answers">
+                            <div class="answer answerOne">
+                                <img src="{{asset('pictures/icons/checkbox.svg')}}" alt="">
+                                <label for="">Dina svar är nu inskickade.</label>
+                            </div>
+                        </div>
+                        <div class="skip">
+                            <button id="submit-button" class="submit-button" class=""><p>STÄNG</p></button>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hidden popup container for questions -->
+            @foreach ($questions as $index => $question)
+            <div id="question-popup-{{ $index }}" class="popup-overlay" style="display: none;">
+                <div class="popup-content">
+                    <div id="question-{{ $index }}" class="question" data-question-id="{{ $question->id }}">
+                        <div class="cross">
+                            <img id="exit" class="crossIMG" src="{{asset('pictures/cross.svg')}}" alt="">
+                        </div>
+                
+                        <label><p>{{ $question->question }}</p></label>
+                        
+                        <div class="answers">
+                            <div class="answer answerOne">
+                                <div class="answerIMG imgOne_{{ $index }}"></div>
+                                <label for="choice_one_{{ $question->id }}">{{ $question->option_one }}</label>
+                                <input type="radio" id="choice_one_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_one">
+                            </div>
+                            <div class="answer answerTwo">
+                                <div class="answerIMG imgTwo_{{ $index }}"></div>
+                                <input type="radio" id="choice_two_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_two">
+                                <label for="choice_two_{{ $question->id }}">{{ $question->option_two }}</label>
+                            </div>
+                        </div>
+                        <div class="skip">
+                            <a href="#" class="next-question">Next Question</a>
+                            <button id="submit-button" style="display: none;">Submit Answers</button>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach        
             <div class="button-wrapper">
             <button class="btn btn-m primary">Spara ändringar</button>
             </div>
         </form>
+        <form action="{{ route('profile.destroy', $profile->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-s secondary">Ta bort anmälan</button>
+        </form>
     </div>
-    <form action="{{ route('profile.destroy', $profile->id) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button class="btn btn-s secondary">Ta bort anmälan</button>
-    </form>
 
-<!-- This Or That -->
-
-<div class="questionWrapper">
-    <p class="femsnabba removeMargin">SVARA PÅ YRGOS 5 SNABBA</p>
-    <div class="circle">
-        <a id='show-popup-link' href=""><img src="{{asset('pictures/Arrows.svg')}}" alt=""></a>
-    </div>
-</div>
-
-<div id="popup-last-overlay" class="popup-last-overlay" style="display: none;">
-    <div class="popup-content">
-        <div  class="question">
-            <label><p>Tack för att ni tog er tid till att svara!</p></label>
-            <div class="answers">
-                <div class="answer answerOne">
-                    <img src="{{asset('pictures/icons/checkbox.svg')}}" alt="">
-                    <label for="">Dina svar är nu inskickade.</label>
-                </div>
-            </div>
-            <div class="skip">
-                <button id="submit-button" class="submit-button" class=""><p>STÄNG</p></button>   
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Hidden popup container for questions -->
-@foreach ($questions as $index => $question)
-<div id="question-popup-{{ $index }}" class="popup-overlay" style="display: none;">
-    <div class="popup-content">
-        <div id="question-{{ $index }}" class="question" data-question-id="{{ $question->id }}">
-            <div class="cross">
-                <img id="exit" class="crossIMG" src="{{asset('pictures/cross.svg')}}" alt="">
-            </div>
-    
-            <label><p>{{ $question->question }}</p></label>
-            
-            <div class="answers">
-                <div class="answer answerOne">
-                    <div class="answerIMG imgOne_{{ $index }}"></div>
-                    <label for="choice_one_{{ $question->id }}">{{ $question->option_one }}</label>
-                    <input type="radio" id="choice_one_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_one">
-                </div>
-                <div class="answer answerTwo">
-                    <div class="answerIMG imgTwo_{{ $index }}"></div>
-                    <input type="radio" id="choice_two_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_two">
-                    <label for="choice_two_{{ $question->id }}">{{ $question->option_two }}</label>
-                </div>
-            </div>
-            <div class="skip">
-                <a href="#" class="next-question">Next Question</a>
-                <button id="submit-button" style="display: none;">Submit Answers</button>   
-            </div>
-        </div>
-    </div>
-</div>
-@endforeach        
 
 
 {{--     @foreach ($questions as $question)
