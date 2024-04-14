@@ -729,6 +729,6 @@ a.tag.tag-picked {
     justify-content: center;
     align-items: flex-start;
     gap: 24px;
-    align-self: stretch;
+    align-self: center;
     max-width: 560px;
 }
