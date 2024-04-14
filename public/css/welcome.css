@@ -59,6 +59,7 @@
 .welcomeHero {
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-grey);
 }
 
 .whoIsComingPage {
@@ -96,6 +97,10 @@
     align-items: center;
     gap: var(--units-5, 32px);
     align-self: stretch;
+
+    width: calc(100% + 48px);
+    margin-left: -24px;
+    margin-right: -24px;
 }
 
 .aboutTextContainer {
@@ -109,6 +114,7 @@
 
 .LIApicture {
     position: relative;
+    width: 100%;
 }
 
 .LIAtextFloating {
@@ -171,9 +177,13 @@
     overflow: hidden;
     gap: 15px;
     position: relative;
-    height: 60px;
+    height: 40px;
     background-color: #aeeeed;
     width: 100%;
+
+    width: calc(100% + 48px);
+    margin-left: -24px;
+    margin-right: -24px;
 }
 
 .marquee-content {
@@ -182,6 +192,8 @@
     justify-content: space-around;
     min-width: 100%;
     gap: 10px;
+    padding: 12px;
+    align-items: center;
 }
 
 .marquee-content h3 {
@@ -194,7 +206,7 @@
     font-size: 21px;
     font-style: normal;
     font-weight: 400;
-    line-height: 16px; /* 76.19% */
+    line-height: 16px;
     letter-spacing: 1.25px;
     text-transform: uppercase;
 }
