@@ -157,12 +157,12 @@
                     </div>
                     <div class="tab2-c">
                         @foreach ($designTags as $tag)
-                        <a href="#" class="tag-toggle tag body-2" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
+                        <a href="#" class="tag-toggle tag body-2 {{ $tag->isPicked ? "tag-picked" : "" }}" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
                         @endforeach
                     </div>
                     <div class="tab3-c">
                         @foreach ($developerTags as $tag)
-                        <a href="#" class="tag-toggle tag body-2" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
+                        <a href="#" class="tag-toggle tag body-2 {{ $tag->isPicked ? "tag-picked" : "" }}" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
                         @endforeach
                     </div>
                 </div>

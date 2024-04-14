@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 event.preventDefault();
                 return;
             }
-
+            event.preventDefault();
             const tagId = this.getAttribute("data-tag-id");
 
             fetch(`/tag/${tagId}/toggle`, {
@@ -89,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then((data) => {
                     if (data.success) {
                         if (tagCount >= 10) {
+                            this.classList.toggle("tag-picked");
                             return;
                         }
                         this.classList.toggle("tag-picked");
