@@ -329,7 +329,7 @@ input[type="number"] {
     transform: translate(-50%, -50%);
 }
 
-.submit-button{
+.submit-button {
     display: flex;
     height: 32px;
     padding: 18px 24px;
@@ -338,11 +338,11 @@ input[type="number"] {
     gap: 4px;
     flex-shrink: 0;
 
-    background: #F52A3B;
+    background: #f52a3b;
     box-shadow: -4px 4px 7px 0px rgba(0, 26, 82, 0.25);
 }
 
-.submit-button p{
+.submit-button p {
     color: #f2f2f2;
     font-size: 16px;
     font-style: normal;
@@ -352,59 +352,58 @@ input[type="number"] {
     text-transform: uppercase;
 }
 
-.answerIMG{
+.answerIMG {
     width: 41px;
     height: 41px;
     background-size: contain;
 }
 
-.imgOne_0{
-    background-image: url('../pictures/icons/People.svg');
+.imgOne_0 {
+    background-image: url("../pictures/icons/People.svg");
 }
 
-.imgTwo_0{
-    background-image: url('../pictures/icons/hands.svg');
+.imgTwo_0 {
+    background-image: url("../pictures/icons/hands.svg");
 }
 
-.imgOne_1{
-    background-image: url('../pictures/icons/carrot.svg');
+.imgOne_1 {
+    background-image: url("../pictures/icons/carrot.svg");
     width: 40px;
 }
 
-.imgTwo_1{
-    background-image: url('../pictures/icons/burger.svg');
+.imgTwo_1 {
+    background-image: url("../pictures/icons/burger.svg");
     width: 47px;
 }
 
-.imgOne_2{
-    background-image: url('../pictures/icons/mic.svg');
+.imgOne_2 {
+    background-image: url("../pictures/icons/mic.svg");
     width: 29px;
 }
 
-.imgTwo_2{
-    background-image: url('../pictures/icons/bottle.svg');
+.imgTwo_2 {
+    background-image: url("../pictures/icons/bottle.svg");
 }
 
-.imgOne_3{
-    background-image: url('../pictures/icons/dog.svg');
+.imgOne_3 {
+    background-image: url("../pictures/icons/dog.svg");
     width: 43px;
 }
 
-.imgTwo_3{
-    background-image: url('../pictures/icons/cat.svg');
+.imgTwo_3 {
+    background-image: url("../pictures/icons/cat.svg");
     width: 44px;
 }
 
-.imgOne_4{
-    background-image: url('../pictures/icons/smileyface.svg');
+.imgOne_4 {
+    background-image: url("../pictures/icons/smileyface.svg");
     width: 40px;
 }
 
-.imgTwo_4{
-    background-image: url('../pictures/icons/arrowup.svg');
+.imgTwo_4 {
+    background-image: url("../pictures/icons/arrowup.svg");
     height: 28px;
 }
-  
 
 .LIA-container {
     display: flex;
@@ -510,6 +509,13 @@ span#counter {
     justify-content: center;
 }
 
+.chosen-tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 11px 19px;
+}
+
 .tag-select-wrapper {
     display: flex;
     flex-direction: column;
@@ -596,26 +602,6 @@ span#counter {
 .tab-nav-wrapper {
 }
 
-.two:hover ~ hr {
-    margin-left: 20%;
-    background: #006097;
-}
-
-.three:hover ~ hr {
-    margin-left: 40%;
-    background: #f18b2d;
-}
-
-.tab-nav-wrapper > ul hr {
-    height: 5px;
-    width: 20%;
-    margin: 0;
-    background: #00a0df;
-    border: none;
-    transition: 0.3s ease-in-out;
-    float: left;
-}
-
 a.tag {
     display: flex;
     padding: 8px;
@@ -626,6 +612,16 @@ a.tag {
     background-color: var(--tag-bg);
     text-decoration: none;
     text-transform: none;
+}
+
+a.tag:hover {
+    background-color: var(--tag-bg-hover);
+    border: 1px solid var(--tag-stroke-hover);
+}
+
+a.tag.tag-picked {
+    background-color: var(--tag-bg-selected);
+    color: var(--tag-text-selected);
 }
 
 .tab-content-wrapper > div[style*="display: flex"] a.tag {
