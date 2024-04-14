@@ -2,7 +2,6 @@
 
 @section('css')
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/tagmenuplus.css') }}" rel="stylesheet">
 @endsection
 
 @section('header')
@@ -133,15 +132,17 @@
                 </div>
             
             {{-- Tags --}}
-            @foreach($profile->tags as $tag)
-            @if ($tag->isPicked)
-            <p>{{ $tag->tag_name }}</p>
-            @endif
-            @endforeach
-
+            
             <div class="tag-select-wrapper max-width">
                 <p class="h2-mobile-bold" style="margin-bottom: 24px">Vad vi söker</p>
-                <p class="body-2" style="margin-bottom: 24px">Välj upp till 10 tags</p>
+                    <p class="body-2" style="margin-bottom: 24px">Välj upp till 10 tags</p>
+                    <div class="chosen-tags" id="chosen-tags">
+                    @foreach($profile->tags as $tag)
+                                @if ($tag->isPicked)
+                                    <a class="tag tag-picked chosen-tag">{{ $tag->tag_name }}</a>
+                                @endif
+                            @endforeach
+                        </div>
                 <div class="tab-nav-wrapper">
                     <div class="tab-wrapper one"><img src="{{ asset('pictures/icons/software.svg') }}"><a href="#" class="body-2">Software</a></div>
                     <div class="tab-wrapper two"><img src="{{ asset('pictures/icons/design.svg') }}"><a href="#" class="body-2">Design</a></div>
@@ -151,7 +152,7 @@
                 <div class="tab-content-wrapper">
                     <div class="tab1-c">
                         @foreach ($softwareTags as $tag)
-                            <a href="#" class="tag-toggle tag body-2" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
+                            <a href="#" class="tag-toggle tag body-2 {{ $tag->isPicked ? "tag-picked" : "" }}" data-tag-id="{{ $tag->id }}">{{ $tag->tag_name }}</a>
                         @endforeach
                     </div>
                     <div class="tab2-c">
@@ -290,7 +291,7 @@
             $(".tab-content-wrapper > div").first().css('display', 'flex');
             $(".tab-wrapper:first").addClass('current-tab');
 
-            $(".tab-nav-wrapper .tab-wrapper").click(function (event) {
+            $(".tab-nav-wrapper .tab-wrapper").click(function(event) {
                 event.preventDefault();
                 $(".current-tab").removeClass("current-tab");
                 $(this).addClass("current-tab");
@@ -299,6 +300,29 @@
                 $(".tab-content-wrapper > div").eq(index).css('display', 'flex');
             });
         });
+
+        $(document).ready(function() {
+            $('.tag').on('click', function() {
+                var tagText = $(this).text();
+                var existingTag = $('#chosen-tags .chosen-tag').filter(function() {
+                    return $(this).text() === tagText;
+                });
+
+                if (existingTag.length > 0) {
+                    existingTag.remove();
+                } else {
+                    if ($('#chosen-tags .chosen-tag').length >= 10) {
+                        return;
+                    }
+                    $('#chosen-tags').append($(this).clone().removeClass('tag-picked').addClass('chosen-tag').addClass('tag-picked'));
+                }
+            });
+        });
+
+
+        /* Tag max 10 selected frontend script */
+
+
 
         /* Characters left script */
 
