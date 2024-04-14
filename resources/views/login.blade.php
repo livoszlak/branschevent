@@ -40,7 +40,7 @@
                         <label for="email" class="body-1" id="email">Användarnamn</label>
                         <div class="input-relative">
                             <input id="email" type="email" name="email" placeholder="Mejladress" class="body-2">
-                            <img src="{{ asset('pictures/Communication.png') }}" class="input-icon">
+                            <img src="{{ asset('pictures/icons/communication.svg') }}" class="input-icon">
                         </div>
                     </div>
 

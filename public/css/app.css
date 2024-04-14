@@ -9,6 +9,7 @@
     --h1-mobile-size: 34px;
 
     --bg-grey: #f0f3f4;
+    --bg-popup: rgba(50, 37, 94, 0.5);
     --dark-blue: #334875;
     --marquee-light-blue: #aeeeed;
     --text-color-black: #000;
@@ -432,7 +433,7 @@ section.header {
 .lightblueBlankSpace {
     height: 60px;
     width: 80px;
-    background: #aeeeedad;
+    background: #AEEEEDAD;
     opacity: 0.68;
     position: absolute;
     right: 20%;
@@ -444,7 +445,7 @@ section.header {
 .blueBlankSpace {
     height: 100%;
     width: 25%;
-    background: #334875;
+    background: var(--dark-blue);
     position: absolute;
     right: 0px;
     bottom: 0px;
