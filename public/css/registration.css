@@ -132,7 +132,7 @@ input[type="number"] {
     max-width: 560px;
 }
 
-.gdpr-background{
+.gdpr-background {
     display: none;
     position: fixed;
     background-color: var(--bg-popup);
@@ -146,7 +146,7 @@ input[type="number"] {
     align-items: center;
 }
 
-.gdprPopup{
+.gdprPopup {
     display: flex;
     height: 80%;
     width: 80%;
@@ -165,7 +165,7 @@ input[type="number"] {
     transform: translateY(0);
 }
 
-.gdprPopup-content{
+.gdprPopup-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -173,7 +173,7 @@ input[type="number"] {
     align-self: stretch;
 }
 
-.input-group-alignstart{
+.input-group-alignstart {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -181,20 +181,59 @@ input[type="number"] {
     align-self: stretch;
 }
 
-.gdpr-checkbox{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    gap: 8px;
-}
-
-.gdpr-checkbox input{
+.gdpr-checkbox input[type="checkbox"] {
+    appearance: none;
     width: 48px;
     height: 48px;
     flex-shrink: 0;
+    background-color: var(--business-card-bg);
+    border: none;
+    position: relative;
+    transition: 300ms ease-out;
 }
 
-.submitButton{
+.gdpr-checkbox input[type="checkbox"]:before {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 48px;
+    background-color: var(--business-card-bg);
+    transition: 300ms ease-out;
+}
+
+.gdpr-checkbox input[type="checkbox"]:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%2248%22%20height%3D%2248%22%20fill%3D%22%23CCD1DC%22%2F%3E%3Cpath%20d%3D%22M43.0613%2014.5612L19.0613%2038.5612C18.9219%2038.7007%2018.7565%2038.8113%2018.5744%2038.8868C18.3923%2038.9623%2018.1971%2039.0012%2018%2039.0012C17.8029%2039.0012%2017.6077%2038.9623%2017.4256%2038.8868C17.2435%2038.8113%2017.0781%2038.7007%2016.9388%2038.5612L6.43875%2028.0612C6.15729%2027.7798%205.99917%2027.398%205.99917%2027C5.99917%2026.6019%206.15729%2026.2202%206.43875%2025.9387C6.72021%2025.6573%207.10196%2025.4991%207.5%2025.4991C7.89805%2025.4991%208.27979%2025.6573%208.56125%2025.9387L18%2035.3794L40.9388%2012.4387C41.2202%2012.1573%2041.602%2011.9991%2042%2011.9991C42.398%2011.9991%2042.7798%2012.1573%2043.0613%2012.4387C43.3427%2012.7202%2043.5008%2013.1019%2043.5008%2013.5C43.5008%2013.898%2043.3427%2014.2798%2043.0613%2014.5612Z%22%20fill%3D%22black%22%2F%3E%3C%2Fsvg%3E")
+        no-repeat center center;
+    background-size: contain;
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+}
+
+.gdpr-checkbox input[type="checkbox"]:checked:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%2248%22%20height%3D%2248%22%20fill%3D%22%23CCD1DC%22%2F%3E%3Cpath%20d%3D%22M43.0613%2014.5612L19.0613%2038.5612C18.9219%2038.7007%2018.7565%2038.8113%2018.5744%2038.8868C18.3923%2038.9623%2018.1971%2039.0012%2018%2039.0012C17.8029%2039.0012%2017.6077%2038.9623%2017.4256%2038.8868C17.2435%2038.8113%2017.0781%2038.7007%2016.9388%2038.5612L6.43875%2028.0612C6.15729%2027.7798%205.99917%2027.398%205.99917%2027C5.99917%2026.6019%206.15729%2026.2202%206.43875%2025.9387C6.72021%2025.6573%207.10196%2025.4991%207.5%2025.4991C7.89805%2025.4991%208.27979%2025.6573%208.56125%2025.9387L18%2035.3794L40.9388%2012.4387C41.2202%2012.1573%2041.602%2011.9991%2042%2011.9991C42.398%2011.9991%2042.7798%2012.1573%2043.0613%2012.4387C43.3427%2012.7202%2043.5008%2013.1019%2043.5008%2013.5C43.5008%2013.898%2043.3427%2014.2798%2043.0613%2014.5612Z%22%20fill%3D%22black%22%2F%3E%3C%2Fsvg%3E")
+        no-repeat center center;
+    background-size: contain;
+    opacity: 0;
+    transition: 300ms ease-out;
+}
+
+.gdpr-checkbox input[type="checkbox"]:checked:after {
+    opacity: 1;
+}
+
+.submitButton {
     display: flex;
     flex-direction: column;
     align-items: center;
