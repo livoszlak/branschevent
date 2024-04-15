@@ -402,16 +402,18 @@ p.h3-bold {
     background-color: var(--banner-bg-green);
 }
 
-input {
-    &:active {
-        border: 1px solid var(--input-stroke);
-        background-color: var(--input-bg-activated);
-    }
+input:active {
+    border: 1px solid var(--input-stroke);
+    background-color: var(--input-bg-activated);
+}
 
-    &:focus {
-        border: 1px solid var(--input-stroke);
-        background-color: var(--in);
-    }
+input:focus {
+    border: 1px solid var(--input-stroke);
+    background-color: var(--in);
+}
+
+input:hover {
+    background-color: var(--input-bg-hover);
 }
 
 .success,
