@@ -110,7 +110,7 @@
     <div id="gdpr-background" class="gdpr-background">
         <div id="gdprPopup" class="gdprPopup">
             <div class="gdprPopup-content">
-                <h2 class="h2-mobile-bold">Integritetspolicy</h2>
+                <p class="h2-mobile-bold">Integritetspolicy</p>
                 <p class="body-1">Vi tar din integritet på stort allvar och behandlar dina personuppgifter med omsorg och säkerhet. Det vi samlar in används endast för att administrera det specifika eventet. 
                     <br><br>
                     Du har rättigheter enligt tillämplig lagstiftning, inklusive rätten att få tillgång till dina personuppgifter, begära rättelse eller radering av uppgifter, samt att invända mot behandling. För ytterligare frågor eller för att utöva dina rättigheter får du gärna kontakta oss.
