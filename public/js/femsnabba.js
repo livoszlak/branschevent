@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
         questionPopups.forEach(function(popup) {
             var questionId = popup.querySelector('.question').getAttribute('data-question-id');
             console.log(questionId);
-            var selectedOption = popup.querySelector('input[type="radio"]:checked');
-    
+            var selectedOption = popup.querySelector('.answer.selected');
+
             if (selectedOption) {
                 chosenOptions.push({
                     id: questionId,
-                    chosen_option: selectedOption.value
+                    chosen_option: selectedOption.getAttribute('data-option')
                 });
             }
         });
@@ -64,13 +64,16 @@ document.addEventListener('DOMContentLoaded', function() {
         showQuestion(currentQuestionIndex);
     });
 
-    document.getElementById('exit').addEventListener('click', function(event) {
-        event.preventDefault(); 
-
-        // Göm popup
-        document.getElementById('question-popup-' + currentQuestionIndex).style.display = 'none';
-        currentQuestionIndex = 0;
+    document.querySelectorAll('.exit-button').forEach(function(exitButton) {
+        exitButton.addEventListener('click', function(event) {
+            event.preventDefault(); 
+            // Göm popup
+            var popup = exitButton.closest('.popup-overlay');
+            popup.style.display = 'none';
+            currentQuestionIndex = 0; // Reset currentQuestionIndex or update it according to your logic
+        });
     });
+    
 
     // Event listener för "Nästa fråga"-knappen
     document.querySelectorAll('.next-question').forEach(function(button) {
@@ -87,6 +90,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Event listener för att välja svar och gå till nästa fråga
+    document.querySelectorAll('.answer').forEach(function(answer) {
+        answer.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Deselect previous selected answer if exists
+            var previousSelected = document.querySelector('.answer.selected');
+            if(previousSelected){
+                previousSelected.classList.remove('selected');
+            }
+            // Select current answer
+            answer.classList.add('selected');
+            
+            // Proceed to the next question
+            var currentPopup = answer.closest('.popup-overlay');
+            var currentQuestionIndex = Array.from(questionPopups).indexOf(currentPopup);
+            if (currentQuestionIndex < questionPopups.length - 1) {
+                showQuestion(currentQuestionIndex + 1);
+            } else {
+                document.getElementById('question-popup-' + (currentQuestionIndex)).style.display = 'none';
+                document.getElementById('popup-last-overlay').style.display = 'block';
+            }
+        });
+    });
+
 
     // Event listener för "Skicka svar"-knappen
     document.getElementById('submit-button').addEventListener('click', function(event) {

@@ -193,18 +193,28 @@ input[type="number"] {
 .questionWrapper {
     display: flex;
     height: 382px;
-    background: url("../pictures/5snabbamobilegraphic.svg") no-repeat center
-        center;
+    position: relative;
     background-size: contain;
     background-position: center;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    position: relative;
     width: calc(100% + 48px);
     margin-left: -24px;
     margin-right: -24px;
     margin-bottom: 35px;
+}
+
+.lightblue-union{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 87%;
+    height: 382px;
+    border-radius: 0px 60px 60px 60px;
+    background-color: var(--tag-bg-hover);
+    filter: drop-shadow(-6.087px 6.087px 10.652px rgba(0, 26, 82, 0.25));
+    position: relative;
 }
 
 .circle {
@@ -217,6 +227,46 @@ input[type="number"] {
     border-radius: 25px;
     position: absolute;
     bottom: 40px;
+    z-index: 99;
+}
+
+.yellowcircle{
+    flex-shrink: 0;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+}
+
+.darkbluecirclesmall{
+    position: absolute;
+    left: 33%;
+    top: 55%;
+}
+
+.redcirclesmall{
+    position: absolute;
+    left: 24%;
+    bottom: 51%;
+}
+
+.darkbluecirclebig{
+    position: absolute;
+    top: 40%;
+    right: 22%;
+}
+
+.redcirclesmallleft{
+    position: absolute;
+    left: 5%;
+    bottom: 50%;
+}
+
+.greyrectangle{
+    position: absolute;
+    right: 10%;
+    bottom: 61%;
+    height: 51px;
+    width: 52px;
 }
 
 .femsnabba {
@@ -241,13 +291,15 @@ input[type="number"] {
 .blueunion5snabba {
     position: absolute;
     top: 20px;
-    left: 0px;
+    left: -1px;
+    z-index: 99;
 }
 
 .redunion5snabba {
     position: absolute;
     top: 50px;
-    right: 0px;
+    right: -1px;
+    z-index: 99;
 }
 
 .question {
@@ -255,7 +307,7 @@ input[type="number"] {
     width: 100%;
     flex-direction: column;
     align-items: center;
-    gap: 70px;
+    gap: 50px;
 }
 
 .cross {
@@ -346,7 +398,7 @@ input[type="number"] {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(50, 37, 94, 0.5);
+    background-color: rgba(0, 26, 82, 0.75);
     z-index: 999;
 }
 
@@ -356,8 +408,8 @@ input[type="number"] {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(50, 37, 94, 0.5); /* Adjust opacity as needed */
-    z-index: 999; /* Ensure the overlay is above other content */
+    background-color: rgba(0, 26, 82, 0.75);
+    z-index: 999;
 }
 
 .popup-content {

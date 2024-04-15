@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
         questionPopups.forEach(function(popup) {
             var questionId = popup.querySelector('.question').getAttribute('data-question-id');
             console.log(questionId);
-            var selectedOption = popup.querySelector('input[type="radio"]:checked');
-    
+            var selectedOption = popup.querySelector('.answer.selected');
+
             if (selectedOption) {
                 chosenOptions.push({
                     id: questionId,
-                    chosen_option: selectedOption.value
+                    chosen_option: selectedOption.getAttribute('data-option')
                 });
             }
         });
@@ -85,6 +85,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('popup-last-overlay').style.display = 'block';
                 }
             }
+        });
+    });
+
+    // Event listener för att välja svar
+    document.querySelectorAll('.answer').forEach(function(answer) {
+        answer.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Deselect previous selected answer
+            document.querySelector('.answer.selected').classList.remove('selected');
+            // Select current answer
+            answer.classList.add('selected');
         });
     });
 
