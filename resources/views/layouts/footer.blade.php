@@ -6,7 +6,7 @@
             <a href="{{ Auth::user() ?  route('profile.show', ['id' => Auth::user()->id]) : url('/login') }}">DIN ANMÄLAN</a>
         </div>
         <div class="footerInfo">
-            <img class="footerInfoYrgored" src="{{ asset('pictures/yrgored.svg') }}" alt="A logo of Yrgo">
+            <div class="footerInfoYrgored"></div>
             <div class="footerInfoColtwo">
                 <ul>
                     <li>Lärdomsgatan 3, <br>

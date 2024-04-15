@@ -71,7 +71,7 @@
                         <div class="plus" id="plus"></div>
                     </div>
                 </div>
-            <input id="participant_count" type="number" name="participant_count" value="1" required autocomplete="participant_count" autofocus>
+            <input style="display: none" id="participant_count" type="number" name="participant_count" value="1" required autocomplete="participant_count" autofocus>
         
             <div class="input-group">
                 <label for="email" class="body-1">Email</label>
@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div class="informational-banner" style="border-radius: 30px 30px 0px 30px">
-                <p>Vi ber om ett lösenord så att du enkelt kan logga in och redigera din information senare.</p>
+                <p>Vi ber om email och lösenord så att du enkelt kan logga in och redigera din information senare. Kom ihåg att mail-adressen kommer att vara synlig på event-sidan.</p>
             </div>
             <div></div>
             </div>
