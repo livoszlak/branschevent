@@ -180,9 +180,17 @@
             <div class="questionWrapper">
                 <img class="blueunion5snabba" src="{{asset('pictures/blueunion5snabba.svg')}}" alt="">
                 <img class="redunion5snabba" src="{{asset('pictures/redunion5snabba.svg')}}" alt="">
-                <p class="femsnabba removeMargin">SVARA PÅ YRGOS 5 SNABBA</p>
-                <div class="circle">
-                    <a id='show-popup-link' href=""><img src="{{asset('pictures/Arrows.svg')}}" alt=""></a>
+                <div class="lightblue-union">
+                    <img class="yellowcircle" src="{{asset('pictures/icons/Ellipse 4.svg')}}" alt="">
+                    <img class="darkbluecirclesmall" src="{{asset('pictures/icons/Ellipse 6.svg')}}" alt="">
+                    <img class="redcirclesmall" src="{{asset('pictures/icons/Ellipse 7.svg')}}" alt="">
+                    <img class="darkbluecirclebig" src="{{asset('pictures/icons/Ellipse 8.svg')}}" alt="">
+                    <img class="redcirclesmallleft" src="{{asset('pictures/icons/Ellipse 9.svg')}}" alt="">
+                    <img class="greyrectangle" src="{{asset('pictures/icons/Ellipse93.svg')}}" alt="">
+                    <p class="femsnabba removeMargin">SVARA PÅ YRGOS 5 SNABBA</p>
+                    <div class="circle">
+                        <a id='show-popup-link' href=""><img src="{{asset('pictures/Arrows.svg')}}" alt=""></a>
+                    </div>
                 </div>
             </div>
             
@@ -209,20 +217,20 @@
                 <div class="popup-content">
                     <div id="question-{{ $index }}" class="question" data-question-id="{{ $question->id }}">
                         <div class="cross">
-                            <img id="exit" class="crossIMG" src="{{asset('pictures/cross.svg')}}" alt="">
+                            <img id="exit" class="crossIMG exit-button" src="{{asset('pictures/cross.svg')}}" alt="">
                         </div>
                 
                         <label><p>{{ $question->question }}</p></label>
                         
                         <div class="answers">
-                            <div class="answer answerOne">
+                            <div class="answer answerOne" data-option="option_one">
                                 <div class="answerIMG imgOne_{{ $index }}"></div>
                                 <label for="choice_one_{{ $question->id }}">{{ $question->option_one }}</label>
-                                <input type="radio" id="choice_one_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_one">
+                                <input type="hidden" id="choice_one_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_one">
                             </div>
-                            <div class="answer answerTwo">
+                            <div class="answer answerTwo" data-option="option_two">
                                 <div class="answerIMG imgTwo_{{ $index }}"></div>
-                                <input type="radio" id="choice_two_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_two">
+                                <input type="hidden" id="choice_two_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_two">
                                 <label for="choice_two_{{ $question->id }}">{{ $question->option_two }}</label>
                             </div>
                         </div>
