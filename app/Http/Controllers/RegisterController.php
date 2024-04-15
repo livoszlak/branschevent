@@ -63,7 +63,7 @@ class RegisterController extends Controller
                 'question' => $question['question'],
                 'option_one' => $question['option_one'],
                 'option_two' => $question['option_two'],
-                /* 'chosen_option' => null */
+                'chosen_option' => null
             ]);
         }
 
