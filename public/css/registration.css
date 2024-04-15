@@ -215,15 +215,6 @@ input[type="number"] {
     transition: opacity 300ms ease-out;
 }
 
-/* .gdpr-checkbox input[type="checkbox"]:checked:before {
-    content: "";
-    display: block;
-    width: 48px;
-    height: 48px;
-    background-color: var(--business-card-bg);
-    transition: 300ms ease-out;
-} */
-
 .gdpr-checkbox input[type="checkbox"]:checked:after {
     content: "";
     position: absolute;
