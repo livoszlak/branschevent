@@ -112,7 +112,7 @@ input[name="search-input"] {
     overflow: hidden;
     gap: 15px;
     position: relative;
-    height: 60px;
+    height: 40px;
     background-color: #aeeeed;
     width: 100%;
 }
