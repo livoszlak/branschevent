@@ -44,7 +44,7 @@
                         </div>
                     </div>
 
-                    <div class="loginLabelInput">
+                    <div class="loginLabelInput" style="padding-bottom: 32px">
                         <label for="password" class="body-1" id="password">Lösenord</label>
                         <div class="loginInputLayout">
                             <div class="loginInput">
