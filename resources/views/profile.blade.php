@@ -275,6 +275,7 @@
     </div>
     @endif
 
+    <!-- Has LIA -->
     @if ($profile->has_LIA)
     <div class="LIA-banner">
         <img src="{{ asset('pictures/icons/stars.svg') }}">
@@ -283,19 +284,49 @@
     </div>
     @endif
 
-{{--         @foreach ($questions as $question)
-            <div class="question">
-                <p>{{ $question->question }}</p>
-                    <p>Answer: {{ $question->chosen_option == 'option_one' ? $question->option_one : $question->option_two }}</p>
-            </div>
-        @endforeach --}}
+    <!-- Five questions -->
+    <section class="slider-wrapper">
+        <p class="h3-mobile-bold">5 snabba om {{ $profile->user->name }}!</p>
+        <ul class="slides-container" id="slides-container">
+            @foreach ($questions as $question)
+            <li class="slide">
+                <div class="carousel-item">
+                    <div class="carousel-question"><p class="h6-italic">{{ $question->question }}</p></div>
+                    <div class="carousel-answer-wrapper">
+                        <div class="carousel-answer {{ $question->chosen_option == 'option_one' ? 'picked-answer' : '' }}"><p class="body-2">{{ $question->option_one }}</p></div>
+                        <div class="carousel-answer {{ $question->chosen_option == 'option_two' ? 'picked-answer' : '' }}"><p class="body-2">{{ $question->option_two }}</p></div>
+                    </div>
+                </div>
+            </li>
+            @endforeach
+        </ul>
+        <div class="slider-button-wrapper">
+            <button class="btn btn-s secondary carousel" id="slide-arrow-prev">
+                <p class="button-medium">Förra</p>
+            </button>
+                <button class="btn btn-s secondary carousel" id="slide-arrow-next">
+                    <p class="button-medium">Nästa</p>
+                </button>
+        </div>
+      </section>
+
 
     @if ($profile->about != null)
             <div class="about-container">
                 <p class="h4-desktop-bold">Om oss</p>
-                <p class="body-2">{{ $profile->about }}</p>
+                <p class="body-1">{{ $profile->about }}</p>
             </div>
     @endif
+
+    <div class="contact-container">
+        <p class="h4-desktop-bold">Kontakt</p>
+        <p class="body-2">{{ $profile->user->contact_name }}<br>
+        {{ $profile->user->email }}</p>
+        <div class="contact-links">
+            <div class="link"><img src="{{ asset('pictures/icons/weburl.svg') }}"><a class="button-medium" style="text-decoration: underline" href="{{ $profile->contact_url != null ? $profile->contact_url : "" }}">Webbsida</a></div>
+            <div class="link"><img src="{{ asset('pictures/icons/profile-linkedin.svg') }}"><a class="button-medium" style="text-decoration: underline" href="{{ $profile->contact_LinkedIn != null ? $profile->contact_LinkedIn : "" }}">LinkedIn</a></div>
+        </div>
+    </div>
 
     @endif
 </main>
@@ -307,6 +338,8 @@
 @endsection
 
 @section('scripts')
+
+@if ($editable)
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
 
@@ -365,4 +398,10 @@
     <script src="{{ asset('js/profile.js') }}"></script>
     {{-- <script src="{{ asset('js/popup.js') }}"></script> --}}
     <script src="{{ asset('js/femsnabba.js') }}"></script>
+
+    @else
+
+    <script src="{{ asset('js/carousel.js') }}"></script>
+
+    @endif
 @endsection

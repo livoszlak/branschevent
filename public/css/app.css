@@ -57,6 +57,11 @@
     --default-img-bg: #808ca8;
     --default-img-text: #334875;
 
+    --carousel-picked-bg: rgba(174, 238, 237, 0.68);
+    --carousel-picked-border: 1px solid rgba(53, 212, 209, 0.8);
+    --carousel-question-text: #001a52;
+    --carousel-unpicked-bg: #bdbdbd;
+
     --caption-grey: #828282;
 
     --box-shadow: -4px 4px 7px 0px rgba(0, 26, 82, 0.25);
@@ -240,6 +245,15 @@ span {
 
 .h6-regular {
     font-size: 20px;
+    font-weight: 300;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+}
+
+.h6-italic {
+    color: #001a52;
+    font-size: 20px;
+    font-style: italic;
     font-weight: 300;
     line-height: 24px;
     letter-spacing: 0.15px;
@@ -449,7 +463,7 @@ section.header {
 .lightblueBlankSpace {
     height: 60px;
     width: 80px;
-    background: #AEEEEDAD;
+    background: #aeeeedad;
     opacity: 0.68;
     position: absolute;
     right: 20%;
