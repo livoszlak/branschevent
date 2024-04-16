@@ -708,7 +708,12 @@ section.header {
     }
 
     .footerInfoYrgored {
-        width: 100%;
-        padding-right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 372px;
+        height: 67px;
+        background: url("../pictures/yrgoredDesktop.svg") no-repeat;
+        object-fit: cover;
     }
 }
