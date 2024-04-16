@@ -181,7 +181,7 @@ input[name="search-input"] {
     }
 
     .results-search-wrapper {
-        flex-direction: row-reverse;
+        max-width: 861px;
         align-items: start;
     }
 

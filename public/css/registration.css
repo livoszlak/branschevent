@@ -282,6 +282,11 @@ input[type="number"] {
         flex: 1 0 0;
     }
 
+    .gdprPopup{
+        height: 380px;
+        width: 1000px;
+    }
+
     .formDesktop{
         display: flex;
         justify-content: center;

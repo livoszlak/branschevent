@@ -65,8 +65,8 @@
                 <p class="body-2">Visual Arena<br>
                 Lindholmen Science Park</p>
                 <br>
-                <p id="mark" class="body-2">Lindholmspiren 3<br>
-                417 56 Göteborg</p>
+                <p class="body-2">Lindholmspiren 3<br>
+                417 56 Göteborg</p> <div id="mark" style="margin-block-start: 30px"></div>
                 </div>
         </div>
         <div class="weatYrgo">
