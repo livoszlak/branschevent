@@ -223,12 +223,12 @@
                         <label><p>{{ $question->question }}</p></label>
                         
                         <div class="answers">
-                            <div class="answer answerOne" data-option="option_one">
+                            <div class="answerOne answer" data-option="option_one">
                                 <div class="answerIMG imgOne_{{ $index }}"></div>
                                 <label for="choice_one_{{ $question->id }}">{{ $question->option_one }}</label>
                                 <input type="hidden" id="choice_one_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_one">
                             </div>
-                            <div class="answer answerTwo" data-option="option_two">
+                            <div class="answerTwo answer" data-option="option_two">
                                 <div class="answerIMG imgTwo_{{ $index }}"></div>
                                 <input type="hidden" id="choice_two_{{ $question->id }}" name="questions[{{ $question->id }}]" value="option_two">
                                 <label for="choice_two_{{ $question->id }}">{{ $question->option_two }}</label>

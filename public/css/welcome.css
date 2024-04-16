@@ -149,7 +149,7 @@
 
 .Anmalforetag {
     position: absolute;
-    top: 90%;
+    top: 75%;
     right: 10%;
     z-index: 2;
 }
@@ -221,6 +221,12 @@
     background: url('../pictures/kartbild.svg') no-repeat;
 }
 
+.footerInfoYrgored{
+    width: 139px;
+    height: 33px;
+    background: url('../pictures/yrgored.svg');
+}
+
 @media screen and (min-width: 1137px) {
     .welcomeHero{
         display: none;
@@ -254,7 +260,7 @@
     }
 
     .Anmalforetag{
-        top: 85%;
+        top: 86.5%;
 
     }
 
