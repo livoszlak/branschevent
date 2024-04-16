@@ -56,7 +56,7 @@
     font-family: var(--main-font-family);
 }
 
-.welcomePage{
+.welcomePage {
     display: none;
 }
 
@@ -210,39 +210,39 @@
     animation: scroll 10s linear infinite;
 }
 
-.whereTextContent{
+.whereTextContent {
     padding: 16px 4px;
 }
 
-.kartbild{
+.kartbild {
     display: flex;
     height: 164px;
     width: 100%;
-    background: url('../pictures/kartbild.svg') no-repeat;
+    background: url("../pictures/kartbild.svg") no-repeat;
 }
 
-.footerInfoYrgored{
+.footerInfoYrgored {
     width: 139px;
     height: 33px;
-    background: url('../pictures/yrgored.svg');
+    background: url("../pictures/yrgored.svg");
 }
 
 @media screen and (min-width: 1137px) {
-    .welcomeHero{
+    .welcomeHero {
         display: none;
     }
 
-    .whoIsComingPage{
+    .whoIsComingPage {
         display: none;
     }
 
-    .landingpageWrapper{
+    .landingpageWrapper {
         flex-direction: column;
         align-items: center;
         gap: 96px;
     }
 
-    .welcomePage{
+    .welcomePage {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -250,7 +250,7 @@
         padding-top: 25px;
     }
 
-    .whoIsComingPageDesktop{
+    .whoIsComingPageDesktop {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -259,67 +259,70 @@
         align-self: stretch;
     }
 
-    .Anmalforetag{
+    .Anmalforetag {
         top: 86.5%;
-
     }
 
-    .marquee{
+    .marquee {
         width: calc(100% + 256px);
         height: 103px;
     }
 
-    .whereWrapper{
+    .whereWrapper {
         gap: 24px;
         flex-direction: row;
     }
 
-    .whereWrapper img{
+    .whereWrapper img {
         display: flex;
         width: 580px;
         height: 164px;
         object-fit: contain;
     }
 
-    .whereTextContent{
+    .whereTextContent {
         display: flex;
         flex-direction: column;
         width: 50%;
-        gap: 16px;
+        gap: 0px;
         padding: 0px;
     }
 
-    .kartbild{
+    .whereTextContent > .h3-mobile-bold {
+        padding-bottom: 28px;
+    }
+
+    .kartbild {
         display: flex;
         height: 164px;
         width: 50%;
-        background: url('../pictures/kartbildDesktop.svg') no-repeat;
-        object-fit:contain;
+        background: url("../pictures/kartbildDesktop.svg") no-repeat;
+        object-fit: contain;
     }
 
-    .LIApicture img{
+    .LIApicture img {
         height: 323px;
         object-fit: cover;
-        object-position:0px -53px;
+        object-position: 0px -53px;
     }
 
-    .aboutTitleContainer{
+    .aboutTitleContainer {
         width: 100%;
         margin-left: 0px;
         margin-right: 0px;
     }
 
-    .aboutTextContainer .body-2desktop{
+    .aboutTextContainer .body-2desktop {
         width: 50%;
     }
 
-    .footerInfoYrgored{
+    .footerInfoYrgored {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 362px;
         height: 67px;
-        background: url('../pictures/yrgoredDesktop.svg') no-repeat;
+        background: url("../pictures/yrgoredDesktop.svg") no-repeat;
         object-fit: cover;
     }
 }
