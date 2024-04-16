@@ -258,31 +258,32 @@
     <!-- Display static profile content. Maybe use different layout sections?? -->
 
     <!-- Profile image & company name -->
-    <div class="logo-name-container">
-        @if($profile->profile_image)
-            <div class="profile-img"><img src="{{ asset('storage/profile_images/' . $profile->profile_image) }}"></div>
-        @else
-            <div class="profile-img default">
-                <p class="h2-desktop-bold">{{ collect(explode(' ', $user->name))->map(function($word) { return strtoupper(substr($word, 0, 1)); })->implode('') }}</p>
-            </div>
-        @endif
-        <p class="h1-mobile-bold">{{ $user->name }}</p>
-    </div>
-
-    <!-- Selected tags -->
-    @if(count($pickedTags) > 0)
-    <div class="selected-tags-container">
-        <p class="body-2" style="font-weight: 400">Vi söker dig som kan</p>
-        <div class="selected-tags-wrapper">
-            @foreach($profile->tags as $tag)
-                @if ($tag->isPicked)
-                    <a class="tag tag-picked body-2">{{ $tag->tag_name }}</a>
-                @endif
-            @endforeach
+    <div class="profile-section-row ">
+        <div class="logo-name-container">
+            @if($profile->profile_image)
+                <div class="profile-img"><img src="{{ asset('storage/profile_images/' . $profile->profile_image) }}"></div>
+            @else
+                <div class="profile-img default">
+                    <p class="h2-desktop-bold">{{ collect(explode(' ', $user->name))->map(function($word) { return strtoupper(substr($word, 0, 1)); })->implode('') }}</p>
+                </div>
+            @endif
+            <p class="h1-mobile-bold">{{ $user->name }}</p>
         </div>
-    </div>
-    @endif
 
+        <!-- Selected tags -->
+        @if(count($pickedTags) > 0)
+        <div class="selected-tags-container">
+            <p class="body-2" style="font-weight: 400">Vi söker dig som kan</p>
+            <div class="selected-tags-wrapper">
+                @foreach($profile->tags as $tag)
+                    @if ($tag->isPicked)
+                        <a class="tag tag-picked body-2">{{ $tag->tag_name }}</a>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+        @endif
+    </div>
     <!-- Has LIA -->
     @if ($profile->has_LIA)
     <div class="LIA-banner">
@@ -292,50 +293,54 @@
     </div>
     @endif
 
-    <!-- Five questions -->
-    <section class="slider-wrapper">
-        <p class="h3-mobile-bold">5 snabba om {{ $profile->user->name }}!</p>
-        <ul class="slides-container" id="slides-container">
-            @foreach ($questions as $question)
-            <li class="slide">
-                <div class="carousel-item">
-                    <div class="carousel-question"><p class="h6-italic">{{ $question->question }}</p></div>
-                    <div class="carousel-answer-wrapper">
-                        <div class="carousel-answer {{ $question->chosen_option == 'option_one' ? 'picked-answer' : '' }}"><p class="body-2">{{ $question->option_one }}</p></div>
-                        <div class="carousel-answer {{ $question->chosen_option == 'option_two' ? 'picked-answer' : '' }}"><p class="body-2">{{ $question->option_two }}</p></div>
+    <div class="flexprofileDesktop">
+        <!-- Five questions -->
+        <section class="slider-wrapper">
+            <p class="h3-mobile-bold">5 snabba om {{ $profile->user->name }}!</p>
+            <ul class="slides-container" id="slides-container">
+                @foreach ($questions as $question)
+                <li class="slide">
+                    <div class="carousel-item">
+                        <div class="carousel-question"><p class="h6-italic">{{ $question->question }}</p></div>
+                        <div class="carousel-answer-wrapper">
+                            <div class="carousel-answer {{ $question->chosen_option == 'option_one' ? 'picked-answer' : '' }}"><p class="body-2">{{ $question->option_one }}</p></div>
+                            <div class="carousel-answer {{ $question->chosen_option == 'option_two' ? 'picked-answer' : '' }}"><p class="body-2">{{ $question->option_two }}</p></div>
+                        </div>
                     </div>
-                </div>
-            </li>
-            @endforeach
-        </ul>
-        <div class="slider-button-wrapper">
-            <button class="btn btn-s secondary carousel" id="slide-arrow-prev">
-                <p class="button-medium">Förra</p>
-            </button>
-                <button class="btn btn-s secondary carousel" id="slide-arrow-next">
-                    <p class="button-medium">Nästa</p>
+                </li>
+                @endforeach
+            </ul>
+            <div class="slider-button-wrapper">
+                <button class="btn btn-s secondary carousel" id="slide-arrow-prev">
+                    <p class="button-medium">Förra</p>
                 </button>
-        </div>
-      </section>
-
-
-    @if ($profile->about != null)
-            <div class="about-container">
-                <p class="h4-desktop-bold">Om oss</p>
-                <p class="body-1">{{ $profile->about }}</p>
+                    <button class="btn btn-s secondary carousel" id="slide-arrow-next">
+                        <p class="button-medium">Nästa</p>
+                    </button>
             </div>
-    @endif
+        </section>
 
-    <div class="contact-container">
-        <p class="h4-desktop-bold">Kontakt</p>
-        <p class="body-2">{{ $profile->user->contact_name }}<br>
-        {{ $profile->user->email }}</p>
-        <div class="contact-links">
-            <div class="link"><img src="{{ asset('pictures/icons/weburl.svg') }}"><a class="button-medium" style="text-decoration: underline" href="{{ $profile->contact_url != null ? $profile->contact_url : "" }}">Webbsida</a></div>
-            <div class="link"><img src="{{ asset('pictures/icons/profile-linkedin.svg') }}"><a class="button-medium" style="text-decoration: underline" href="{{ $profile->contact_LinkedIn != null ? $profile->contact_LinkedIn : "" }}">LinkedIn</a></div>
+        <div class="columnDesktop">
+            @if ($profile->about != null)
+                    <div class="about-container">
+                        <p class="h4-desktop-bold">Om oss</p>
+                        <p class="body-1">{{ $profile->about }}</p>
+                    </div>
+            @endif
+
+            <div class="contact-container">
+                <p class="h4-desktop-bold">Kontakt</p>
+                <p class="body-2">{{ $profile->user->contact_name }}<br>
+                {{ $profile->user->email }}</p>
+                <div class="contact-links">
+                    <div class="link"><img src="{{ asset('pictures/icons/weburl.svg') }}"><a class="button-medium" style="text-decoration: underline" href="{{ $profile->contact_url != null ? $profile->contact_url : "" }}">Webbsida</a></div>
+                    <div class="link"><img src="{{ asset('pictures/icons/profile-linkedin.svg') }}"><a class="button-medium" style="text-decoration: underline" href="{{ $profile->contact_LinkedIn != null ? $profile->contact_LinkedIn : "" }}">LinkedIn</a></div>
+                </div>
+            </div>
         </div>
     </div>
-
+    <div></div>
+    
     @endif
 </main>
 @endsection

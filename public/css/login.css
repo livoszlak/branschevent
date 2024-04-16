@@ -193,3 +193,25 @@ input {
     top: 50%;
     transform: translateY(-50%);
 }
+
+@media screen and (min-width: 1137px) {
+    .informational-banner{
+        border-radius: 0px;
+    }
+
+    .flexrow{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        width: 100%;
+    }
+
+    .input-group{
+        width: 342px;
+    }
+
+    .formWrapper form{
+        gap: 64px;
+    }
+}

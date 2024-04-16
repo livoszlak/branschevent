@@ -587,6 +587,12 @@ section.header {
     width: 40%;
 }
 
+.footerInfoYrgored{
+    width: 139px;
+    height: 33px;
+    background: url('../pictures/yrgored.svg');
+}
+
 .gbgstad {
     width: 86px;
     height: 28px;
@@ -693,6 +699,14 @@ section.header {
 
     .footerPageLinks {
         flex: 1 0 0;
+        justify-content: center;
+    }
+
+    .footerInfo{
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
     }
 
     .footerPictures {

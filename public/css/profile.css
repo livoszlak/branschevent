@@ -918,3 +918,43 @@ a.tag.tag-picked {
     flex: 1 0 0;
     width: calc(50% - 8px);
 }
+
+@media screen and (min-width: 1137px) {
+
+    main{
+        padding: 16px 128px 64px 128px;
+    }
+
+    .questionWrapper{
+        width: calc(100% + 128px);
+        margin-left: -64px;
+        margin-right: -64px;
+    }
+
+    .profile-section-row{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 64px;
+        width: 100%;
+    }
+
+    .flexprofileDesktop{
+        display: flex;
+        flex-direction: row-reverse;
+        width: 100%;
+    }
+
+    .columnDesktop{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex: 1 0 0;
+        align-self: stretch;
+    }
+
+    .about-container{
+        width: 100%;
+    }
+}
