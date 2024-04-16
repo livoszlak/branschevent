@@ -585,6 +585,12 @@ section.header {
     width: 40%;
 }
 
+.footerInfoYrgored{
+    width: 139px;
+    height: 33px;
+    background: url('../pictures/yrgored.svg');
+}
+
 .gbgstad {
     width: 86px;
     height: 28px;
@@ -701,6 +707,12 @@ section.header {
     }
 
     .footerInfoYrgored{
-        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 370px;
+        height: 67px;
+        background: url('../pictures/yrgoredDesktop.svg') no-repeat;
+        object-fit: cover;
     }
 }

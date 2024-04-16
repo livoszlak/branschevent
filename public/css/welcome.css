@@ -221,12 +221,6 @@
     background: url('../pictures/kartbild.svg') no-repeat;
 }
 
-.footerInfoYrgored{
-    width: 139px;
-    height: 33px;
-    background: url('../pictures/yrgored.svg');
-}
-
 @media screen and (min-width: 1137px) {
     .welcomeHero{
         display: none;
@@ -311,15 +305,5 @@
 
     .aboutTextContainer .body-2desktop{
         width: 50%;
-    }
-
-    .footerInfoYrgored{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 362px;
-        height: 67px;
-        background: url('../pictures/yrgoredDesktop.svg') no-repeat;
-        object-fit: cover;
     }
 }

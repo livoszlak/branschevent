@@ -35,26 +35,25 @@
             <div class="formWrapper">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-
-                    <div class="input-group">
-                        <label for="email" class="body-1" id="email">Användarnamn</label>
-                        <div class="input-relative">
-                            <input id="email" type="email" name="email" placeholder="Mejladress" class="body-2">
-                            <img src="{{ asset('pictures/icons/communication.svg') }}" class="input-icon">
-                        </div>
-                    </div>
-
-                    <div class="loginLabelInput">
-                        <label for="password" class="body-1" id="password">Lösenord</label>
-                        <div class="loginInputLayout">
-                            <div class="loginInput">
-                                <input type="password" name="password" placeholder="Lösenord" class="body-2">
-                                <img src="{{asset('pictures/icons/security.svg')}}" alt="">
+                    <div class="flexrow">
+                        <div class="input-group">
+                            <label for="email" class="body-1" id="email">Användarnamn</label>
+                            <div class="input-relative">
+                                <input id="email" type="email" name="email" placeholder="Mejladress" class="body-2">
+                                <img src="{{ asset('pictures/icons/communication.svg') }}" class="input-icon">
                             </div>
                         </div>
-                    </div>
 
-                    
+                        <div class="loginLabelInput">
+                            <label for="password" class="body-1" id="password">Lösenord</label>
+                            <div class="loginInputLayout">
+                                <div class="loginInput">
+                                    <input type="password" name="password" placeholder="Lösenord" class="body-2">
+                                    <img src="{{asset('pictures/icons/security.svg')}}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
                         <button class="btn btn-m primary" type="submit"><p class="button-large">Logga in</p></button>
                     </form>
                 </div>

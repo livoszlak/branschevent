@@ -918,3 +918,10 @@ a.tag.tag-picked {
     flex: 1 0 0;
     width: calc(50% - 8px);
 }
+
+@media screen and (min-width: 1137px) {
+
+    main{
+        padding: 16px 128px 0px 128px;
+    }
+}
