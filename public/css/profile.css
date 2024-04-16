@@ -205,7 +205,7 @@ input[type="number"] {
     margin-bottom: 35px;
 }
 
-.lightblue-union{
+.lightblue-union {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -230,38 +230,38 @@ input[type="number"] {
     z-index: 99;
 }
 
-.yellowcircle{
+.yellowcircle {
     flex-shrink: 0;
     position: absolute;
     left: 50%;
     bottom: 50%;
 }
 
-.darkbluecirclesmall{
+.darkbluecirclesmall {
     position: absolute;
     left: 33%;
     top: 55%;
 }
 
-.redcirclesmall{
+.redcirclesmall {
     position: absolute;
     left: 24%;
     bottom: 51%;
 }
 
-.darkbluecirclebig{
+.darkbluecirclebig {
     position: absolute;
     top: 40%;
     right: 22%;
 }
 
-.redcirclesmallleft{
+.redcirclesmallleft {
     position: absolute;
     left: 5%;
     bottom: 50%;
 }
 
-.greyrectangle{
+.greyrectangle {
     position: absolute;
     right: 10%;
     bottom: 61%;
@@ -534,7 +534,7 @@ input[type="radio"] {
     border: 2px solid black;
     border-radius: 50%;
     outline: none;
-    background-color: white;
+    background-color: transparent;
     position: relative;
 }
 

@@ -50,7 +50,7 @@
                 <form action="{{ route('search') }}" method="GET">
                     @csrf
                     <div class="input-relative" id="search">
-                        <img src="{{ asset('pictures/icons/search.svg') }}" class="input-icon">
+                        <img src="{{ asset('pictures/icons/search.svg') }}" class="input-icon" id="search-icon">
                         <input id="search-input" type="text" name="search-input" placeholder="Sök på företag/namn/tag" class="body-1">
                     </div>
                 </form>
