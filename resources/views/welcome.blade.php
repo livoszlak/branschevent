@@ -24,6 +24,15 @@
 <main>
     <div class="landingpageWrapper">
         <div class="welcomePage">
+            <img src="{{asset('pictures/Heroimg.svg')}}" alt="">
+            <div class="whoIsComingPageDesktop">
+                <p class="h1-mobile-regular">Välkommen till bästa LIA-eventet</p>
+                <p class="body-2">Vi studenter från Yrgo, Digital Design och Webbutveckling, bjuder in branschkollegor till ett LIA-event. Det är ett tillfälle där vi alla kan mötas, nätverka och lära känna varandra bättre. Vi ser fram emot att dela våra erfarenheter och kunskaper med er, och samtidigt lära oss mer om era olika verksamheter och karriärmöjligheter.
+                    <br><br>
+                    Vi tror att detta event kommer att vara en utmärkt möjlighet för både studenter och branschkollegor att utforska möjligheter till framtida samarbeten och praktikplatser. Så ta chansen att mingla, utbyta idéer och kanske till och med hitta er framtida praktikant.
+                </p>
+                <button class="btn btn-m secondary"><a class="button-large" href="{{ route('attendees') }}">VEM KOMMER?</a></button>
+            </div>
         </div>
         <div class="whoIsComingPage">
             <p class="h1-mobile-regular">Välkommen till bästa LIA-eventet</p>
@@ -36,40 +45,40 @@
         <div class="marquee">
             <div class="marquee-content scroll">
                 @foreach ($companies as $company)
-                    <h3 class="">• {{ $company }}</h3>
-                    <h3>• JEPPE</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
-                    <h3>• HCUDCSC</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
+                    <h3>{{ $company }}</h3>
+                    <h3>•</h3>
                 @endforeach
                 
             </div>
             <div class="marquee-content scroll">
                 @foreach ($companies as $company)
-                    <h3 class="">• {{ $company }}</h3>
-                    <h3>• :-)</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
-                    <h3>• MONKEY</h3> {{-- !!!!!!!!!!!!!!!!!TA BORT SEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
+                    <h3>{{ $company }}</h3>
+                    <h3>•</h3>
                 @endforeach
                 
             </div>
         </div>
         <div class="whereWrapper">
-            <img src="{{asset('pictures/kartbild.svg')}}" alt="img of visual arena at lindholmen" style="width: 100%">
-                <p class="h3-mobile-bold" style="padding: 15px 0 10px">Vart någonstans?</p>
+            <div class="kartbild"></div>
+            <div class="whereTextContent">
+                <p class="h3-mobile-bold">Vart någonstans?</p>
                 <p class="body-2">Visual Arena<br>
                 Lindholmen Science Park</p>
                 <br>
-                <p class="body-2">Lindholmspiren 3<br>
+                <p id="mark" class="body-2">Lindholmspiren 3<br>
                 417 56 Göteborg</p>
+                </div>
         </div>
         <div class="weatYrgo">
             <div class="aboutTitleContainer">
                 <div class="LIApicture">
-                    <img src="{{asset('pictures/varliaone.png')}}" alt="bild på yrgo?" style="width: 100%">
+                    <img src="{{asset('pictures/lia1000.png')}}" alt="bild på yrgo?" style="width: 100%">
                     <p class="LIAtextFloating h2-mobile-bold">Vår LIA-period</p>
                 </div>
             </div>
             <div class="aboutTextContainer">
-                <p class="body-2">LIA är en viktig period för oss studenter. Det ger oss möjlighet att träna och utveckla våra färdigheter i en verklig arbetsmiljö inom vår framtida yrkesroll. Under LIA får vi inte bara praktisk erfarenhet utan även chansen att knyta värdefulla kontakter i branschen.</p> 
-                    <p class="body-2">Vår LIA-period är mellan 25 november 2024 - 30 maj 2025.</p>
+                <p class="body-2 body-2desktop">LIA är en viktig period för oss studenter. Det ger oss möjlighet att träna och utveckla våra färdigheter i en verklig arbetsmiljö inom vår framtida yrkesroll. Under LIA får vi inte bara praktisk erfarenhet utan även chansen att knyta värdefulla kontakter i branschen.</p> 
+                    <p class="body-2">Vår LIA-period är mellan <br> 25 november 2024 - 30 maj 2025.</p>
                     <p class="body-2">Läs mer om våra kurser på YRGOs webbplats:</p>
                 <div class="classLink">
                     <img src="{{asset('pictures/icons/design.svg')}}" alt="">

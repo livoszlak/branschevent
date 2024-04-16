@@ -20,11 +20,13 @@
     <div class="marquee-content scroll">
         @foreach ($users as $user)
             <h3 class="">{{ $user->name }} </h3>
+            <h3>-</h3>
         @endforeach    
     </div>
     <div class="marquee-content scroll">
         @foreach ($users as $user)
             <h3 class="">{{ $user->name }}</h3>
+            <h3>-</h3>
         @endforeach
     </div>
 </div>

@@ -56,6 +56,10 @@
     font-family: var(--main-font-family);
 }
 
+.welcomePage{
+    display: none;
+}
+
 .welcomeHero {
     display: flex;
     flex-direction: column;
@@ -64,7 +68,6 @@
 
 .whoIsComingPage {
     display: flex;
-    padding: 0px 24px;
     flex-direction: column;
     align-items: flex-start;
     gap: 32px;
@@ -73,7 +76,6 @@
 
 .whereWrapper {
     display: flex;
-    padding: 0px 24px;
     flex-direction: column;
     align-items: flex-start;
     align-self: stretch;
@@ -103,7 +105,6 @@
 
 .aboutTextContainer {
     display: flex;
-    padding: 0px 24px;
     flex-direction: column;
     align-items: flex-start;
     gap: 32px;
@@ -207,4 +208,118 @@
 
 .scroll {
     animation: scroll 10s linear infinite;
+}
+
+.whereTextContent{
+    padding: 16px 4px;
+}
+
+.kartbild{
+    display: flex;
+    height: 164px;
+    width: 100%;
+    background: url('../pictures/kartbild.svg') no-repeat;
+}
+
+.footerInfoYrgored{
+    width: 139px;
+    height: 33px;
+    background: url('../pictures/yrgored.svg');
+}
+
+@media screen and (min-width: 1137px) {
+    .welcomeHero{
+        display: none;
+    }
+
+    .whoIsComingPage{
+        display: none;
+    }
+
+    .landingpageWrapper{
+        flex-direction: column;
+        align-items: center;
+        gap: 96px;
+    }
+
+    .welcomePage{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: stretch;
+        padding-top: 25px;
+    }
+
+    .whoIsComingPageDesktop{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 48px;
+        gap: 32px;
+        align-self: stretch;
+    }
+
+    .Anmalforetag{
+        top: 86.5%;
+
+    }
+
+    .marquee{
+        width: calc(100% + 256px);
+        height: 103px;
+    }
+
+    .whereWrapper{
+        gap: 24px;
+        flex-direction: row;
+    }
+
+    .whereWrapper img{
+        display: flex;
+        width: 580px;
+        height: 164px;
+        object-fit: contain;
+    }
+
+    .whereTextContent{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        gap: 16px;
+        padding: 0px;
+    }
+
+    .kartbild{
+        display: flex;
+        height: 164px;
+        width: 50%;
+        background: url('../pictures/kartbildDesktop.svg') no-repeat;
+        object-fit:contain;
+    }
+
+    .LIApicture img{
+        height: 323px;
+        object-fit: cover;
+        object-position:0px -53px;
+    }
+
+    .aboutTitleContainer{
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .aboutTextContainer .body-2desktop{
+        width: 50%;
+    }
+
+    .footerInfoYrgored{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 362px;
+        height: 67px;
+        background: url('../pictures/yrgoredDesktop.svg') no-repeat;
+        object-fit: cover;
+    }
 }
