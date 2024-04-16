@@ -63,6 +63,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }); */
 
+    const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+    if (!csrfTokenMeta) {
+        console.error("CSRF token meta tag not found");
+        return;
+    }
+
+    const csrfToken = csrfTokenMeta.getAttribute("content");
+
     const tagLinks = document.querySelectorAll(".tag-toggle");
     let tagCount = document.querySelectorAll(".chosen-tag").length;
 
@@ -78,9 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
             fetch(`/tag/${tagId}/toggle`, {
                 method: "POST",
                 headers: {
-                    "X-CSRF-TOKEN": document
-                        .querySelector('meta[name="csrf-token"]')
-                        .getAttribute("content"),
+                    "X-CSRF-TOKEN": csrfToken,
                     "Content-Type": "application/json",
                     Accept: "application/json",
                 },

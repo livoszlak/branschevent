@@ -40,7 +40,7 @@
                 <br><br>
                 Vi tror att detta event kommer att vara en utmärkt möjlighet för både studenter och branschkollegor att utforska möjligheter till framtida samarbeten och praktikplatser. Så ta chansen att mingla, utbyta idéer och kanske till och med hitta er framtida praktikant.
             </p>
-            <button class="btn btn-m secondary"><a class="button-large" href="{{ route('attendees') }}">VEM KOMMER?</a></button>
+            <button class="btn btn-m secondary"><a class="button-large" id="attendees-button" href="{{ route('attendees') }}">VEM KOMMER?</a></button>
         </div>
         <div class="marquee">
             <div class="marquee-content scroll">

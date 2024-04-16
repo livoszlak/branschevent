@@ -58,4 +58,5 @@ a {
 
 .errors#no-results {
     align-self: flex-start;
+    padding-bottom: 128px;
 }

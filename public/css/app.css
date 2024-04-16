@@ -351,10 +351,10 @@ p.h3-bold {
 
 .secondary {
     background-color: var(--btn-secondary-fill);
-    color: var(--text-color-black);
+    color: var(--btn-text-light);
 }
 
-.secondary:hover {
+button.secondary:hover {
     background-color: var(--dark-blue);
     color: var(--btn-text-light);
 }
@@ -587,10 +587,10 @@ section.header {
     width: 40%;
 }
 
-.footerInfoYrgored{
+.footerInfoYrgored {
     width: 139px;
     height: 33px;
-    background: url('../pictures/yrgored.svg');
+    background: url("../pictures/yrgored.svg");
 }
 
 .gbgstad {
@@ -702,7 +702,7 @@ section.header {
         justify-content: center;
     }
 
-    .footerInfo{
+    .footerInfo {
         display: flex;
         gap: 40px;
         justify-content: center;

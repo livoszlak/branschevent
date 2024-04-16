@@ -257,7 +257,7 @@
         <form action="{{ route('profile.destroy', $profile->id) }}" method="POST">
             @csrf
             @method('DELETE')
-            <button class="btn btn-s secondary">Ta bort anmälan</button>
+            <button class="btn btn-s secondary" id="delete-button">Ta bort anmälan</button>
         </form>
     </div>
 

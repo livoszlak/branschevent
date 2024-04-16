@@ -158,6 +158,23 @@
     color: var(--btn-text-light);
 }
 
+.Anmalforetag.btn > a:hover {
+    color: var(--btn-red);
+}
+
+button#Anmalforetag:hover {
+    color: var(--btn-red);
+}
+
+div.whoIsComingPageDesktop button.secondary:hover {
+    color: #fff;
+}
+
+.secondary {
+    background-color: var(--btn-secondary-fill);
+    color: var(--text-color-black);
+}
+
 .marquee {
     display: flex;
     overflow: hidden;
@@ -221,13 +238,11 @@
     background: url("../pictures/kartbild.svg") no-repeat;
 }
 
-
 .footerInfoYrgored {
     width: 139px;
     height: 33px;
     background: url("../pictures/yrgored.svg");
 }
-
 
 @media screen and (min-width: 1137px) {
     .welcomeHero {
@@ -261,8 +276,7 @@
         align-self: stretch;
     }
 
-
-    .Anmalforetag{
+    .Anmalforetag {
         top: 85%;
     }
 
@@ -328,5 +342,4 @@
         background: url("../pictures/yrgoredDesktop.svg") no-repeat;
         object-fit: cover;
     }
-
 }
