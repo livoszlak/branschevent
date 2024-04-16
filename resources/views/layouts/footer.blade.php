@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="footerPictures">
-            <p>© 2024 Yrgo, högre yrkesutbildning Göteborg</p>
+            <p class="caption-regular">© 2024 Yrgo, högre yrkesutbildning Göteborg</p>
             <img class="gbgstad" src="{{ asset('pictures/gbgstad.svg') }}" alt="A logo of Göteborgs stad.">
         </div>
     </div>
