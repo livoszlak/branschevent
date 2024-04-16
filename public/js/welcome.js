@@ -1,12 +1,12 @@
 window.addEventListener("scroll", function () {
     var button = document.getElementById("Anmalforetag");
     var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-    var threshold = 0.5;
+    var threshold = 90;
 
     var targetDiv = document.getElementById("mark");
     var targetDivPosition = targetDiv.getBoundingClientRect().top + scrollPosition;
     var viewportHeight = window.innerHeight;
-    extra = (viewportHeight * 0.75);
+    extra = (viewportHeight * 0.70);
 
     console.log(targetDivPosition);
     console.log(scrollPosition);
@@ -21,5 +21,6 @@ window.addEventListener("scroll", function () {
         }
     } else {
         button.style.position = "absolute";
+        button.style.top = "86.5%";
     }
 });
