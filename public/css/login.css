@@ -52,6 +52,15 @@
     padding: 64px 0 0;
 }
 
+input {
+    outline: none;
+}
+
+.loginInputLayout:hover,
+.loginInputLayout > .loginInput > input[type="password"]:hover {
+    background-color: var(--input-bg-hover);
+}
+
 .formWrapper form {
     display: flex;
     flex-direction: column;

@@ -15,6 +15,6 @@ class AttendeesController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('attendees', ['users' => $users]);
+        return view('attendees', ['users' => $users->sortBy('name', SORT_NATURAL | SORT_FLAG_CASE)]);
     }
 }
