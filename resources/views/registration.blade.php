@@ -16,19 +16,21 @@
 
 @section('content')
 
+<main class="mainRegistration">    
 <div class="arrow-wrapper" style="padding: 16px 24px">
     <a href="{{ url()->previous() }}">
         <img src="{{ asset('pictures/arrow.svg') }}">
     </a>
 </div>
 <div class="informational-banner bigBannerDesktop">
-    <p class="h2-mobile-bold">Kul att du vill komma</p>
+    <p class="h2-mobile-bold">Kul att du vill gå</p>
+    <div class="info-text">
     <p class="body-2">Här anger du grundläggande information för att kunna anmäla dig till evenemanget. Det är möjligt att lägga till mer information i nästa steg.</p>
     <p class="body-2">Har du redan anmält ditt företag?</p>
+    </div>
     <a href="{{ route('login') }}"><button class="btn btn-m secondary button-large">Logga in</button></a>
 </div>
 
-<main class="mainRegistration">    
     @if (session('message'))
     <div class="success">
         <img src="{{ asset('pictures/icons/People.svg') }}">
@@ -74,15 +76,15 @@
                 </div>
                 <input style="display: none" id="participant_count" type="number" name="participant_count" value="1" required autocomplete="participant_count" autofocus>
             </div>
-            <div class="input-group">
-                <label for="email" class="body-1">Email</label>
-                <div class="input-relative">
-                <input type="email" id="email" name="email" placeholder="Mejl Yrgos studenter kan nå er på">
-                <img src="{{ asset('pictures/icons/email.svg') }}" class="input-icon">
+        </div>
+        <div class="test2 max-width">
+                <div class="input-group">
+                    <label for="email" class="body-1">Email</label>
+                    <div class="input-relative">
+                    <input type="email" id="email" name="email" placeholder="Mejl Yrgos studenter kan nå er på">
+                    <img src="{{ asset('pictures/icons/email.svg') }}" class="input-icon">
+                    </div>
                 </div>
-            </div>
-            </div>
-            <div class="test2 max-width">
                 <div class="input-group">
                     <label for="password" class="body-1">Lösenord</label>
                     <div class="input-relative">

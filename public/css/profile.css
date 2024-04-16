@@ -743,6 +743,11 @@ a.tag.tag-picked {
     gap: 24px;
     align-self: stretch;
     text-align: center;
+    width: 560px;
+}
+
+.contact-container > p.body-2 {
+    line-height: 32px;
 }
 
 .selected-tags-container {
@@ -945,9 +950,16 @@ a.tag.tag-picked {
         width: 100%;
     }
 
+    .profile-img,
+    .profile-img.default {
+        height: 167px;
+        width: 167px;
+    }
+
     .flexprofileDesktop {
         display: flex;
         flex-direction: row-reverse;
+        justify-content: space-between;
         width: 100%;
     }
 
@@ -956,8 +968,6 @@ a.tag.tag-picked {
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
-        flex: 1 0 0;
-        align-self: stretch;
     }
 
     .about-container {

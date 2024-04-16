@@ -181,7 +181,7 @@ input[type="number"] {
     align-self: stretch;
 }
 
-.gdpr-checkbox{
+.gdpr-checkbox {
     display: flex;
     gap: 8px;
     align-items: center;
@@ -248,7 +248,7 @@ input[type="number"] {
     padding-bottom: 24px;
 }
 
-.test{
+.test {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -256,7 +256,7 @@ input[type="number"] {
     flex: 1 0 0;
 }
 
-.test2{
+.test2 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -265,29 +265,30 @@ input[type="number"] {
 }
 
 @media screen and (min-width: 1137px) {
+    .mainRegistration {
+        gap: 48px;
+    }
 
-    .test{
+    .test {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: var(--Units-32, 32px);
-        flex: 1 0 0;
+        gap: 32px;
     }
 
-    .test2{
+    .test2 {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: var(--Units-32, 32px);
-        flex: 1 0 0;
+        gap: 32px;
     }
 
-    .gdprPopup{
+    .gdprPopup {
         height: 380px;
         width: 1000px;
     }
 
-    .formDesktop{
+    .formDesktop {
         display: flex;
         justify-content: center;
         align-items: flex-start;
@@ -295,14 +296,53 @@ input[type="number"] {
         align-self: stretch;
     }
 
-    body{
+    .participant-input {
+        height: 88px;
+    }
+
+    body {
         background-color: var(--bg-grey);
     }
 
-    .bigBannerDesktop{
+    .arrow-wrapper {
+        padding-bottom: 48px;
+    }
+
+    /*     .bigBannerDesktop {
         border-radius: 30px 30px 0px 30px;
         max-width: none;
         width: 80%;
         margin-left: 10%;
+    } */
+
+    .informational-banner.bigBannerDesktop a > button {
+        color: #000;
+    }
+
+    .informational-banner {
+        /* max-width: 1020px !important; */
+    }
+
+    .info-text > .body-2 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .info-text {
+        width: calc(50%);
+    }
+
+    .formDesktop {
+        gap: 35px;
+    }
+
+    .form-group-1 {
+        width: 544px !important;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
     }
 }
