@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var questionId = popup.querySelector('.question').getAttribute('data-question-id');
             console.log(questionId);
             var selectedOption = popup.querySelector('.answer.selected');
-
+            console.log(selectedOption);
             if (selectedOption) {
                 chosenOptions.push({
                     id: questionId,
@@ -95,11 +95,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.answer').forEach(function(answer) {
         answer.addEventListener('click', function(event) {
             event.preventDefault();
-            // Deselect previous selected answer if exists
-            var previousSelected = document.querySelector('.answer.selected');
-            if(previousSelected){
-                previousSelected.classList.remove('selected');
-            }
             // Select current answer
             answer.classList.add('selected');
             
