@@ -238,14 +238,10 @@ div.whoIsComingPageDesktop button.secondary:hover {
     background: url("../pictures/kartbild.svg") no-repeat;
 }
 
-<<<<<<< HEAD
 .footerInfoYrgored {
-=======
-.footerInfoYrgored{
->>>>>>> 7d422a967d6c941e94646d9d2c3c50307aaae642
     width: 139px;
     height: 33px;
-    background: url('../pictures/yrgored.svg');
+    background: url("../pictures/yrgored.svg");
 }
 
 @media screen and (min-width: 1137px) {
