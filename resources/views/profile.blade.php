@@ -15,7 +15,7 @@
 @endsection
 
 @section('content')
-<main>
+<main id="profile-main">
     <div class="arrow-wrapper">
         <a href="{{ url()->previous() }}">
             <img src="{{ asset('pictures/arrow.svg') }}">
@@ -29,9 +29,11 @@
     </div>
 
     @if ($editable)
-        <div class="informational-banner">
+        <div class="informational-banner" id="registered">
             <p class="h2-mobile-bold">Du är anmäld!</p>
-            <p class="body-2">För att studenterna på Yrgo ska kunna lära känna er verksamhet så bra som möjligt, är det uppskattat om ni fyller i så mycket som möjligt i kommande steg. På så sätt kan de hitta rätt när de ska söka LIA-platser.</p>
+            <div class="info-text">
+                    <p class="body-2">För att studenterna på Yrgo ska kunna lära känna er verksamhet så bra som möjligt, är det uppskattat om ni fyller i så mycket som möjligt i kommande steg. På så sätt kan de hitta rätt när de ska söka LIA-platser.</p>
+            </div>
         </div>
 
         @if (session('message'))
@@ -54,21 +56,24 @@
                 @method('PUT')
 
             <!-- Profile image -->
-            <div class="image-input-wrapper">
-                <input type="file" id="profile_image" name="profile_image" accept="image/png, image/jpeg, image/jpg, image/svg">
-                <label for="profile_image" name="profile_image" id="profile_image" class="image-upload"></label>
-                    <p id="upload-response" class="body-1">Ladda upp logga</p>
-            </div>
+            <div class="form-group-1">
+                <div class="group1-image-upload">
+                    <div class="image-input-wrapper">
+                        <input type="file" id="profile_image" name="profile_image" accept="image/png, image/jpeg, image/jpg, image/svg">
+                        <label for="profile_image" name="profile_image" id="profile_image" class="image-upload"></label>
+                            <p id="upload-response" class="body-1">Ladda upp logga</p>
+                    </div>
+                </div>
             
-            <div class="form-group-1 max-width">
                 <!-- Företagsnamn -->
-                <div class="input-group">    
-                    <label for="name" class="body-1">Företag</label>
-                    <div class="input-relative">
-                    <input id="name" type="text" name="name" value=" {{ $user->name }}" required autocomplete="name" autofocus>
-                    <img src="{{ asset('pictures/icons/suitcase.svg') }}" class="input-icon">
-                </div>
-                </div>
+                <div class="group1-info max-width">
+                    <div class="input-group">    
+                        <label for="name" class="body-1">Företag</label>
+                        <div class="input-relative">
+                        <input id="name" type="text" name="name" value=" {{ $user->name }}" required autocomplete="name" autofocus>
+                        <img src="{{ asset('pictures/icons/suitcase.svg') }}" class="input-icon">
+                    </div>
+                    </div>
 
                 <!-- Kontaktperson -->
                 <div class="input-group">
@@ -108,16 +113,18 @@
                 </div>
                 </div>
 
-                <!-- Contact LinkedIn -->
-                <div class="input-group">
-                    <label for="contact_LinkedIn" class="body-1">LinkedIn</label>
-                    <div class="input-relative">
-                    <input type="text" id="contact_LinkedIn" name="contact_LinkedIn" value="{{ old('contact_LinkedIn', $profile->contact_LinkedIn) }}">
-                    <img src="{{ asset('pictures/icons/linkedin.svg') }}" class="input-icon">
+                        <!-- Contact LinkedIn -->
+                        <div class="input-group">
+                            <label for="contact_LinkedIn" class="body-1">LinkedIn</label>
+                            <div class="input-relative">
+                            <input type="text" id="contact_LinkedIn" name="contact_LinkedIn" value="{{ old('contact_LinkedIn', $profile->contact_LinkedIn) }}">
+                            <img src="{{ asset('pictures/icons/linkedin.svg') }}" class="input-icon">
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
 
+            <div class="group-2">
                 <!-- Has LIA -->
                 <div class="LIA-container max-width">
                     <div class="LIA-txt-wrapper">
@@ -148,7 +155,7 @@
                     <div class="tab-wrapper two"><img src="{{ asset('pictures/icons/design.svg') }}"><a href="#" class="body-2">Design</a></div>
                     <div class="tab-wrapper three"><img src="{{ asset('pictures/icons/webdev.svg') }}"><a href="#" class="body-2">Web dev</a></div>
                 </div>
-                
+            
                 <div class="tab-content-wrapper">
                     <div class="tab1-c">
                         @foreach ($softwareTags as $tag)
@@ -174,6 +181,7 @@
                 <label for="about" id="aboutlabel"><p class="h3-mobile-bold">Om oss</p></label><img src="{{asset('pictures/icons/edit.svg')}}" alt=""></div>
                 <textarea id="about" name="about" maxlength="150" class="body-2">{{ old('about', $profile->about) }}</textarea>
                 <span id="counter" class="caption-regular"></span>
+            </div>
             </div>
             <!-- This Or That -->
             
