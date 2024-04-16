@@ -922,7 +922,13 @@ a.tag.tag-picked {
 @media screen and (min-width: 1137px) {
 
     main{
-        padding: 16px 128px 0px 128px;
+        padding: 16px 128px 64px 128px;
+    }
+
+    .questionWrapper{
+        width: calc(100% + 128px);
+        margin-left: -64px;
+        margin-right: -64px;
     }
 
     .profile-section-row{
