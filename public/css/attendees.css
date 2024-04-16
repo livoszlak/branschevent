@@ -21,7 +21,6 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 32px;
-    margin-bottom: 48px;
     width: 100%;
 }
 
@@ -92,7 +91,7 @@ a.business-card {
 .search-wrapper {
     width: 100%;
     max-width: 379px;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
 }
 
 input[name="search-input"] {
