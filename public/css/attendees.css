@@ -186,8 +186,8 @@ input[name="search-input"] {
 
     .card-wrapper > a.business-card > .profile-img,
     .card-wrapper > a.business-card > .profile-img.default {
-        height: auto;
-        width: auto;
+        height: 126px;
+        width: 126px;
     }
 
     .results-search-wrapper {
