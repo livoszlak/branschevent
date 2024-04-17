@@ -184,6 +184,11 @@ input[name="search-input"] {
         padding: 16px 128px 0px 128px;
     }
 
+    .card-wrapper > a.business-card > .profile-img {
+        height: auto;
+        width: auto;
+    }
+
     .results-search-wrapper {
         max-width: 861px;
         align-items: start;
