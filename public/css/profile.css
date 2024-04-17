@@ -743,7 +743,7 @@ a.tag.tag-picked {
     gap: 24px;
     align-self: stretch;
     text-align: center;
-    width: 560px;
+    /* width: 560px; */
 }
 
 .contact-container > p.body-2 {
