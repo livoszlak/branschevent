@@ -944,6 +944,7 @@ a.tag.tag-picked {
 
     .profile-section-row {
         display: flex;
+        flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
         gap: 64px;
