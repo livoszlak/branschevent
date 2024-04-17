@@ -267,6 +267,7 @@ input[type="number"] {
 @media screen and (min-width: 1137px) {
     .mainRegistration {
         gap: 48px;
+        margin-bottom: 48px;
     }
 
     .test {
