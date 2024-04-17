@@ -931,6 +931,18 @@ a.tag.tag-picked {
     width: 100%;
 }
 
+.profile-section-row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.flexprofileDesktop{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 @media screen and (min-width: 1137px) {
     main {
         padding: 16px 128px 64px 128px;
