@@ -184,7 +184,8 @@ input[name="search-input"] {
         padding: 16px 128px 0px 128px;
     }
 
-    .card-wrapper > a.business-card > .profile-img {
+    .card-wrapper > a.business-card > .profile-img,
+    .card-wrapper > a.business-card > .profile-img.default {
         height: auto;
         width: auto;
     }
